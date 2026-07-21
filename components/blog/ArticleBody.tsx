@@ -1,4 +1,4 @@
-import type { ArticleBlock } from "@/lib/blog-posts";
+import type { ArticleContentBlock } from "@/types/article";
 import SectionEyebrow from "./SectionEyebrow";
 import EditorialQuote from "./EditorialQuote";
 import FeatureCardGrid from "./FeatureCardGrid";
@@ -6,23 +6,26 @@ import ChecklistPanel from "./ChecklistPanel";
 import Callout from "./Callout";
 import StatGrid from "./StatGrid";
 import ArticleImage from "./ArticleImage";
+import ArticleCta from "./ArticleCta";
 
 /**
- * Renders a data-driven article body. Each `ArticleBlock` maps to a single
- * reusable component so long-form posts stay authored as typed data (see
- * `lib/blog-posts.ts`) instead of one-off JSX per article.
+ * Renders a data-driven article body. Each `ArticleContentBlock` maps to a
+ * single reusable component so long-form articles stay authored as typed
+ * data (see `types/article.ts` and `lib/content/articles/`) instead of
+ * one-off JSX per article.
  */
 /** Block types set in a narrow, comfortable reading column. */
-const NARROW_TYPES = new Set<ArticleBlock["type"]>([
+const NARROW_TYPES = new Set<ArticleContentBlock["type"]>([
   "eyebrow",
   "heading",
   "paragraph",
   "quote",
   "checklist",
   "callout",
+  "cta",
 ]);
 
-export default function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
+export default function ArticleBody({ blocks }: { blocks: ArticleContentBlock[] }) {
   return (
     <>
       {blocks.map((block, index) => {
@@ -40,7 +43,7 @@ export default function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
   );
 }
 
-function ArticleBlockRenderer({ block }: { block: ArticleBlock }) {
+function ArticleBlockRenderer({ block }: { block: ArticleContentBlock }) {
   switch (block.type) {
     case "eyebrow":
       return <SectionEyebrow className="mt-12 first:mt-0">{block.text}</SectionEyebrow>;
@@ -100,6 +103,9 @@ function ArticleBlockRenderer({ block }: { block: ArticleBlock }) {
 
     case "statGrid":
       return <StatGrid items={block.items} />;
+
+    case "cta":
+      return <ArticleCta placement={block.placement} />;
 
     case "twoColumn":
       return (

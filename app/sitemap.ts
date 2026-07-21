@@ -1,9 +1,8 @@
 import { MetadataRoute } from "next";
-import { blogPosts } from "@/lib/blog-posts";
+import { getPublishedArticles } from "@/lib/articles";
+import { siteUrl } from "@/lib/site";
 
-const siteUrl = "https://marimedia.co";
-
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: siteUrl,
@@ -19,12 +18,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const articleRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${siteUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.publishedAt),
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+  const publishedArticles = await getPublishedArticles();
+  const articleRoutes: MetadataRoute.Sitemap = publishedArticles.map(
+    (article) => ({
+      url: `${siteUrl}/blog/${article.slug}`,
+      lastModified: new Date(article.updatedAt ?? article.publishedAt),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
 
   return [...staticRoutes, ...articleRoutes];
 }

@@ -1,15 +1,15 @@
 import { AlertTriangle, FlaskConical, Info } from "lucide-react";
-import type { CalloutVariant } from "@/lib/blog-posts";
+import type { ArticleCalloutVariant } from "@/types/article";
 import { cn } from "@/lib/utils";
 
 interface CalloutProps {
-  variant: CalloutVariant;
+  variant: ArticleCalloutVariant;
   title?: string;
   text: string;
 }
 
 const variantStyles: Record<
-  CalloutVariant,
+  ArticleCalloutVariant,
   { wrapper: string; icon: string; title: string; text: string }
 > = {
   safety: {
@@ -38,7 +38,7 @@ const variantStyles: Record<
   },
 };
 
-const variantIcon: Record<CalloutVariant, typeof AlertTriangle> = {
+const variantIcon: Record<ArticleCalloutVariant, typeof AlertTriangle> = {
   safety: AlertTriangle,
   evidence: FlaskConical,
   info: Info,
