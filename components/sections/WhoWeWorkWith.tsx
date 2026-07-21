@@ -2,18 +2,17 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import {
   HeartPulse,
-  CalendarDays,
   Cloud,
   GraduationCap,
   Package,
   Briefcase,
 } from "lucide-react";
 
-const industries = [
-  { icon: HeartPulse, label: "Health & Wellness" },
-  { icon: CalendarDays, label: "Online Events & Summits" },
+const adjacentCategories = [
   { icon: Cloud, label: "SaaS" },
   { icon: GraduationCap, label: "Education" },
   { icon: Package, label: "Digital Products" },
@@ -25,46 +24,68 @@ export default function WhoWeWorkWith() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 md:py-32 px-4 bg-white">
-      <div className="container mx-auto max-w-6xl">
+    <section id="who-we-help" className="py-24 md:py-32 px-4 bg-white">
+      <Container>
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
         >
-          <span className="text-sm font-semibold text-[#D6216E] uppercase tracking-wider">
-            Who We Work With
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#222222] mt-3 mb-5">
-            Industries We Serve
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our network is built around a handful of industries where
-            affiliate and email marketing perform best.
-          </p>
+          <SectionHeading
+            eyebrow="Who We Work With"
+            title="Built Around Online Health Events"
+            description="Our current focus is affiliate and email marketing for online health summits and events, working with businesses primarily across the U.S. and Canada. We stay open to the right partnerships beyond that, too."
+          />
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-          {industries.map((industry, index) => (
-            <motion.div
-              key={industry.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col items-center text-center gap-3"
-            >
-              <div className="w-12 h-12 bg-[#FFF5F7] rounded-xl flex items-center justify-center">
-                <industry.icon className="w-6 h-6 text-[#D6216E]" aria-hidden="true" />
-              </div>
-              <p className="font-semibold text-[#222222] text-sm">
-                {industry.label}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="bg-primary/5 border border-primary/15 rounded-2xl p-8 flex flex-col sm:flex-row items-center sm:items-start gap-5 mb-8"
+        >
+          <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shrink-0 shadow-sm">
+            <HeartPulse className="w-7 h-7 text-primary" aria-hidden="true" />
+          </div>
+          <div className="text-center sm:text-left">
+            <p className="font-bold text-[#222222] text-lg mb-1">
+              Health & Wellness: Online Events and Summits
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              This is where we spend most of our time today: helping event and
+              summit organizers reach an audience that&apos;s genuinely interested
+              in what they&apos;re offering.
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4 text-center sm:text-left">
+            Also open to the right fit in
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {adjacentCategories.map((category, index) => (
+              <motion.div
+                key={category.label}
+                initial={{ opacity: 0, y: 15 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+                transition={{ duration: 0.4, delay: 0.25 + index * 0.06 }}
+                className="bg-white rounded-xl p-5 shadow-sm border border-gray-100 flex flex-col items-center text-center gap-2.5"
+              >
+                <category.icon className="w-5 h-5 text-primary" aria-hidden="true" />
+                <p className="font-semibold text-[#222222] text-sm">
+                  {category.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </Container>
     </section>
   );
 }
