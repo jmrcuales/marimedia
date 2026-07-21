@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { CheckCircle2, ExternalLink } from "lucide-react";
-import type { ChecklistItem } from "@/lib/blog-posts";
+import type { ArticleChecklistItem } from "@/types/article";
 
 interface ChecklistPanelProps {
   heading?: string;
-  items: ChecklistItem[];
+  items: ArticleChecklistItem[];
 }
 
 export default function ChecklistPanel({ heading, items }: ChecklistPanelProps) {

@@ -1,4 +1,4 @@
-import type { FeatureCardItem } from "@/lib/blog-posts";
+import type { ArticleFeatureCardItem } from "@/types/article";
 
 const columnClasses: Record<2 | 3 | 4, string> = {
   2: "sm:grid-cols-2",
@@ -7,7 +7,7 @@ const columnClasses: Record<2 | 3 | 4, string> = {
 };
 
 interface FeatureCardGridProps {
-  items: FeatureCardItem[];
+  items: ArticleFeatureCardItem[];
   columns: 2 | 3 | 4;
 }
 

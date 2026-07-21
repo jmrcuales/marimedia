@@ -1,6 +1,4 @@
-import type { LucideIcon } from "lucide-react";
 import {
-  Stethoscope,
   Utensils,
   Moon,
   Activity,
@@ -13,175 +11,10 @@ import {
   Waves,
   ShieldAlert,
 } from "lucide-react";
+import type { Article, ArticleContentBlock } from "@/types/article";
+import { estimateReadingTime } from "@/types/article";
 
-/**
- * Blog category taxonomy. Keeping this as a typed union (rather than a bare
- * `string`) makes it easy to add category filtering/navigation later without
- * touching every post entry.
- */
-export const blogCategories = [
-  "Functional Medicine",
-  "Preventive Health",
-  "Health Events",
-  "Health Trends",
-] as const;
-
-export type BlogCategory = (typeof blogCategories)[number];
-
-/** A single feature/topic card used inside a `cardGrid` block. */
-export interface FeatureCardItem {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-}
-
-/** A single line item inside a `checklist` block. Optionally links out. */
-export interface ChecklistItem {
-  text: string;
-  href?: string;
-}
-
-/** A single figure inside a `statGrid` block (e.g. "60 / Minutes / ..."). */
-export interface StatItem {
-  value: string;
-  label: string;
-  description: string;
-}
-
-/** A single citation inside a `references` block. */
-export interface ReferenceItem {
-  source: string;
-  title: string;
-  url: string;
-}
-
-export type CalloutVariant = "safety" | "evidence" | "info" | "disclaimer";
-
-/**
- * Rich, structured article content. This is the typed "article-data model"
- * long-form health-blog posts use instead of (or in addition to) the plain
- * `content` paragraph array — it lets a post render editorial elements like
- * callouts, checklists, stat grids, and card grids while staying data-driven
- * (no per-article JSX). Posts that don't need this can omit `body` entirely
- * and keep using `content`.
- */
-export type ArticleBlock =
-  | { type: "eyebrow"; text: string }
-  | { type: "heading"; level: 2 | 3; text: string; id?: string }
-  | { type: "paragraph"; text: string }
-  | { type: "quote"; text: string }
-  | {
-      type: "image";
-      src: string;
-      alt: string;
-      width: number;
-      height: number;
-      caption?: string;
-    }
-  | { type: "cardGrid"; columns: 2 | 3 | 4; items: FeatureCardItem[] }
-  | { type: "checklist"; heading?: string; items: ChecklistItem[] }
-  | {
-      type: "callout";
-      variant: CalloutVariant;
-      title?: string;
-      text: string;
-    }
-  | { type: "statGrid"; items: StatItem[] }
-  /** Two side-by-side sub-columns on desktop, stacked on mobile. */
-  | { type: "twoColumn"; columns: [ArticleBlock[], ArticleBlock[]] };
-
-export interface BlogPostCta {
-  label: string;
-  href: string;
-}
-
-export interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: BlogCategory;
-  tags: string[];
-  author: string;
-  publishedAt: string;
-  readTimeMinutes: number;
-  /** Icon used in card/detail UI (no image assets are stored in the repo yet). */
-  icon: LucideIcon;
-  /**
-   * Featured/OG image. Falls back to a placeholder path for posts that don't
-   * have a real asset yet.
-   */
-  featuredImage: string;
-  featuredImageAlt?: string;
-  /** SEO <title> — falls back to `title` when not distinct enough on its own. */
-  metaTitle: string;
-  /** SEO meta description, ~150-160 characters, optimized for US search intent. */
-  metaDescription: string;
-  /**
-   * The hero's introductory paragraph, shown under the H1 (before any CTAs).
-   * Falls back to `excerpt` for posts that don't define one.
-   */
-  heroIntro?: string;
-  /** Optional hero call-to-action buttons rendered under the intro paragraph. */
-  heroCtas?: BlogPostCta[];
-  /**
-   * Simple plain-text paragraphs. Used as a fallback body for posts that
-   * don't define the richer `body` block array below.
-   */
-  content?: string[];
-  /** Rich structured body — see `ArticleBlock`. Preferred for long-form posts. */
-  body?: ArticleBlock[];
-  references?: ReferenceItem[];
-  /** Overrides the site's default end-of-article medical disclaimer text. */
-  disclaimer?: string;
-}
-
-/**
- * Rough estimate of reading time from an `ArticleBlock[]`, based on an
- * average adult silent-reading pace (~200 words/minute). Only counts blocks
- * that contain prose (paragraphs, quotes, callouts, checklist items, card
- * copy) so structural blocks like images don't skew the count.
- */
-export function estimateReadingTime(blocks: ArticleBlock[]): number {
-  const WORDS_PER_MINUTE = 200;
-
-  const collectText = (block: ArticleBlock): string[] => {
-    switch (block.type) {
-      case "eyebrow":
-      case "heading":
-      case "paragraph":
-      case "quote":
-        return [block.text];
-      case "callout":
-        return [block.title ?? "", block.text];
-      case "checklist":
-        return [block.heading ?? "", ...block.items.map((item) => item.text)];
-      case "cardGrid":
-        return block.items.flatMap((item) => [item.title, item.description]);
-      case "statGrid":
-        return block.items.flatMap((item) => [
-          item.value,
-          item.label,
-          item.description,
-        ]);
-      case "twoColumn":
-        return block.columns.flat().flatMap(collectText);
-      case "image":
-        return [];
-      default:
-        return [];
-    }
-  };
-
-  const wordCount = blocks
-    .flatMap(collectText)
-    .join(" ")
-    .split(/\s+/)
-    .filter(Boolean).length;
-
-  return Math.max(1, Math.round(wordCount / WORDS_PER_MINUTE));
-}
-
-const functionalMedicineBody: ArticleBlock[] = [
+const body: ArticleContentBlock[] = [
   { type: "eyebrow", text: "Core Definition" },
   {
     type: "heading",
@@ -485,90 +318,75 @@ const functionalMedicineBody: ArticleBlock[] = [
   },
 ];
 
-export const blogPosts: BlogPost[] = [
-  {
-    slug: "what-is-functional-medicine",
-    title: "What Is Functional Medicine?",
-    excerpt:
-      "A balanced introduction to functional medicine, what happens during an appointment, how it may complement conventional care, and how to evaluate a provider.",
-    category: "Functional Medicine",
-    tags: [
-      "Functional Medicine",
-      "Patient-Centered Care",
-      "Integrative Health",
-      "Preventive Health",
-    ],
-    author: "Mari Media Editorial Team",
-    publishedAt: "2026-07-10",
-    readTimeMinutes: estimateReadingTime(functionalMedicineBody),
-    icon: Stethoscope,
-    featuredImage: "/images/blog/functional-medicine/functional-medicine-hero.jpg",
-    featuredImageAlt:
-      "A clinician in a white coat listening attentively to an adult patient during a consultation in a bright clinical office",
-    metaTitle: "What Is Functional Medicine? A Patient-Friendly Guide",
-    metaDescription:
-      "Learn how functional medicine approaches health, what to expect during an appointment, what the research says, and how to evaluate a qualified provider.",
-    heroIntro:
-      "If you've been managing ongoing symptoms, or feel your health concerns are being treated one at a time, you may have heard about functional medicine. This approach looks beyond isolated symptoms to explore how lifestyle, environment, medical history, and body systems may be connected. It's not a replacement for conventional care, but an additional framework some patients choose to explore.",
-    heroCtas: [
-      { label: "Explore More Articles", href: "/blog" },
-      { label: "Mari Media Events", href: "/#contact" },
-    ],
-    body: functionalMedicineBody,
-    references: [
-      {
-        source: "Cleveland Clinic Newsroom",
-        title:
-          "Cleveland Clinic Study Finds Functional Medicine Model Is Associated With Improvements in Health-Related Quality of Life",
-        url: "https://newsroom.clevelandclinic.org/2019/10/25/cleveland-clinic-study-finds-functional-medicine-model-is-associated-with-improvements-in-health-related-quality-of-life",
-      },
-      {
-        source: "JAMA Network Open",
-        title:
-          "Association of the Functional Medicine Model of Care With Patient-Reported Health-Related Quality-of-Life Outcomes",
-        url: "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2753520",
-      },
-      {
-        source: "PubMed",
-        title:
-          "Association of the Functional Medicine Model of Care With Patient-Reported Health-Related Quality-of-Life Outcomes",
-        url: "https://pubmed.ncbi.nlm.nih.gov/31651966/",
-      },
-      {
-        source: "Institute for Functional Medicine",
-        title: "What Is Functional Medicine?",
-        url: "https://www.ifm.org/functional-medicine",
-      },
-      {
-        source: "American Board of Medical Specialties",
-        title: "Certification Matters",
-        url: "https://www.certificationmatters.org/",
-      },
-      {
-        source: "Mayo Clinic",
-        title: "Integrative Medicine and Health",
-        url: "https://www.mayoclinic.org/departments-centers/integrative-medicine-health/sections/overview/ovc-20464567",
-      },
-    ],
+export const whatIsFunctionalMedicine: Article = {
+  id: "what-is-functional-medicine",
+  slug: "what-is-functional-medicine",
+  title: "What Is Functional Medicine?",
+  excerpt:
+    "A balanced introduction to functional medicine, what happens during an appointment, how it may complement conventional care, and how to evaluate a provider.",
+  category: "Functional Medicine",
+  tags: [
+    "Functional Medicine",
+    "Patient-Centered Care",
+    "Integrative Health",
+    "Preventive Health",
+  ],
+  author: { name: "Mari Media Editorial Team" },
+  heroImage: {
+    src: "/images/blog/functional-medicine/functional-medicine-hero.jpg",
+    alt: "A clinician in a white coat listening attentively to an adult patient during a consultation in a bright clinical office",
+    width: 1050,
+    height: 1400,
   },
-];
-
-export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find((post) => post.slug === slug);
-}
-
-export function getAllBlogSlugs(): string[] {
-  return blogPosts.map((post) => post.slug);
-}
-
-export function getBlogPostsByCategory(category: BlogCategory): BlogPost[] {
-  return blogPosts.filter((post) => post.category === category);
-}
-
-export function formatBlogDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+  publishedAt: "2026-07-10",
+  readingTimeMinutes: estimateReadingTime(body),
+  featured: true,
+  seo: {
+    title: "What Is Functional Medicine? A Patient-Friendly Guide",
+    description:
+      "Learn how functional medicine approaches health, what to expect during an appointment, what the research says, and how to evaluate a qualified provider.",
+  },
+  heroIntro:
+    "If you've been managing ongoing symptoms, or feel your health concerns are being treated one at a time, you may have heard about functional medicine. This approach looks beyond isolated symptoms to explore how lifestyle, environment, medical history, and body systems may be connected. It's not a replacement for conventional care, but an additional framework some patients choose to explore.",
+  heroCtas: [
+    { label: "Explore More Articles", href: "/blog" },
+    { label: "Mari Media Events", href: "/#contact" },
+  ],
+  content: body,
+  references: [
+    {
+      source: "Cleveland Clinic Newsroom",
+      title:
+        "Cleveland Clinic Study Finds Functional Medicine Model Is Associated With Improvements in Health-Related Quality of Life",
+      url: "https://newsroom.clevelandclinic.org/2019/10/25/cleveland-clinic-study-finds-functional-medicine-model-is-associated-with-improvements-in-health-related-quality-of-life",
+    },
+    {
+      source: "JAMA Network Open",
+      title:
+        "Association of the Functional Medicine Model of Care With Patient-Reported Health-Related Quality-of-Life Outcomes",
+      url: "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2753520",
+    },
+    {
+      source: "PubMed",
+      title:
+        "Association of the Functional Medicine Model of Care With Patient-Reported Health-Related Quality-of-Life Outcomes",
+      url: "https://pubmed.ncbi.nlm.nih.gov/31651966/",
+    },
+    {
+      source: "Institute for Functional Medicine",
+      title: "What Is Functional Medicine?",
+      url: "https://www.ifm.org/functional-medicine",
+    },
+    {
+      source: "American Board of Medical Specialties",
+      title: "Certification Matters",
+      url: "https://www.certificationmatters.org/",
+    },
+    {
+      source: "Mayo Clinic",
+      title: "Integrative Medicine and Health",
+      url: "https://www.mayoclinic.org/departments-centers/integrative-medicine-health/sections/overview/ovc-20464567",
+    },
+  ],
+  status: "published",
+};
