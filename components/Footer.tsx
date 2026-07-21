@@ -1,13 +1,15 @@
 "use client";
 
-import { Mail, Share2, ExternalLink } from "lucide-react";
+import { Mail } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { Container } from "@/components/ui/Container";
 
 const quickLinks = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#approach", label: "Our Approach" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#services", label: "Services" },
+  { href: "/#approach", label: "Our Approach" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 const currentServices = [
@@ -27,13 +29,9 @@ const futureVision = [
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const handleNavClick = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <footer className="bg-[#222222] text-white py-16 px-4">
-      <div className="container mx-auto max-w-7xl">
+      <Container size="wide">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -60,12 +58,12 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className="text-gray-400 hover:text-[#F06292] transition-colors text-sm text-left"
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-primary transition-colors text-sm text-left"
                   >
                     {link.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -98,38 +96,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6 py-8 border-t border-gray-800">
+        <div className="flex justify-center py-8 border-t border-gray-800">
           <a
             href="mailto:hello@marimedia.co"
-            className="inline-flex items-center gap-2 text-gray-300 hover:text-[#F06292] transition-colors text-sm font-medium"
+            className="inline-flex items-center gap-2 text-gray-300 hover:text-primary transition-colors text-sm font-medium"
           >
             <Mail className="w-4 h-4" aria-hidden="true" />
             hello@marimedia.co
           </a>
-
-          <div className="flex gap-3">
-            <a
-              href="mailto:hello@marimedia.co"
-              className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E91E63] transition-colors"
-              aria-label="Email Mari Media"
-            >
-              <Mail className="w-4 h-4" aria-hidden="true" />
-            </a>
-            <a
-              href="#"
-              className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E91E63] transition-colors"
-              aria-label="Mari Media on social media"
-            >
-              <Share2 className="w-4 h-4" aria-hidden="true" />
-            </a>
-            <a
-              href="#"
-              className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E91E63] transition-colors"
-              aria-label="Mari Media website"
-            >
-              <ExternalLink className="w-4 h-4" aria-hidden="true" />
-            </a>
-          </div>
         </div>
 
         <div className="border-t border-gray-800 pt-8 text-center">
@@ -137,7 +111,7 @@ export default function Footer() {
             © {currentYear} Mari Media. All rights reserved.
           </p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

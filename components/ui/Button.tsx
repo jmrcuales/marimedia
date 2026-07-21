@@ -14,11 +14,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           "inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
           {
-            "bg-[#D6216E] text-white hover:bg-[#C2185B] focus:ring-[#E91E63] hover:shadow-xl hover:-translate-y-0.5":
+            "bg-primary text-white hover:bg-primary-hover focus:ring-primary hover:shadow-xl hover:-translate-y-0.5":
               variant === "primary",
             "bg-white text-[#222222] border-2 border-[#222222] hover:bg-[#222222] hover:text-white focus:ring-[#222222] hover:-translate-y-0.5":
               variant === "secondary",
-            "border-2 border-[#D6216E] text-[#D6216E] hover:bg-[#D6216E] hover:text-white focus:ring-[#E91E63] hover:-translate-y-0.5":
+            "border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary hover:-translate-y-0.5":
               variant === "outline",
             "h-12 px-8 text-base": size === "default",
             "h-10 px-6 text-sm": size === "sm",

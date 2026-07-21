@@ -1,0 +1,101 @@
+---
+description: Core project rules and approved direction for the Mari Media website
+alwaysApply: true
+---
+
+# Mari Media Project Context
+
+## Business and positioning
+
+- Mari Media is an affiliate marketing company.
+- Its current geographic focus is the United States and Canada.
+- Mari Media remains open to suitable global opportunities.
+- Its current specialization is online health events.
+- The brand should feel young, approachable, premium, creative, credible, and reliable.
+- The website should communicate that Mari Media gets the job done while reducing stress and complexity for clients.
+- Do not make unsupported performance, compliance, medical, or health claims.
+
+## Brand and content
+
+- Use the official Mari Media logo and derive the website's primary color palette from it.
+- Preserve the official logo. Do not redesign, replace, redraw, or substantially modify it without explicit approval.
+- The primary call to action is "Partner With Us."
+- Do not mention GoHighLevel in the hero.
+- GoHighLevel may be mentioned once in detailed service or operational copy when genuinely relevant.
+- Do not display social-media icons or links until verified profiles and URLs are provided.
+- Write natural, specific, concise, human-sounding copy.
+- Avoid generic AI wording, exaggerated claims, buzzword-heavy filler, and em dashes.
+- Prefer plain language, useful headings, and short paragraphs.
+- Do not preserve existing homepage wording merely because it already exists. It may be rewritten when the current task requires it.
+
+## Required website areas
+
+The planned website includes:
+
+- Home
+- About Us
+- Health Articles
+- Contact Us
+- Privacy Policy
+- Terms of Use
+- Relevant trust, process, partnership, and call-to-action sections when they improve clarity
+
+Do not build every planned area during a single task unless explicitly instructed.
+
+## Product and technical direction
+
+- Use Next.js, TypeScript, and Tailwind CSS.
+- Use Supabase incrementally for content and form data when required by the active phase.
+- Keep the architecture straightforward, maintainable, and forward-compatible.
+- Make it easy to add content and features one at a time.
+- Reuse existing dependencies, components, and patterns when they remain appropriate.
+- Avoid unnecessary packages, abstractions, services, dashboards, state-management systems, and premature optimization.
+- Avoid overengineering and unrequested features.
+- Preserve working functionality unless the active task explicitly replaces it.
+- Do not expose Supabase service-role keys, credentials, or private configuration to browser code.
+- Validate untrusted data on the server.
+- Add proportional security controls such as server-side validation, rate limiting, spam protection, secure headers, and access control only where relevant.
+- Maintain responsive design, accessibility, metadata, and basic technical SEO.
+- Prefer server components by default. Use client components only where browser-side interactivity requires them.
+
+## Advertising readiness
+
+- Keep the layout compatible with future side-banner advertising where appropriate.
+- Advertisement containers must not render or reserve blank space when no active advertisement exists.
+- Do not build an advertisement management platform during the initial overhaul.
+- Do not add mock advertisements to the production interface unless explicitly requested.
+
+## Development workflow
+
+- Branch flow: feature branch → dev → preprod → main.
+- Never place feature work directly on `dev`, `preprod`, or `main`.
+- Branch naming format: `<type>/<clickup-task-id>-<short-description>`.
+- Website and technology tasks use the ClickUp prefix `MARIWEB`.
+- Commit naming format: `<type>(<task-id>): <description>`.
+- Keep each change limited to its active ClickUp task and implementation phase.
+- Never commit `.env*`, credentials, `node_modules`, `.next`, coverage data, distribution output, or machine-specific files.
+- Do not run destructive Git commands or rewrite shared history.
+
+## Cursor operating rules
+
+For every implementation task:
+
+1. Read the active task prompt and inspect the relevant existing files.
+2. Treat this project rule as persistent context, but let explicit task instructions take precedence.
+3. Before editing, briefly state:
+   - the intended outcome;
+   - the files or areas likely to change;
+   - any important assumptions.
+4. Make only the changes required for the current task or phase.
+5. Do not silently expand the scope or begin later phases.
+6. Preserve the official logo and reusable brand assets.
+7. Maintain consistency with the existing codebase unless the active task intentionally establishes a replacement pattern.
+8. Ask for approval before destructive migrations, dependency replacements, major architectural changes, or removal of working features not clearly covered by the task.
+9. After implementation, run the available relevant checks, including linting, type checking, tests, and the production build when configured.
+10. Report:
+    - changed files;
+    - important implementation decisions;
+    - validation results;
+    - assumptions;
+    - unresolved issues;
+    - recommended next step.

@@ -28,13 +28,13 @@ export const metadata: Metadata = {
     template: "%s | Mari Media",
   },
   description:
-    "Mari Media is an affiliate marketing media company helping health summits, SaaS companies, course creators, and membership programs grow through strategic affiliate partnerships and targeted email marketing.",
+    "Mari Media is an affiliate marketing media company focused on online health events, with select partnerships in SaaS, education, and digital products. We work with businesses across the U.S. and Canada through strategic affiliate partnerships and targeted email marketing.",
   keywords: [
     "affiliate marketing",
     "email marketing",
     "affiliate marketing agency",
     "email marketing partner",
-    "GoHighLevel campaigns",
+    "online health event marketing",
     "digital product promotion",
     "summit affiliate marketing",
   ],
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mari Media | Affiliate Marketing & Email Marketing Partner",
     description:
-      "We help businesses extend their reach through strategic affiliate partnerships and targeted email marketing campaigns.",
+      "We help online health events and select partners across the U.S. and Canada extend their reach through strategic affiliate partnerships and targeted email marketing.",
     type: "website",
     locale: "en_US",
     url: siteUrl,
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mari Media | Affiliate Marketing & Email Marketing Partner",
     description:
-      "We help businesses extend their reach through strategic affiliate partnerships and targeted email marketing campaigns.",
+      "We help online health events and select partners across the U.S. and Canada extend their reach through strategic affiliate partnerships and targeted email marketing.",
   },
   robots: {
     index: true,
@@ -68,7 +68,7 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Mari Media",
   description:
-    "Mari Media is an affiliate marketing media company helping businesses grow through strategic affiliate partnerships and targeted email marketing campaigns.",
+    "Mari Media is an affiliate marketing media company focused on online health events, helping businesses across the U.S. and Canada grow through strategic affiliate partnerships and targeted email marketing.",
   url: siteUrl,
   email: "hello@marimedia.co",
   foundingDate: "2026",
