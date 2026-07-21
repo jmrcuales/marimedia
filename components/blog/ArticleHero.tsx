@@ -1,18 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Clock } from "lucide-react";
-import type { BlogPostCta } from "@/lib/blog-posts";
-import { formatBlogDate } from "@/lib/blog-posts";
+import type { ArticleAuthor, ArticleCtaLink, ArticleImage } from "@/types/article";
+import { formatArticleDate } from "@/types/article";
 
 interface ArticleHeroProps {
   category: string;
   title: string;
   intro: string;
-  ctas?: BlogPostCta[];
-  author: string;
+  ctas?: ArticleCtaLink[];
+  author: ArticleAuthor;
   publishedAt: string;
   readTimeMinutes: number;
-  image?: { src: string; alt: string; width: number; height: number };
+  image: ArticleImage;
 }
 
 export default function ArticleHero({
@@ -36,9 +36,9 @@ export default function ArticleHero({
         </h1>
 
         <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-6">
-          <span>{author}</span>
+          <span>{author.name}</span>
           <span aria-hidden="true">&bull;</span>
-          <span>{formatBlogDate(publishedAt)}</span>
+          <span>{formatArticleDate(publishedAt)}</span>
           <span aria-hidden="true">&bull;</span>
           <span className="inline-flex items-center gap-1">
             <Clock className="w-4 h-4" aria-hidden="true" />
@@ -69,18 +69,16 @@ export default function ArticleHero({
         )}
       </div>
 
-      {image && (
-        <div className="relative w-full max-w-md mx-auto lg:max-w-none aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            sizes="(min-width: 1024px) 420px, (min-width: 768px) 60vw, 90vw"
-            className="object-cover"
-            priority
-          />
-        </div>
-      )}
+      <div className="relative w-full max-w-md mx-auto lg:max-w-none aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes="(min-width: 1024px) 420px, (min-width: 768px) 60vw, 90vw"
+          className="object-cover"
+          priority
+        />
+      </div>
     </div>
   );
 }
