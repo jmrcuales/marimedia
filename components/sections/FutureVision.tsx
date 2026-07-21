@@ -1,9 +1,10 @@
 "use client";
 
 import { Globe, Zap, Users2, Brain, TrendingUp } from "lucide-react";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Container } from "@/components/ui/Container";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const futureServices = [
   { icon: Globe, label: "Website Development" },
@@ -19,7 +20,7 @@ export default function FutureVision() {
 
   return (
     <section className="py-16 px-4 bg-white">
-      <div className="container mx-auto max-w-6xl">
+      <Container>
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
@@ -27,13 +28,11 @@ export default function FutureVision() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-[#222222] mb-3">
-            Growing With Our Partners
-          </h2>
-          <p className="text-base text-gray-600 mb-10 max-w-2xl mx-auto">
-            Affiliate and email marketing are our focus today. As we grow
-            alongside our partners, we plan to add these capabilities:
-          </p>
+          <SectionHeading
+            size="compact"
+            title="Growing With Our Partners"
+            description="Affiliate and email marketing are our focus today. As we grow alongside our partners, we plan to add these capabilities:"
+          />
 
           <div className="flex flex-wrap justify-center gap-4">
             {futureServices.map((service, index) => (
@@ -48,12 +47,12 @@ export default function FutureVision() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="relative"
               >
-                <div className="bg-white rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-3 border-2 border-[#E91E63]/20">
-                  <service.icon className="w-5 h-5 text-[#E91E63]" aria-hidden="true" />
+                <div className="bg-white rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-3 border-2 border-primary/20">
+                  <service.icon className="w-5 h-5 text-primary" aria-hidden="true" />
                   <span className="font-semibold text-[#222222]">
                     {service.label}
                   </span>
-                  <span className="text-xs bg-[#F06292] text-white px-2 py-1 rounded-full font-medium">
+                  <span className="text-xs bg-primary text-white px-2 py-1 rounded-full font-medium">
                     Coming soon
                   </span>
                 </div>
@@ -61,7 +60,7 @@ export default function FutureVision() {
             ))}
           </div>
         </motion.div>
-      </div>
+      </Container>
     </section>
   );
 }

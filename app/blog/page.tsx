@@ -6,14 +6,14 @@ import Footer from "@/components/Footer";
 import { blogPosts, formatBlogDate } from "@/lib/blog-posts";
 
 export const metadata: Metadata = {
-  title: "Health Blog",
+  title: "Health Articles",
   description:
     "Practical, research-informed articles on functional medicine, preventive health, and the online health summits shaping wellness in 2026, from the Mari Media team.",
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
-    title: "Health Blog | Mari Media",
+    title: "Health Articles | Mari Media",
     description:
       "Practical, research-informed articles on functional medicine, preventive health, and the online health summits shaping wellness in 2026.",
     type: "website",
@@ -32,7 +32,7 @@ export default function BlogIndexPage() {
         <section className="pt-40 pb-20 px-4 bg-[#FFF5F7]">
           <div className="container mx-auto max-w-6xl text-center">
             <span className="text-sm font-semibold text-[#D6216E] uppercase tracking-wider">
-              Health Blog
+              Health Articles
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#222222] mt-3 mb-5">
               Functional Medicine & Preventive Health Insights
