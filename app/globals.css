@@ -4,9 +4,10 @@
   --background: #FFF5F7;
   --foreground: #222222;
   --card: #ffffff;
-  --primary: #E91E63;
-  --secondary: #F06292;
-  --accent: #EC407A;
+  /* Primary brand color measured from the official logo mark (#CA2D4F). */
+  --primary: #CA2D4F;
+  --primary-hover: #AC2643;
+  --primary-active: #8D2037;
 }
 
 @theme inline {
@@ -14,8 +15,8 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
   --font-sans: var(--font-inter);
   --font-heading: var(--font-poppins);
 }
