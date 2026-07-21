@@ -1,7 +1,7 @@
 import { ExternalLink } from "lucide-react";
-import type { ReferenceItem } from "@/lib/blog-posts";
+import type { ArticleReference } from "@/types/article";
 
-export default function ReferenceList({ items }: { items: ReferenceItem[] }) {
+export default function ReferenceList({ items }: { items: ArticleReference[] }) {
   return (
     <div>
       <ol className="space-y-4">

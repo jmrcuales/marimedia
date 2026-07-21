@@ -1,6 +1,6 @@
-import type { StatItem } from "@/lib/blog-posts";
+import type { ArticleStatItem } from "@/types/article";
 
-export default function StatGrid({ items }: { items: StatItem[] }) {
+export default function StatGrid({ items }: { items: ArticleStatItem[] }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 my-8">
       {items.map((item) => (
