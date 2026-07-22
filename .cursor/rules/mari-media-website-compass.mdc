@@ -1,0 +1,733 @@
+---
+description: Authoritative Mari Media website, brand, editorial, UX, SEO, accessibility, security and implementation standards
+globs:
+alwaysApply: true
+---
+
+# Mari Media Website Compass
+
+This rule is self-contained. Do not assume access to any external "Compass" document; everything required is stated here.
+
+## 1. Authority and use of this rule
+
+This rule is the authoritative reference for all Mari Media website planning, copywriting, design, development, content creation, SEO, forms, integrations, testing and deployment work.
+
+Apply it when:
+
+- creating or revising pages
+- creating components
+- writing website copy
+- selecting or generating imagery
+- creating article templates
+- publishing health content
+- building forms and calls to action
+- adding analytics or SEO
+- changing navigation
+- creating responsive layouts
+- reviewing accessibility
+- implementing authentication, databases or integrations
+- preparing releases
+- reviewing AI-generated work
+
+When an implementation conflicts with this rule, preserve this direction unless the user explicitly approves a change.
+
+Do not silently treat provisional or unresolved decisions (see Section 23 and Section 52) as permanent brand standards.
+
+Do not invent company scale, credentials, awards, testimonials, clients, team members, statistics, authority or operational capabilities.
+
+## 2. Company identity
+
+Mari Media is a digital media company that builds, grows and operates a portfolio of trusted digital brands.
+
+Health and wellness is the initial beachhead, not the company's permanent or complete identity.
+
+Mari Media may eventually create or operate brands across: health and wellness, technology, artificial intelligence, business, finance, education, parenting, travel, home, food, productivity.
+
+Every Mari Media brand should meet the same standards of usefulness, honesty and care.
+
+Use a portfolio-of-brands architecture:
+
+- Mari Media is the parent company and operating standard.
+- Future audience-facing brands may develop their own names, identities, editorial focuses and communities.
+- The parent company should remain visible where ownership, trust or partnership context matters.
+- Do not force every future brand to look or sound identical.
+- Do not design the current Mari Media site as though health is its only possible future category.
+
+## 3. Founding story
+
+Mari Media was founded by JM and Kristine.
+
+Kristine brings experience in: media sales, affiliate management, Yellow Pages, Bodog, DrTalks, and related media and affiliate work.
+
+JM brings experience in: computer engineering, software engineering, web development, user experience, and email marketing.
+
+The founders saw how useful content, audience trust and thoughtful promotion can create a sustainable media business.
+
+They also wanted: greater control of their time; the opportunity to build something of their own; a business that can grow beyond the limits of a single job or service; scalable work that remains useful and responsible to readers.
+
+State this story accurately and without exaggeration.
+
+Do not imply that Mari Media has a larger team, longer history, broader client list, greater revenue, institutional authority or greater operating scale than it actually has.
+
+## 4. Purpose, mission and vision
+
+**Purpose:** Mari Media exists to help people find information, ideas and opportunities worth their attention, while helping credible partners reach audiences in a respectful and useful way.
+
+**Mission:** To build trusted digital brands that publish useful content, form genuine audience relationships and connect people with carefully considered resources, experts, events and offers.
+
+**Vision:** To grow a respected portfolio of digital brands that people return to with confidence, and that partners value for the quality of its audiences, judgment and execution.
+
+Use these statements as approved working direction. Do not unnecessarily rewrite them into generic agency language.
+
+## 5. Core principles
+
+All website decisions must reflect these principles:
+
+- Trust before short-term revenue.
+- Usefulness before volume.
+- Clarity before cleverness.
+- People are not leads to be exploited.
+- Recommendations must be considered, transparent and relevant.
+- Growth must not require pretending to be something Mari Media is not.
+- Health is the first proving ground, not a permanent limitation.
+- Commercial intent must be honest.
+- Evidence should carry more weight than decorative trust signals.
+- Premium quality should come from judgment, restraint and craftsmanship, not decoration.
+
+## 6. Strategic positioning
+
+Mari Media sits between a traditional publisher and a performance-minded media company. It should:
+
+- create editorial value first
+- earn attention and trust over time
+- monetize responsibly
+- support partnerships, affiliate relationships, events, products, advertising and other appropriate commercial models
+- connect readers with useful next steps without manipulating them
+
+Do not position Mari Media as: a generic digital agency, a content farm, an aggressive affiliate website, a hospital, a healthcare provider, a university, a medical institution, a faceless corporate publisher, a SaaS company, or a generic wellness template.
+
+Initial market focus: health and wellness; understandable health education; expert-led events; useful guides; carefully selected resources and offers; audiences primarily in the United States and Canada.
+
+## 7. Positioning statement
+
+Use the following idea as the core positioning:
+
+> For people who want clearer, more trustworthy ways to explore important topics, Mari Media builds approachable digital brands that combine thoughtful editorial work with carefully chosen next steps.
+>
+> Unlike anonymous content farms or aggressive affiliate sites, Mari Media's work should make people feel informed, respected and confident about what they do next.
+
+Do not turn this positioning into inflated or overly promotional website copy.
+
+## 8. Primary audiences
+
+**Readers and subscribers:** people seeking understandable, useful and credible information without feeling pressured, talked down to, manipulated, frightened unnecessarily, or treated as a conversion target.
+
+**Partners:** may include experts, event organizers, publishers, product companies, affiliate programs, and appropriate service providers. Suitable partners should value long-term trust, relevant audiences, professional execution, transparent commercial relationships, and responsible representation.
+
+**Future brand communities:** the website architecture should remain extensible for future communities in areas such as technology, business, finance, education, parenting and lifestyle. Do not add premature complexity merely to simulate future scale.
+
+## 9. Value exchange and commercial transparency
+
+Readers should receive: clarity, context, useful resources, respectful treatment, a comfortable reading experience, honest next steps.
+
+Partners should receive: thoughtful promotion, relevant audience access, responsible representation, professional campaign execution, clear expectations.
+
+Mari Media earns revenue by creating real value for both sides. Never manufacture urgency or hide commercial intent.
+
+Affiliate marketing supports the company's mission but does not completely define the company. Affiliate relationships and other commercial relationships must be disclosed where they materially affect the reader's understanding, not only on a policy page in the footer.
+
+## 10. Brand character
+
+Mari Media is: confident, eloquent, approachable, thoughtful, warm, calm, honest, compassionate, selfless, considerate, lightly humorous, classy, elegant, credible, capable.
+
+It should speak with: the warmth of a trusted friend; the care of a thoughtful mentor; confidence grounded in preparation and evidence; approachability without tolerating malice or manipulation.
+
+Mari Media thinks before it speaks. It values what it shares and communicates with confidence, while remaining open, calm and easy to approach.
+
+## 11. Desired reader experience
+
+After interacting with Mari Media, readers should feel: connected, validated, heard, respected, more informed, calmer, more capable of deciding what to do next, that they gained something useful, and at its best, that they gained a thoughtful friend.
+
+Emotional territory should include: joy, lightness, calm, peace of mind, grounded excitement, confidence, understanding, agency.
+
+When a topic naturally involves worry, acknowledge the worry honestly and help the reader move toward understanding and agency.
+
+People should never leave feeling: scammed, manipulated, embarrassed, maliciously treated, pressured, exploited, deceived, or taken advantage of.
+
+## 12. Voice principles
+
+All Mari Media website copy must be:
+
+- **Human** — write as a thoughtful person, not as a content machine. Use natural phrasing, meaningful specificity and a believable human rhythm.
+- **Clear** — make ideas easy to understand without making the reader feel small. Explain unfamiliar concepts when needed.
+- **Warm** — acknowledge uncertainty, emotion and lived experience. Avoid cold, detached or robotic language.
+- **Credible** — clearly distinguish evidence, interpretation, opinion, recommendation, promotion, and uncertainty.
+- **Calmly confident** — avoid timid filler, performative authority, exaggerated certainty, inflated claims, empty superlatives, excessive hedging, corporate fog.
+- **Elegant** — use good judgment and restraint. Class should be expressed through conduct, clarity and composition, not through expensive-sounding vocabulary.
+
+## 13. Tone by context
+
+**Health education:** clear, compassionate, careful. Avoid diagnosis, personalized medical advice, fear-based framing, unsupported treatment claims, certainty beyond available evidence, language that discourages professional care.
+
+**Partner promotion:** relevant, transparent, inviting. Avoid hidden motives, hype, fake scarcity, guaranteed outcomes, inflated conversion promises, undisclosed commercial relationships.
+
+**Company communication:** confident, polished, direct. Avoid corporate jargon, inflated status, vague claims, invented scale, meaningless mission language.
+
+**Community and social content:** light, observant, encouraging. Avoid mockery, malice, forced jokes, ridicule of vulnerable people, humor at the expense of sincere questions or health conditions.
+
+**Corrections or conflict:** calm, accountable, firm. Avoid defensiveness, public shaming, hiding earlier errors, deleting material corrections without a record, blaming readers for misunderstanding unclear content.
+
+## 14. Non-negotiable writing rules
+
+- Do not use em dashes in Mari Media website copy.
+- Replace em dashes with natural punctuation, usually a comma, period, colon or parentheses.
+- Avoid statements that sound generated, generic or emotionally artificial.
+- Avoid repetitive sentence patterns commonly associated with AI-generated copy.
+- Avoid fake intimacy.
+- Avoid excessive rhetorical questions.
+- Avoid phrases that could belong to any agency, publisher or wellness website.
+- Prefer specific observations and concrete meaning.
+- Do not overuse three-part lists for dramatic effect.
+- Do not begin every section with generic marketing language.
+- Do not use fear, shame or insecurity as conversion tools.
+- Never claim certainty where evidence is limited.
+- Do not use jargon where plain language would be clearer.
+- Calls to action must be specific, calm and proportionate.
+
+## 15. Humor
+
+Humor may be: warm, lightly observant, encouraging, calming, confidence-building.
+
+Humor must never target: vulnerable people, health conditions, communities, sincere questions, people seeking help, people who lack knowledge, or protected or personal characteristics.
+
+## 16. Visual design philosophy
+
+Mari Media's visual identity should make trust easier to feel and easier to verify.
+
+The website should feel: considered, calm, premium, approachable, editorial, human, credible, young, creative, capable, adaptable, gender-neutral, warmly confident.
+
+It should not feel: templated, synthetic, generic, clinical, cold, childish, chaotic, aggressively promotional, excessively luxurious, or like an AI-generated landing page.
+
+Use design to create an honest first impression, but do not treat design alone as proof of trustworthiness.
+
+## 17. Visual design principles
+
+**Human presence:** use real or convincingly photorealistic people and lived-in situations when they add emotional truth. Photography should feel natural, relevant and emotionally believable.
+
+**Editorial structure:** use clear hierarchy, strong pacing, intentional relationships between text and imagery, purposeful section transitions, meaningful evidence placement, magazine-like content composition where appropriate.
+
+**Approachable confidence:** combine polished composition, warm language, familiar moments, comfortable spacing, strong but not aggressive structure.
+
+**Evidence made visible:** make authorship, editorial responsibility, publication dates, update dates, references, disclosures, qualifications, correction notices, and policy ownership easy to find where relevant.
+
+**Restraint:** every visual element must have a reason. Premium design comes from judgment, precision, hierarchy, spacing, photography, typography, craftsmanship. It does not come from adding more decoration.
+
+**Distinctiveness:** avoid layouts that could belong to any startup, marketing agency, wellness template, SaaS landing page, or AI-generated website.
+
+## 18. Trust pyramid
+
+Website decisions should help users move through these stages:
+
+1. **Discovery** — "This feels relevant enough to explore." Support through credible first impressions, human imagery, clear promises, immediate relevance.
+2. **Understanding** — "I understand what this is and why it matters." Support through clear language, meaningful hierarchy, sufficient context, honest explanation.
+3. **Confidence** — "I believe I can act on this." Support through evidence, transparency, appropriate caution, useful next steps, visible disclosures.
+4. **Loyalty** — "I choose to return." Support through reliable quality, recognition, continuity, consistent values, useful recurring experiences.
+5. **Advocacy** — "I would recommend this brand." Support through consistent value, integrity, respectful relationships, work worth sharing.
+
+Do not attempt to skip directly from visual discovery to advocacy through badges, claims or manufactured proof.
+
+## 19. Master color system
+
+Use the following approved working palette.
+
+**Core colors:**
+
+- Primary canvas, Warm White: `#FAF8F5`
+- Elevated surface, Pure White: `#FFFFFF`
+- Primary text, Soft Black: `#211F1D`
+- Secondary text, Warm Charcoal: `#5E5955`
+- Signature accent, Pastel Red: `#D9857A`
+- Strong accent, Deep Red: `#8F403B`
+- Health accent, Muted Green: `#718774`
+- Health surface, Soft Sage: `#E3E9E1`
+- Warm surface, Soft Blush: `#F2DFDC`
+- Neutral surface, Warm Sand: `#E8E0D5`
+
+**Recommended balance:** approximately 60–70% warm white and light neutral space; 15–20% dark structure; 10–15% pastel red and warm accents; 5–10% green or another context-specific accent.
+
+**Color principle:** soft colors make Mari Media welcoming; dark structure makes it confident; fluid movement makes it adaptable.
+
+**Color boundaries:**
+
+- Green supports health content but does not define Mari Media as a parent company.
+- Do not allow the entire brand to become green health branding.
+- Avoid neon colors.
+- Avoid excessively saturated or vivid colors.
+- Avoid bright primary red and green together.
+- Avoid large vivid-red fields.
+- Avoid uncontrolled multicolor gradients.
+- Avoid clinical blue-and-white healthcare styling.
+- Avoid black-and-gold luxury clichés.
+- Avoid pastel combinations that appear childish or excessively feminine.
+- Check contrast and accessibility before implementation.
+- Ensure colors work with photography and the future ribbon logo.
+- Treat individual hex values as approved working values but keep implementation tokenized so they can be refined centrally.
+
+Use semantic design tokens rather than scattering raw hex values across components.
+
+## 20. Approved homepage visual behavior
+
+The selected homepage direction combines: confident editorial structure; authentic human warmth; a fluid and adaptable visual system; Mari Media's pastel palette; modular compositions; a dimensional ribbon motif.
+
+Use compositional cues from strong media and health platforms without copying their identity, colors or oversized hero treatments.
+
+**Approved layout principles:**
+
+- Use a compact, proportionate hero.
+- Do not use a screen-filling hero headline.
+- Use varied and asymmetric compositions.
+- Avoid repeating centered sections.
+- Avoid rows of identical card grids.
+- Present capabilities as numbered editorial service lines.
+- Use concise, outcome-led service descriptions.
+- Do not use avatars or SaaS-style icons for primary capabilities.
+- Keep What We Do, For Our Partners and For Our Readers as distinct sections.
+- Each section must have clearly associated imagery.
+- Alternate image-and-copy alignment to create rhythm.
+- Preserve strong section containment.
+- Use people-centered photography as emotional and credibility evidence.
+- Present Health Articles as a magazine-style editorial spread.
+- Use one dominant feature article with supporting stories.
+- Use full-width photographic pauses sparingly.
+- Maintain generous whitespace between major sections.
+- Ensure every image clearly belongs to its section.
+- Prevent accidental overlaps, displaced images and ambiguous section ownership.
+- Responsive layouts must preserve narrative order and image ownership.
+
+## 21. Fluid ribbon
+
+A dimensional, flowing ribbon is Mari Media's primary distinctive visual behavior and a future logo direction. It should suggest: fluidity, flexibility, creativity, partnership, transformation, continuity, movement.
+
+The ribbon may: guide the eye through open space; connect ideas; create controlled motion; adapt its secondary color by context; appear as a restrained brand signature.
+
+The ribbon must not: obscure text; reduce contrast; interfere with readability; break section ownership; create horizontal overflow; overlap unrelated content; dominate photographs; become decorative clutter; appear randomly without compositional purpose.
+
+Use it selectively and consistently.
+
+## 22. Photography
+
+Use photography that feels: authentic, people-centered, lived-in, calm, warm, credible, naturally composed, relevant to the adjacent content.
+
+Images should function as evidence of people, context or emotional truth, not as filler.
+
+Avoid: visibly staged stock photos; emotionally empty business imagery; unrelated wellness imagery; exaggerated happiness; medical imagery that implies clinical authority; anonymous teams presented as Mari Media staff; fake office scenes; generic laptop-and-coffee images without narrative purpose; images that contradict the text; AI-generated people with obvious visual defects.
+
+When an image is generated or selected, verify: hands, faces, eyes, text within the image, background objects, cultural appropriateness, age appropriateness, relevance, licensing or usage rights, responsive cropping, alt text.
+
+## 23. Typography direction — PROVISIONAL, NOT A PERMANENT BRAND DECISION
+
+**Typography remains an open design decision.** Do not record the current font as Mari Media's final or permanent brand typeface. Do not describe the current font in documentation, code comments, or design specs as permanently approved.
+
+What is approved:
+
+- The primary system should feel modern, confident, premium, creative, young and approachable.
+- Prefer a contemporary sans-serif as the dominant voice.
+- Do not assume a traditional luxury-editorial serif should be the primary font.
+- Use scale, weight, spacing and composition to establish hierarchy.
+- Do not rely on oversized hero typography.
+- Typography must remain highly readable across editorial and partner-facing content.
+- A serif may be explored only as a controlled editorial accent.
+- Typography should balance warmth with capability.
+
+Implementation rule:
+
+- Keep typography centralized through tokens, CSS variables or framework configuration.
+- Treat current type choices as provisional.
+- Before finalizing typography, compare a small set of systems using the same approved layout.
+- Require side-by-side visual review before declaring the typography final.
+
+## 24. Homepage role
+
+The homepage must quickly establish: what Mari Media is; whom it serves; why it is credible; what the visitor can do next.
+
+It should balance: the parent company story; current health editorial work; partner-facing capabilities; reader usefulness; future portfolio potential.
+
+The homepage must not make health appear to be Mari Media's permanent limitation.
+
+**Primary business action:** Partner With Us
+
+**Secondary reader actions may include:** Explore Health Articles; Explore Our Work; join an audience through a clearly explained signup; read a featured article.
+
+The first screen should feel: editorial, human, confident, warm, clear. It must not imitate a hospital, a healthcare institution, a generic wellness homepage, a software landing page, or a faceless agency homepage.
+
+## 25. Public website architecture
+
+The initial public structure should include: Home; About; What We Do; Health Articles; Partner With Us; Contact.
+
+Navigation requirements:
+
+- Partner With Us must remain the emphasized business action.
+- Health Articles must be easy to reach from every public route.
+- Navigation should serve readers, partners and general visitors without requiring them to understand internal company architecture.
+- Navigation labels should be plain and understandable.
+- Do not expose development terminology to visitors.
+- Do not add unnecessary navigation items merely to make the company look larger.
+- Mobile and desktop navigation must preserve the same primary journeys.
+- Active, hover and keyboard-focus states must be clear.
+
+Preview and preproduction environments must not compete with or be indexed as production pages.
+
+## 26. Homepage section structure
+
+Use: a compact hero; a clear company promise; a direct Partner With Us action; a visible route into editorial work.
+
+Keep these as distinct sections: (1) What We Do, (2) For Our Partners, (3) For Our Readers. Do not collapse them into a generic services grid.
+
+Use: varied editorial compositions; alternating copy and image relationships; meaningful whitespace; one dominant featured article; supporting stories; specific credibility information; a calm final action.
+
+Credibility should come from specificity, including: who Mari Media serves; how it works; what it publishes; how partnerships are considered; what standards govern recommendations; who is responsible for content.
+
+Avoid: repetitive CTA buttons; identical card rows; vague claims; fake urgency; inflated claims; decorative metrics; fake social proof; premature logos or partner walls; stock awards or badges.
+
+## 27. About page
+
+The About page should explain: why JM and Kristine created Mari Media; what each founder contributes; what kind of company they intend to build; why trust and usefulness matter; how the commercial model supports the work; why health is the first focus but not the permanent limit.
+
+State Kristine's media sales and affiliate-management experience accurately. State JM's engineering, web, user-experience and email-marketing experience accurately.
+
+Acknowledge affiliate marketing openly. Explain that affiliate marketing helps sustain the mission but does not completely define the company.
+
+Connect the founders' desire for control of time and scalable work with the reader-facing commitment to trust, usefulness and care.
+
+Do not invent: company scale, awards, institutional authority, client relationships, employee count, audience size, revenue, campaign results, media coverage, qualifications.
+
+## 28. Health Articles hub
+
+The Health Articles hub should behave like an editorial destination, not an undifferentiated archive of cards.
+
+Use: one dominant feature; supporting stories; category paths; meaningful summaries; visible publication or update dates; strong editorial hierarchy; useful image treatment; clear reading choices.
+
+The structure should support future categories and future brands without premature complexity.
+
+Add search, filters or pagination only when content volume makes them genuinely useful. Do not add empty controls merely to make the site look advanced.
+
+Newsletter and lead-magnet invitations must support reading rather than interrupt it.
+
+## 29. Individual article pages
+
+Every article should include, where relevant: a clear title; a useful introduction; author or editorial responsibility; publication date; update date when applicable; reading time; relevant disclosures; clear heading hierarchy; meaningful images; accessible alt text; readable references; related content; correction or update information.
+
+Use a comfortable reading measure. Do not stretch article body text across excessively wide screens.
+
+Calls to action must be restrained. Mid-article and end-of-article invitations must not interrupt comprehension or manipulate the reader.
+
+Related articles must be genuinely relevant rather than selected only for conversion value.
+
+Material corrections, updates and changes must remain traceable.
+
+## 30. Health editorial standards
+
+Health content requires: careful claims; strong and appropriate sources; readable references; appropriate qualifications; clear dates; clear distinction between education and personal medical advice; acknowledgement of uncertainty; human editorial review.
+
+Do not: diagnose readers; prescribe individual treatment; guarantee outcomes; overstate evidence; use fear to promote a product or event; imply that Mari Media is a healthcare provider; imply institutional medical authority; present anecdotes as proof; conceal affiliate relationships; use a disclaimer as permission to publish irresponsible claims.
+
+AI-assisted health content must receive human review for: factual accuracy, source quality, medical implications, claims, tone, copyright, privacy, accessibility, disclosure, brand voice.
+
+## 31. What We Do page
+
+Describe Mari Media's capabilities through: outcomes; actual operating strengths; clear processes; appropriate boundaries.
+
+Initial capabilities may include: (1) Editorial content, (2) Audience development, (3) Email marketing, (4) Affiliate promotion, (5) Event promotion, (6) Landing experiences, (7) Campaign operations, (8) Performance reporting.
+
+Use numbered editorial service lines with concise explanations. Avoid generic SaaS-style icon grids.
+
+Do not use broad agency language that claims every marketing capability. State limitations honestly. Do not imply medical, legal, financial or institutional expertise that Mari Media does not possess.
+
+Direct suitable commercial visitors toward Partner With Us.
+
+## 32. Partner With Us page
+
+The partnership page should explain: the types of partners Mari Media may consider; the kinds of programs and opportunities it evaluates; the value exchange; audience-fit expectations; editorial and trust standards; disclosure expectations; what happens after an inquiry; what information is needed to assess fit.
+
+Ask only for information necessary to assess the opportunity.
+
+Include a warning not to send: confidential information; passwords or credentials; private health information; unnecessary financial information; protected personal data.
+
+A partnership inquiry is not newsletter consent. Do not silently subscribe partnership contacts to marketing messages.
+
+Do not promise: acceptance; audience reach; conversion volume; guaranteed results; response times that operations cannot reliably support.
+
+## 33. Contact page
+
+General contact must remain distinct from partnership inquiry.
+
+Useful contact categories may include: reader feedback; corrections; accessibility; privacy; media; website problems; other general questions.
+
+Provide a dependable business-email path. Include a clear sensitive-information warning.
+
+Privacy acknowledgment for processing the inquiry must be separate from promotional consent.
+
+Do not use unsupported response-time promises. Messages should have appropriate ownership, tracking and escalation based on their subject.
+
+## 34. Forms and inquiry experience
+
+General contact and partnership inquiry are separate public journeys.
+
+Forms should: ask proportionate questions; use progressive disclosure where helpful; explain what happens next; provide accessible labels; provide clear validation; preserve entered data when errors occur; display understandable confirmation messages; handle delivery failures; include sensitive-information warnings; use spam protection that does not unnecessarily burden users; protect submitted information.
+
+Privacy acknowledgment may be required for processing. Newsletter consent must remain optional and separate. Do not preselect promotional consent. Do not bundle unrelated permissions.
+
+## 35. Newsletter, lead magnets and audience growth
+
+Audience growth must begin with clear value and informed choice.
+
+Signup forms should state: what will be sent; who will send it; the general subject matter; how often, when known; how subscribers can leave.
+
+Lead-magnet delivery, newsletter consent and unrelated marketing permissions must not be bundled deceptively.
+
+Imported contacts must remain operationally separate from confirmed Mari Media subscribers.
+
+Record or preserve: contact source; permission state; consent status; treatment; suppression status; unsubscribe status.
+
+Preference changes, unsubscribe requests, complaints and bounces must be honored reliably across connected workflows.
+
+Do not treat silence or lack of engagement as affirmative Mari Media consent.
+
+## 36. Trust, policy and legal pages
+
+The initial policy and trust pages should include: Privacy, Terms, Affiliate Disclosure, Editorial Standards, Health Disclaimer, Accessibility, Corrections, Contact information.
+
+Policies must: explain actual practice in plain language; be easy to reach; be dated; have an owner; be versioned; be reviewed when operations change.
+
+Commercial disclosures should appear where the relationship matters, not only on a footer policy page.
+
+Do not present a generic legal template as finalized legal advice.
+
+Legal content must be reviewed appropriately for: company entity, markets, data flows, tools, integrations, commercial arrangements, health-related content.
+
+## 37. SEO and content discovery
+
+SEO should help the right people find genuinely useful work. SEO must not distort copy into keyword repetition.
+
+Each indexable page should have: a unique purpose; a useful title; a useful meta description; a canonical URL; meaningful internal links; appropriate structured data; crawlable content; proper heading hierarchy; useful image alt text.
+
+Verify after material releases: sitemap behavior; robots rules; canonical URLs; redirects; status codes; metadata; structured data; preview-environment controls; accidental noindex tags; broken links.
+
+Distribution may connect: organic search; email; social platforms; partners; future Mari Media brands. Preserve source accuracy and disclosure across every channel.
+
+Judge SEO performance through: qualified discovery, engaged reading, useful actions, relevant inquiries, returning readers. Do not judge success through ranking alone.
+
+## 38. Analytics and experimentation
+
+Measurement should answer defined reader or business questions while collecting the least data reasonably needed.
+
+Potential measurement areas include: page quality, discovery, engaged reading, subscriptions, inquiries, campaign outcomes, commercial contribution.
+
+Every material metric should have a clear definition.
+
+Analytics and experimentation must respect: consent, privacy, data minimization, retention, access control, security.
+
+Tests should have: a hypothesis, an owner, a success measure, guardrails, a duration, a recorded result.
+
+Do not optimize clicks or conversion at the expense of: comprehension, accessibility, informed consent, reader trust, content accuracy.
+
+Do not use dark patterns.
+
+## 39. Accessibility
+
+Accessibility is a core quality requirement, not an optional finishing step.
+
+Website implementation should include: semantic HTML; logical heading order; keyboard-accessible controls; visible focus states; accessible navigation; descriptive link text; useful alt text; sufficient color contrast; readable typography; understandable validation; clear error states; appropriate form labels; reduced-motion consideration; responsive text and controls; meaningful page titles; accessible disclosure and policy links.
+
+Do not: place important text only inside images; rely on color alone to communicate state; remove focus outlines without a visible replacement; use motion that obscures content or causes loss of control; hide essential content from assistive technology; use vague links such as "Click here" when a descriptive label is possible.
+
+## 40. Responsive behavior
+
+Responsive implementation must preserve: hierarchy, reading order, section ownership, image relevance, CTA priority, accessibility, comfortable spacing.
+
+Do not simply shrink the desktop layout.
+
+At smaller widths: stack content intentionally; preserve image-to-section relationships; prevent ribbon overflow; prevent horizontal scrolling; prevent navigation crowding; avoid oversized headings; keep controls comfortably tappable; verify article reading width; preserve whitespace without creating excessive empty screens.
+
+Test at representative mobile, tablet, laptop and wide-desktop sizes.
+
+## 41. Component and layout standards
+
+Prefer reusable components and centralized tokens when they preserve consistency without making every page look identical. Components should support editorial variation.
+
+Avoid: repeating the same centered section wrapper everywhere; using the same three-card grid for unrelated content; excessive rounded cards; excessive floating panels; unnecessary shadows; decorative icons without meaning; visual complexity that does not improve comprehension.
+
+Use: semantic design tokens; predictable spacing scales; reusable container primitives; clear section boundaries; flexible editorial compositions; purposeful image ratios; accessible interactive states.
+
+Do not hardcode inconsistent brand values throughout multiple files.
+
+## 42. Calls to action
+
+**Primary business CTA:** Partner With Us. Reader actions are important but secondary on the parent-company homepage.
+
+CTA rules:
+
+- Use direct, specific language.
+- Match the CTA to the destination.
+- Avoid fake urgency.
+- Avoid repeated calls to action in every section.
+- Do not use pressure-based wording.
+- Do not imply guaranteed access, results or acceptance.
+- Make primary and secondary actions visually distinguishable.
+- Keep the total number of competing actions proportionate to the page.
+
+## 43. Footer
+
+The footer should provide dependable access to: primary navigation, Contact, Privacy, Terms, Affiliate Disclosure, Editorial Standards, Health Disclaimer, Accessibility, Corrections (when implemented).
+
+Do not include: fake social profiles; inactive icons; invented locations; invented offices; unsupported response-time promises; fake accreditations; decorative trust badges.
+
+Only display social links when actual maintained profiles exist.
+
+## 44. Technology ownership and security
+
+Use owner-controlled accounts for: source repositories, hosting, domains, business email, analytics, CRM, authentication, databases, affiliate systems, payment-related integrations.
+
+Critical accounts should have: multifactor authentication; controlled administrator access; recovery paths; named owners; named backup owners where appropriate; periodic access review.
+
+Secrets must be stored in approved environment-variable or secret-management systems.
+
+Never place secrets in: source control; client-side public code; screenshots; documentation intended for public access; example files containing real credentials.
+
+Use least-privilege access. No contractor, agency or outside partner should become the sole owner of a critical Mari Media account.
+
+## 45. Environments and release flow
+
+Use this release flow: (1) Feature branch, (2) Dev, (3) Preprod, (4) Main or production.
+
+Reviews and verification should be proportionate to risk.
+
+Keep separate: local development, dev, preproduction, production.
+
+Preview and preproduction deployments must be protected from: accidental search indexing; unauthorized disclosure; being mistaken for the production site.
+
+Verify appropriate noindex, robots, access or deployment protections for nonproduction environments.
+
+Before a production release, review as applicable: build; linting; type checks; automated tests; responsive behavior; accessibility; forms; metadata; canonical URLs; robots; sitemap; structured data; redirects; external links; analytics; consent behavior; security; environment variables; rollback path.
+
+## 46. Reliability, recovery and maintenance
+
+Dependencies, forms, authentication, backups, monitoring, rollback and incident evidence should have known owners and documented checks.
+
+Critical continuity priorities include: domain; DNS; business email; production website; account security; subscriber consent and suppression controls; active campaigns; inquiries; financial authorization.
+
+Do not build a system that only one contractor or developer can recover.
+
+Document material deployment, incident and recovery procedures.
+
+## 47. Governance and documentation
+
+Every important system, workflow and decision should have: a known owner; a documented purpose; an appropriate reviewer; a recoverable operating path.
+
+Use the lightest governance model that still provides accountability. Execution may be delegated, but ownership and approval must remain explicit.
+
+Maintain appropriate records for: services, vendors, access, contracts, renewals, risks, major decisions, deployments, publishing, campaigns, contact imports, contractor access, incidents, recovery.
+
+Use secondary review for higher-risk changes involving: production deployments; DNS; authentication; data exports; subscriber data; health claims; bulk campaigns; payments; sensitive integrations.
+
+## 48. Contractors and external contributors
+
+Contractor access should be: named, minimal, documented, time-appropriate, revocable.
+
+Onboarding and offboarding should include: scope; access granted; handover requirements; access revocation; secret rotation when necessary; ownership confirmation; recovery confirmation.
+
+Contractors must not become the sole source of operational knowledge or account recovery.
+
+## 49. AI-assisted website work
+
+AI may assist with: drafting, research organization, code generation, design exploration, testing, documentation, content operations.
+
+AI output must receive human review for: accuracy, source quality, health implications, privacy, copyright, accessibility, security, brand voice, commercial disclosure, factual company claims.
+
+Never publish AI-generated output merely because it is polished or technically valid.
+
+Review all AI-created copy for: generic phrasing, false confidence, repetition, fabricated facts, emotional artificiality, em dashes, inappropriate health claims.
+
+Review all AI-created code for: security, maintainability, accessibility, responsive behavior, actual repository compatibility, unintended regressions.
+
+## 50. Prohibited trust shortcuts
+
+Do not use: fake endorsements; fabricated testimonials; fake customer logos; invented partner logos; meaningless badges; fabricated statistics; decorative proof; invented expert review; invented institutional relationships; inflated team size; fake urgency; false scarcity; anonymous medical authority; unverified health claims; manipulative countdown timers; forced newsletter interruptions; misleading consent controls.
+
+Trust must come from actual usefulness, specificity, evidence, transparency and consistent execution.
+
+## 51. Required implementation behavior for Cursor
+
+Before making a material website change:
+
+1. Inspect the relevant existing files.
+2. Identify the affected visitor journey.
+3. Check the change against this rule.
+4. Preserve existing approved architecture unless change is requested.
+5. Reuse appropriate components and tokens.
+6. Avoid unnecessary rewrites.
+7. Maintain responsive behavior.
+8. Maintain accessibility.
+9. Maintain SEO and metadata behavior.
+10. Verify forms, disclosures and consent where applicable.
+11. Check for unsupported company or health claims.
+12. Run relevant validation commands available in the repository.
+13. Report what changed and any remaining risk or open decision.
+
+When asked to create a feature that conflicts with these standards:
+
+- clearly identify the conflict
+- preserve the user's underlying objective where possible
+- propose an implementation that satisfies both the request and Mari Media's trust standards
+- do not silently implement a manipulative, misleading or insecure pattern
+
+## 52. Open and provisional decisions
+
+The following must not be presented as permanently finalized unless the user later approves them:
+
+- final typography family (see Section 23 — currently provisional)
+- final permanent font pairing
+- exact final logo design
+- exact permanent ribbon implementation
+- future audience-facing brand identities
+- unsupported future capabilities
+- unlaunched website features
+- final legal wording without appropriate review
+- exact operational promises not yet supported
+
+The website structure, approved palette, visual principles, brand voice, trust direction, page architecture, editorial standards, consent direction, SEO direction and security standards may proceed as approved working direction.
+
+## 53. Final quality test
+
+Before considering website work complete, ask:
+
+- Does this feel human rather than synthetic?
+- Does it feel editorial rather than templated?
+- Does it feel premium without becoming cold?
+- Is the company represented accurately?
+- Is health presented as the current beachhead rather than the permanent company identity?
+- Is the content useful before it becomes promotional?
+- Can readers understand the commercial relationship?
+- Are evidence, dates, authorship and disclosures visible?
+- Are the primary reader and partner journeys clear?
+- Is Partner With Us emphasized appropriately?
+- Is Health Articles easy to reach?
+- Are What We Do, For Our Partners and For Our Readers distinct?
+- Does every image clearly belong to its section?
+- Is the ribbon purposeful and restrained?
+- Is the page accessible and responsive?
+- Are SEO and nonproduction indexing controls correct?
+- Are forms proportionate and consent choices honest?
+- Are health claims appropriately cautious and sourced?
+- Does the copy sound like a thoughtful person?
+- Have all em dashes been removed from Mari Media copy?
+- Is there any fake urgency, invented authority or unsupported claim?
+- Does the result help people feel informed, respected and confident about what they do next?
+
+If any answer indicates a problem, revise the work before treating it as complete.
+
+## 54. Relationship to other Mari Media rules
+
+This rule works alongside `mari-media-project.mdc`, which covers day-to-day technical and workflow conventions (Next.js/TypeScript/Tailwind/Supabase stack choices, branch and commit naming, advertising-container behavior, and the Cursor operating checklist for implementation tasks).
+
+Where the two rules overlap on brand voice, logo preservation, or CTA wording, both point in the same direction; this rule is the more complete and authoritative source for brand, editorial, UX, SEO, accessibility and security standards. If a future conflict is identified between the two files, flag it explicitly rather than silently resolving it, and prefer the direction stated in this rule for brand, content and trust matters.
