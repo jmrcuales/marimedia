@@ -1,14 +1,24 @@
 import Navigation from "@/components/Navigation";
-import Hero from "@/components/sections/Hero";
-import Services from "@/components/sections/Services";
-import WhoWeWorkWith from "@/components/sections/WhoWeWorkWith";
-import OurApproach from "@/components/sections/OurApproach";
-import WhyPartnerWithUs from "@/components/sections/WhyPartnerWithUs";
-import About from "@/components/sections/About";
-import FutureVision from "@/components/sections/FutureVision";
-import Contact from "@/components/sections/Contact";
 import Footer from "@/components/Footer";
+import { Scope } from "@/components/design-system/Scope";
+import { Hero } from "@/components/homepage/Hero";
+import { WhatWeDo } from "@/components/homepage/WhatWeDo";
+import { ForPartners } from "@/components/homepage/ForPartners";
+import { ForReaders } from "@/components/homepage/ForReaders";
+import { HealthArticlesSpread } from "@/components/homepage/HealthArticlesSpread";
+import { CompanyFounders } from "@/components/homepage/CompanyFounders";
+import { FinalAction } from "@/components/homepage/FinalAction";
 
+/**
+ * Homepage (MARIWEB-009, Phase 3), composed exactly per the Homepage
+ * Experience Blueprint (`docs/homepage-experience-blueprint.md`, Section 4)
+ * from the Phase 2 production design system. Section order is fixed by
+ * the blueprint and must not be reordered without revisiting that
+ * document: Hero, What We Do, For Our Partners, For Our Readers, Health
+ * Articles, Company & Founders, Calm Final Action. The optional
+ * full-width photographic pause (blueprint Section 5.5) is omitted, per
+ * its own explicit condition, until an approved photograph exists.
+ */
 export default function Home() {
   return (
     <>
@@ -16,16 +26,17 @@ export default function Home() {
         Skip to main content
       </a>
       <Navigation />
-      <main id="main-content" className="overflow-x-hidden">
-        <Hero />
-        <Services />
-        <WhoWeWorkWith />
-        <OurApproach />
-        <WhyPartnerWithUs />
-        <About />
-        <FutureVision />
-        <Contact />
-      </main>
+      <Scope className="block">
+        <main id="main-content" className="overflow-x-hidden pt-24 lg:pt-28">
+          <Hero />
+          <WhatWeDo />
+          <ForPartners />
+          <ForReaders />
+          <HealthArticlesSpread />
+          <CompanyFounders />
+          <FinalAction />
+        </main>
+      </Scope>
       <Footer />
     </>
   );
