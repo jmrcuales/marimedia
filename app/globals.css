@@ -38,8 +38,14 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Clearance for the sticky global nav (h-20 = 80px + hairline border) when a
+   same-page anchor link (nav "About"/"What We Do"/"Contact", etc.) jumps to
+   a section, so the section's heading doesn't land underneath the header.
+   Reduced from 110px (MARIWEB-009 final polish): that value compensated for
+   the previous fixed, floating-card nav's extra vertical offset, which no
+   longer exists now that `Navigation` is a compact sticky, in-flow header. */
 section[id] {
-  scroll-margin-top: 110px;
+  scroll-margin-top: 96px;
 }
 
 /* Visible, brand-consistent focus states for keyboard navigation */

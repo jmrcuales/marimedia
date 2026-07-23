@@ -93,6 +93,14 @@ export const homepageContent = {
       "If you reach out, a real person reads it and responds. We don't promise reach or results we can't back up, and reaching out doesn't commit you to anything.",
     ],
     cta: { label: "Partner With Us", href: partnerAnchor },
+    /**
+     * No approved partnership photograph exists yet (MARIWEB-009 final
+     * polish, photography audit). Leave `undefined`, same pattern as
+     * `hero.image`: the component already renders correctly either way,
+     * and populating `{ src, alt }` here is the only change needed to
+     * activate the two-column asymmetric image layout.
+     */
+    image: undefined as { src: string; alt: string } | undefined,
   },
 
   forReaders: {
@@ -104,6 +112,8 @@ export const homepageContent = {
     disclosure:
       "Some articles mention partners or offers we work with. When that's true, we say so, and we only recommend what we'd stand behind ourselves.",
     cta: { label: "Explore Health Articles", href: "/blog" },
+    /** Same not-yet-approved-imagery pattern as `forPartners.image` above. */
+    image: undefined as { src: string; alt: string } | undefined,
   },
 
   healthArticles: {
@@ -118,7 +128,7 @@ export const homepageContent = {
     eyebrow: "Who We Are",
     heading: "Built by two people, on purpose",
     body: [
-      "Mari Media was founded by JM and Kristine. Kristine's background is in media sales and affiliate management, including earlier work with Yellow Pages, Bodog, and DrTalks. JM's background is in computer engineering, software engineering, web development, and email marketing.",
+      "Mari Media was founded by James and Kaye. Kaye's background is in media sales and affiliate management, including earlier work with Yellow Pages, Bodog, and DrTalks. James's background is in computer engineering, software engineering, web development, and email marketing.",
       "They started Mari Media to build something of their own: a media company that could grow past the limits of a single job, while staying useful and honest with the people who read it.",
       "Health is where that starts. Affiliate marketing helps pay for the work, but it isn't the whole reason the company exists.",
     ],

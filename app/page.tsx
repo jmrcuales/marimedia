@@ -27,7 +27,7 @@ export default function Home() {
       </a>
       <Navigation />
       <Scope className="block">
-        <main id="main-content" className="overflow-x-hidden pt-24 lg:pt-28">
+        <main id="main-content" className="overflow-x-hidden">
           <Hero />
           <WhatWeDo />
           <ForPartners />

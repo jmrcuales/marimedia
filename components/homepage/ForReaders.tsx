@@ -3,6 +3,7 @@ import { Section } from "@/components/design-system/Section";
 import { Eyebrow, Heading, BodyLarge } from "@/components/design-system/Typography";
 import { buttonClassName } from "@/components/design-system/Button";
 import { Callout } from "@/components/design-system/Callout";
+import { ImageFrame } from "@/components/design-system/ImageFrame";
 import { homepageContent, homepageSectionIds } from "@/lib/content/homepage";
 
 const { forReaders } = homepageContent;
@@ -19,11 +20,25 @@ const { forReaders } = homepageContent;
  * callout is ever needed... use the info or disclaimer variant") and
  * Compass Section 9 (disclose where it materially affects understanding,
  * not only on a footer policy page).
+ *
+ * Like `ForPartners`, the columns opposite the copy hold a ready,
+ * currently-inactive `ImageFrame` slot (MARIWEB-009 final polish,
+ * photography audit) on the left, mirroring `ForPartners`' image-on-the-
+ * right placement, so the two sections alternate once real photography
+ * exists rather than only alternating text alignment.
  */
 export function ForReaders() {
+  const { image } = forReaders;
+
   return (
     <Section id={homepageSectionIds.forReaders} tone="surface-muted" spacing="md" reveal>
-      <div className="grid lg:grid-cols-12">
+      <div className="grid items-center gap-[var(--ds-space-10)] lg:grid-cols-12">
+        {image && (
+          <div className="hidden lg:col-span-5 lg:col-start-1 lg:block">
+            <ImageFrame src={image.src} alt={image.alt} ratio="landscape" sizes="(min-width: 1024px) 35vw, 100vw" />
+          </div>
+        )}
+
         <div className="flex flex-col gap-[var(--ds-space-stack-lg)] lg:col-span-7 lg:col-start-6">
           <Eyebrow>{forReaders.eyebrow}</Eyebrow>
           <Heading level={2}>{forReaders.heading}</Heading>

@@ -55,10 +55,17 @@ const partnerHref = `/#${homepageSectionIds.contact}` as const;
  * renders correctly wherever it is used, including `/blog`, which does not
  * otherwise opt into the design system in this phase.
  *
- * Structure and behavior (fixed floating bar, scroll shadow, mobile menu,
- * active-section highlighting) are unchanged from the previous
- * implementation; only the visual tokens and the link set changed to
- * match the Homepage Experience Blueprint's information architecture.
+ * Header chrome (MARIWEB-009 final polish): a `sticky`, full-width,
+ * warm-white bar with a hairline bottom border and a light backdrop
+ * blur, not the earlier floating rounded card. The floating-card
+ * treatment let page content show through the gap around its rounded
+ * corners while scrolling, which read as a dashboard/SaaS pattern
+ * rather than the calm editorial header the Compass visual direction
+ * calls for (Compass Section 16-17). Interactive behavior (mobile menu,
+ * active-section highlighting via `IntersectionObserver`) is unchanged;
+ * only the outer chrome and the scroll-shadow treatment changed, and the
+ * scroll shadow itself is a single restrained `shadow-sm`, not a
+ * dramatic elevation change.
  */
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -119,19 +126,14 @@ export default function Navigation() {
     <nav
       aria-label="Primary"
       className={cn(
-        "mm-ds fixed top-4 right-0 left-0 z-[var(--ds-z-nav)] px-4 transition-all duration-[var(--ds-duration-medium)]",
+        "mm-ds sticky top-0 z-[var(--ds-z-nav)] w-full border-b border-[var(--ds-color-border-subtle)] bg-[var(--ds-color-bg)]/95 backdrop-blur-sm transition-shadow duration-[var(--ds-duration-medium)]",
+        isScrolled ? "shadow-[var(--ds-shadow-sm)]" : "shadow-none",
         designSystemFontVariables
       )}
       style={{ fontFamily: "var(--ds-font-body)" }}
     >
-      <Container
-        variant="wide"
-        className={cn(
-          "rounded-[var(--ds-radius-surface)] border border-[var(--ds-color-border-subtle)] bg-[var(--ds-color-surface)] transition-shadow duration-[var(--ds-duration-medium)]",
-          isScrolled ? "shadow-[var(--ds-shadow-md)]" : "shadow-[var(--ds-shadow-sm)]"
-        )}
-      >
-        <div className="flex h-20 items-center justify-between px-6">
+      <Container variant="wide">
+        <div className="flex h-20 items-center justify-between">
           <div className="flex flex-shrink-0 items-center">
             <Link href="/" className="flex items-center gap-3">
               <Image
@@ -190,7 +192,7 @@ export default function Navigation() {
         </div>
 
         {isOpen && (
-          <div className="space-y-1 rounded-b-[var(--ds-radius-surface)] border-t border-[var(--ds-color-border-subtle)] bg-[var(--ds-color-surface)] py-4 lg:hidden">
+          <div className="space-y-1 border-t border-[var(--ds-color-border-subtle)] py-4 lg:hidden">
             {navLinks.map((link) => {
               const isActive = isLinkActive(link);
               return (
