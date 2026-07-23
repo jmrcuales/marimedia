@@ -1,0 +1,374 @@
+/*
+ * Mari Media production design system tokens (MARIWEB-008, Phase 2).
+ *
+ * Every value below implements the Phase 1-approved visual baseline
+ * (`.cursor/rules/mari-media-website-compass.mdc`, plus the MARIWEB-007
+ * visual-direction lab outcome referenced in the Phase 2 task brief):
+ * neutral-led Compass palette, Plus Jakarta Sans / Source Sans 3 /
+ * restrained Newsreader typography, soft radius with medium-rounded
+ * buttons, subtle shadows, bordered editorial surfaces, and restrained
+ * "editorial, slightly playful" motion.
+ *
+ * Scoping: every custom property is declared on `.mm-ds`, the wrapper
+ * class rendered by `Scope.tsx`, using the same isolation pattern as the
+ * Phase 1 lab (`components/visual-lab/visual-lab.css`). None of these
+ * names collide with `app/globals.css` (`--background`, `--primary`,
+ * etc.), so nothing here can change how any current production page
+ * renders. Production pages do not render `.mm-ds` and do not import
+ * this file. Wiring a real page (starting with the Phase 3 homepage
+ * rebuild) into this token set is a decision for that later phase, not
+ * this one.
+ *
+ * Base color values are copied verbatim from Compass Section 19. The
+ * accessibility-driven derivatives (text-subtle, primary-hover,
+ * border-strong, success/warning/error) reuse the exact hex values
+ * already calculated and documented in `components/visual-lab/tokens.ts`
+ * during Phase 1, so this phase does not re-derive numbers that were
+ * already vetted. The two new values this phase adds (`error-surface`,
+ * and reusing the health-accessible green as `health-text`) are
+ * calculated and recorded in this file's comments below.
+ */
+
+.mm-ds {
+  /* ---------------------------------------------------------------- *
+   * COLOR — base palette (Compass Section 19, verbatim)
+   * ---------------------------------------------------------------- */
+  --ds-palette-warm-white: #faf8f5;
+  --ds-palette-pure-white: #ffffff;
+  --ds-palette-soft-black: #211f1d;
+  --ds-palette-warm-charcoal: #5e5955;
+  --ds-palette-pastel-red: #d9857a;
+  --ds-palette-deep-red: #8f403b;
+  --ds-palette-muted-green: #718774;
+  --ds-palette-soft-sage: #e3e9e1;
+  --ds-palette-soft-blush: #f2dfdc;
+  --ds-palette-warm-sand: #e8e0d5;
+
+  /* Accessibility-driven derivatives (values carried over from Phase 1,
+     see components/visual-lab/tokens.ts for the original contrast math). */
+  --ds-palette-text-subtle: #756b60;
+  --ds-palette-primary-hover: #7a362f;
+  --ds-palette-border-strong: #9c8d79;
+  --ds-palette-success-text: #455546;
+  --ds-palette-warning-text: #6e4a12;
+  --ds-palette-warning-surface: #f5e6c8;
+  --ds-palette-error-text: #9c2b22;
+  /* New in Phase 2. Verified: 5.89:1 with --ds-palette-error-text,
+     5.53:1 with --ds-palette-deep-red, 12.82:1 with --ds-palette-soft-black
+     (all pass WCAG AA normal-text; math re-run with the same formula as
+     lib/color-contrast.ts). A light, distinctly reddish tint so error
+     surfaces read differently from the warm neutral surfaces around them. */
+  --ds-palette-error-surface: #f6dedb;
+
+  /* ---------------------------------------------------------------- *
+   * COLOR — semantic roles (what components actually consume)
+   * ---------------------------------------------------------------- */
+  --ds-color-bg: var(--ds-palette-warm-white);
+  --ds-color-surface: var(--ds-palette-pure-white);
+  --ds-color-surface-muted: var(--ds-palette-warm-sand);
+  --ds-color-text: var(--ds-palette-soft-black);
+  --ds-color-text-muted: var(--ds-palette-warm-charcoal);
+  --ds-color-text-subtle: var(--ds-palette-text-subtle);
+
+  --ds-color-border: var(--ds-palette-border-strong);
+  --ds-color-border-subtle: var(--ds-palette-warm-sand);
+  --ds-color-divider: var(--ds-color-border-subtle);
+
+  --ds-color-primary: var(--ds-palette-deep-red);
+  --ds-color-primary-hover: var(--ds-palette-primary-hover);
+  --ds-color-primary-foreground: var(--ds-palette-pure-white);
+
+  /* Accent: Pastel Red. Verified 5.93:1 with Soft Black text, so it is
+     safe as a tinted chip/tag/badge fill with dark text, but (per Phase 1
+     finding "pastel-red-button-fails") it is never used as a filled
+     button background with white text. */
+  --ds-color-accent: var(--ds-palette-pastel-red);
+  --ds-color-accent-foreground: var(--ds-palette-soft-black);
+
+  --ds-color-editorial-label: var(--ds-color-primary);
+  --ds-color-link: var(--ds-color-primary);
+  --ds-color-link-hover: var(--ds-color-primary-hover);
+
+  --ds-color-success: var(--ds-palette-success-text);
+  --ds-color-warning: var(--ds-palette-warning-text);
+  --ds-color-warning-surface: var(--ds-palette-warning-surface);
+  --ds-color-error: var(--ds-palette-error-text);
+  --ds-color-error-surface: var(--ds-palette-error-surface);
+
+  /* Health accent stays deliberately separate from generic "success" per
+     Compass Section 19's color boundary ("do not allow the entire brand
+     to become green health branding"): it is only used by components an
+     author explicitly marks as health-context (e.g. Callout/Badge
+     variant="health"), never as a generic UI success color. The text
+     value below is numerically the same accessible derivative used for
+     --ds-color-success (both are the same darkened-Muted-Green
+     calculation), kept as a separate token because the two are distinct
+     semantic roles, not because the underlying math differs. */
+  --ds-color-health: var(--ds-palette-muted-green);
+  --ds-color-health-text: var(--ds-palette-success-text);
+  --ds-color-health-surface: var(--ds-palette-soft-sage);
+
+  --ds-color-selection-bg: var(--ds-palette-soft-blush);
+  --ds-color-selection-text: var(--ds-palette-soft-black);
+  --ds-color-focus-ring: var(--ds-color-primary);
+
+  /* ---------------------------------------------------------------- *
+   * TYPOGRAPHY — families (see fonts.ts for the next/font loaders)
+   * ---------------------------------------------------------------- */
+  --ds-font-display: var(--font-ds-display, "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif);
+  --ds-font-body: var(--font-ds-body, "Source Sans 3", ui-sans-serif, system-ui, sans-serif);
+  /* Editorial accent only. Never the primary heading font (Compass Section 23). */
+  --ds-font-editorial: var(--font-ds-editorial, ui-serif, Georgia, serif);
+  --ds-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* TYPOGRAPHY — scale. Fluid sizes (clamp) for the roles whose length
+     genuinely benefits from scaling with viewport width; fixed sizes for
+     roles that stay stable (labels, captions, small UI text). */
+  --ds-text-display: clamp(2.25rem, 1.7rem + 2.2vw, 3.75rem);
+  --ds-text-h1: clamp(2rem, 1.6rem + 1.6vw, 3rem);
+  --ds-text-h2: clamp(1.75rem, 1.5rem + 1vw, 2.5rem);
+  --ds-text-h3: clamp(1.5rem, 1.35rem + 0.6vw, 1.875rem);
+  --ds-text-h4: 1.375rem;
+  --ds-text-h5: 1.125rem;
+  --ds-text-h6: 1rem;
+  --ds-text-body-lg: 1.125rem;
+  --ds-text-body: 1rem;
+  --ds-text-body-sm: 0.875rem;
+  --ds-text-caption: 0.8125rem;
+  --ds-text-eyebrow: 0.75rem;
+  --ds-text-label: 0.875rem;
+  --ds-text-button: 0.9375rem;
+  --ds-text-quote: clamp(1.25rem, 1.1rem + 0.5vw, 1.625rem);
+  --ds-text-editorial-statement: clamp(1.375rem, 1.2rem + 0.8vw, 2rem);
+  --ds-text-code: 0.875rem;
+
+  --ds-leading-display: 1.05;
+  --ds-leading-heading: 1.15;
+  --ds-leading-heading-sm: 1.3;
+  --ds-leading-body: 1.65;
+  --ds-leading-body-sm: 1.55;
+  --ds-leading-quote: 1.4;
+  --ds-leading-tight: 1.2;
+
+  --ds-tracking-tight: -0.02em;
+  --ds-tracking-normal: 0em;
+  --ds-tracking-wide: 0.01em;
+  --ds-tracking-wider: 0.08em;
+
+  --ds-weight-regular: 400;
+  --ds-weight-medium: 500;
+  --ds-weight-semibold: 600;
+  --ds-weight-bold: 700;
+
+  /* ---------------------------------------------------------------- *
+   * SPACING — one base scale, plus semantic aliases
+   * ---------------------------------------------------------------- */
+  --ds-space-0: 0px;
+  --ds-space-1: 0.25rem;
+  --ds-space-2: 0.5rem;
+  --ds-space-3: 0.75rem;
+  --ds-space-4: 1rem;
+  --ds-space-5: 1.25rem;
+  --ds-space-6: 1.5rem;
+  --ds-space-8: 2rem;
+  --ds-space-10: 2.5rem;
+  --ds-space-12: 3rem;
+  --ds-space-16: 4rem;
+  --ds-space-20: 5rem;
+  --ds-space-24: 6rem;
+  --ds-space-32: 8rem;
+
+  /* Vertical rhythm between typographic elements. */
+  --ds-space-stack-xs: var(--ds-space-2);
+  --ds-space-stack-sm: var(--ds-space-3);
+  --ds-space-stack-md: var(--ds-space-4);
+  --ds-space-stack-lg: var(--ds-space-6);
+  --ds-space-stack-xl: var(--ds-space-10);
+
+  /* Section spacing (vertical padding of a full page section). */
+  --ds-space-section-y-sm: clamp(2.5rem, 2rem + 2vw, 4rem);
+  --ds-space-section-y-md: clamp(3.5rem, 2.75rem + 3.5vw, 6rem);
+  --ds-space-section-y-lg: clamp(4.5rem, 3.5rem + 5vw, 8rem);
+
+  /* Card spacing. */
+  --ds-space-card-padding-sm: var(--ds-space-4);
+  --ds-space-card-padding-md: var(--ds-space-6);
+  --ds-space-card-padding-lg: var(--ds-space-8);
+
+  /* Article spacing (matches the 24px rhythm already used by the
+     existing production article blocks in components/blog/*, so a future
+     migration does not also have to renegotiate article rhythm). */
+  --ds-space-article-block-gap: var(--ds-space-6);
+
+  /* Form spacing. */
+  --ds-space-form-field-gap: var(--ds-space-5);
+  --ds-space-form-label-gap: var(--ds-space-2);
+
+  /* ---------------------------------------------------------------- *
+   * CONTAINER — max-widths + gutter
+   * ---------------------------------------------------------------- */
+  --ds-container-content: 72rem; /* 1152px, general sections */
+  --ds-container-wide: 80rem; /* 1280px, wide editorial/hero compositions */
+  --ds-container-hero: 88rem; /* 1408px, image-led hero at >=1440px */
+  --ds-container-reading: 42rem; /* ~672px, long-form body-text measure */
+  --ds-container-article: 48rem; /* 768px, article shell (meta, headings, callouts) */
+  --ds-container-bleed: none; /* full-bleed photographic bands, no max-width */
+  --ds-container-gutter: clamp(1rem, 4vw, 2.5rem);
+
+  /* ---------------------------------------------------------------- *
+   * RADIUS — soft radius baseline, medium-rounded buttons
+   * ---------------------------------------------------------------- */
+  --ds-radius-xs: 0.25rem;
+  --ds-radius-sm: 0.5rem;
+  --ds-radius-md: 0.75rem;
+  --ds-radius-lg: 1.25rem;
+  --ds-radius-xl: 1.75rem;
+  --ds-radius-full: 9999px;
+
+  --ds-radius-button: var(--ds-radius-md);
+  --ds-radius-surface: var(--ds-radius-lg);
+  --ds-radius-image: 1rem;
+  --ds-radius-form: 0.625rem;
+  --ds-radius-chip: var(--ds-radius-full);
+  --ds-radius-badge: var(--ds-radius-full);
+  --ds-radius-avatar: var(--ds-radius-full);
+
+  /* ---------------------------------------------------------------- *
+   * ELEVATION — subtle shadows only
+   * ---------------------------------------------------------------- */
+  --ds-shadow-none: none;
+  --ds-shadow-xs: 0 1px 2px rgba(33, 31, 29, 0.05);
+  --ds-shadow-sm: 0 1px 2px rgba(33, 31, 29, 0.06), 0 1px 3px rgba(33, 31, 29, 0.08);
+  --ds-shadow-md: 0 4px 10px rgba(33, 31, 29, 0.08), 0 10px 20px rgba(33, 31, 29, 0.1);
+
+  /* ---------------------------------------------------------------- *
+   * BORDER
+   * ---------------------------------------------------------------- */
+  --ds-border-width-hairline: 1px;
+  --ds-border-width-thick: 2px;
+
+  /* ---------------------------------------------------------------- *
+   * Z-INDEX
+   * ---------------------------------------------------------------- */
+  --ds-z-base: 0;
+  --ds-z-raised: 10;
+  --ds-z-sticky: 20;
+  --ds-z-nav: 30;
+  --ds-z-overlay: 40;
+  --ds-z-modal: 50;
+  --ds-z-toast: 60;
+  --ds-z-tooltip: 70;
+
+  /* ---------------------------------------------------------------- *
+   * FOCUS
+   * ---------------------------------------------------------------- */
+  --ds-focus-ring-color: var(--ds-color-focus-ring);
+  --ds-focus-ring-width: 2px;
+  --ds-focus-ring-offset: 2px;
+
+  /* ---------------------------------------------------------------- *
+   * MOTION — editorial, slightly playful, restrained
+   * ---------------------------------------------------------------- */
+  --ds-duration-fast: 120ms;
+  --ds-duration-medium: 220ms;
+  --ds-duration-slow: 420ms;
+  --ds-duration-editorial-reveal: 600ms;
+
+  --ds-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ds-ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ds-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ds-ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  /* TRANSITION — composed, reusable transition value lists. */
+  --ds-transition-color:
+    color var(--ds-duration-fast) var(--ds-ease-standard),
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    border-color var(--ds-duration-fast) var(--ds-ease-standard);
+  --ds-transition-shadow: box-shadow var(--ds-duration-medium) var(--ds-ease-standard);
+  --ds-transition-transform: transform var(--ds-duration-medium) var(--ds-ease-editorial);
+  --ds-transition-hover:
+    color var(--ds-duration-fast) var(--ds-ease-standard),
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    border-color var(--ds-duration-fast) var(--ds-ease-standard),
+    box-shadow var(--ds-duration-medium) var(--ds-ease-standard),
+    transform var(--ds-duration-medium) var(--ds-ease-editorial);
+  --ds-transition-focus: outline-color var(--ds-duration-fast) var(--ds-ease-standard);
+
+  background: var(--ds-color-bg);
+  color: var(--ds-color-text);
+}
+
+/* Visible, token-driven keyboard focus for every interactive element
+   inside the design system, matching the production focus pattern in
+   app/globals.css but scoped to this token set. */
+.mm-ds a:focus-visible,
+.mm-ds button:focus-visible,
+.mm-ds input:focus-visible,
+.mm-ds textarea:focus-visible,
+.mm-ds select:focus-visible,
+.mm-ds summary:focus-visible,
+.mm-ds [tabindex]:focus-visible {
+  outline: var(--ds-focus-ring-width) solid var(--ds-focus-ring-color);
+  outline-offset: var(--ds-focus-ring-offset);
+  border-radius: var(--ds-radius-xs);
+}
+
+.mm-ds ::selection {
+  background: var(--ds-color-selection-bg);
+  color: var(--ds-color-selection-text);
+}
+
+/* Editorial reveal: a restrained fade-and-rise-in, used by Section/Reveal
+   consumers. Only runs for visitors who have not asked for reduced
+   motion; the reduced-motion branch renders the end state immediately. */
+@media (prefers-reduced-motion: no-preference) {
+  .mm-ds .mm-ds-reveal {
+    animation: mm-ds-reveal-in var(--ds-duration-editorial-reveal) var(--ds-ease-editorial) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-ds .mm-ds-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes mm-ds-reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ribbon (minimal line, the approved Phase 1 direction): a slow, very
+   low-amplitude drift, gated the same way as the Phase 1 lab. */
+@media (prefers-reduced-motion: no-preference) {
+  .mm-ds .mm-ds-ribbon-line[data-animated="true"] {
+    animation: mm-ds-ribbon-flow 16s linear infinite;
+    background-size: 200% 100%;
+  }
+}
+
+@keyframes mm-ds-ribbon-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Manual "preview reduced motion" toggle for reviewers on the internal
+   reference page, same mechanism as the Phase 1 lab. Does not affect any
+   production route. */
+.mm-ds.mm-ds-force-reduced-motion .mm-ds-reveal,
+.mm-ds.mm-ds-force-reduced-motion .mm-ds-ribbon-line {
+  animation: none !important;
+  transition: none !important;
+}
