@@ -9,8 +9,20 @@ import "@/components/design-system/tokens.css";
 import { designSystemFontVariables } from "@/components/design-system/fonts";
 import { Container } from "@/components/design-system/Container";
 import { buttonClassName } from "@/components/design-system/Button";
+import { Text, Caption } from "@/components/design-system/Typography";
 import { homepageSectionIds } from "@/lib/content/homepage";
 import { cn } from "@/lib/utils";
+
+/**
+ * Secondary descriptor shown under "Mari Media" in the nav logo lockup.
+ * "Digital Media Company" mirrors the already-approved short descriptor
+ * used in the page metadata title (`app/layout.tsx`), rather than the
+ * legacy pre-Compass "Growth Partners" tagline this replaces: that phrase
+ * predates the Compass rewrite and reads as generic agency language,
+ * which Compass Section 6 explicitly rules out for how Mari Media
+ * positions itself.
+ */
+const BRAND_DESCRIPTOR = "Digital Media Company";
 
 type NavLink =
   | { kind: "section"; sectionId: string; href: `/#${string}`; label: string }
@@ -131,9 +143,12 @@ export default function Navigation() {
                 priority
                 loading="eager"
               />
-              <span className="hidden whitespace-nowrap font-[var(--ds-font-display)] text-[length:var(--ds-text-h6)] font-bold text-[var(--ds-color-text)] sm:block">
-                Mari Media
-              </span>
+              <div className="hidden flex-col sm:flex">
+                <Text as="span" variant="h6" className="whitespace-nowrap">
+                  Mari Media
+                </Text>
+                <Caption className="-mt-0.5 whitespace-nowrap">{BRAND_DESCRIPTOR}</Caption>
+              </div>
             </Link>
           </div>
 

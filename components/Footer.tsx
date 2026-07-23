@@ -4,62 +4,71 @@ import Link from "next/link";
 import "@/components/design-system/tokens.css";
 import { designSystemFontVariables } from "@/components/design-system/fonts";
 import { Container } from "@/components/design-system/Container";
+import { Divider } from "@/components/design-system/Divider";
+import { Body, BodySmall, Caption, Eyebrow } from "@/components/design-system/Typography";
 import { homepageSectionIds } from "@/lib/content/homepage";
 import { cn } from "@/lib/utils";
 
 const quickLinks = [
-  { href: `/#${homepageSectionIds.about}`, label: "About" },
-  { href: `/#${homepageSectionIds.whatWeDo}`, label: "What We Do" },
+  { href: `/#${homepageSectionIds.about}`, label: "About Mari Media" },
   { href: "/blog", label: "Health Articles" },
+  { href: `/#${homepageSectionIds.contact}`, label: "Partner With Us" },
   { href: `/#${homepageSectionIds.contact}`, label: "Contact" },
 ];
 
 const CONTACT_EMAIL = "hello@marimedia.co";
 
+/** Distinct from the Hero/Founders copy elsewhere on the homepage; not a repeat of existing sections. */
+const BRAND_STATEMENT =
+  "We connect readers with careful health writing, and partners with audiences that are a genuine fit.";
+
+/** A quiet closing line, not a slogan; sits above the copyright as the page's last word. */
+const CLOSING_STATEMENT = "We'd rather be useful than loud, and we're building this to last.";
+
 /**
- * Global footer, re-skinned onto the Phase 2 production design system
- * tokens (MARIWEB-009), self-scoped the same way as `Navigation` so it
- * renders correctly on every route that includes it. The previous
- * "Current Services" / "Future Vision" ("Coming soon") lists are removed:
- * they presented future capabilities as decorative proof, which Compass
- * Section 26/50 and the blueprint (Section 15, item 2) both rule out.
- * No new fabricated links are added in their place; the footer links only
- * to sections and routes that exist today (Compass Section 43's fuller
- * policy-link set — Privacy, Terms, Affiliate Disclosure, etc. — is
- * Phase 6 scope, once those pages exist).
+ * Global footer (MARIWEB-009 follow-up refinement). Re-skinned a second
+ * time from the initial Phase 3 pass: the dark, near-black band read as
+ * a hard cut against the warm, light sections above it, so this version
+ * uses the same light "page" surface token as the rest of the homepage
+ * (`--ds-color-bg`) with a subtle top border, which transitions gently
+ * from the Calm Final Action section's muted surface instead of jumping
+ * to a contrasting dark block. No new colors are introduced; every value
+ * still resolves to a `tokens.css` token.
+ *
+ * The legacy "Current Services" / "Future Vision" lists remain removed
+ * (Compass Section 26/50, blueprint Section 15 item 2): they presented
+ * future capabilities as decorative proof. No fabricated links are added;
+ * the footer only links to sections and routes that exist today.
  */
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer
-      className={cn("mm-ds border-t border-[var(--ds-color-border-subtle)] bg-[var(--ds-color-text)]", designSystemFontVariables)}
+      className={cn("mm-ds border-t border-[var(--ds-color-border-subtle)] bg-[var(--ds-color-bg)]", designSystemFontVariables)}
       style={{ fontFamily: "var(--ds-font-body)" }}
     >
-      <Container variant="wide" className="py-16">
-        <div className="mb-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <div className="mb-4 flex items-center gap-3">
-              <Image src="/marimedia-logo.svg" alt="Mari Media" width={80} height={40} className="object-contain" />
-              <span className="font-[var(--ds-font-display)] text-[length:var(--ds-text-h5)] font-bold text-[var(--ds-color-surface)]">
-                Mari Media
-              </span>
-            </div>
-            <p className="font-[var(--ds-font-body)] text-[length:var(--ds-text-body-sm)] leading-[var(--ds-leading-body-sm)] text-[var(--ds-palette-warm-sand)]">
-              A digital media company building trusted digital brands, starting with health and wellness.
-            </p>
+      <Container variant="wide" className="py-[var(--ds-space-section-y-sm)]">
+        <div className="grid gap-[var(--ds-space-12)] sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr] lg:gap-[var(--ds-space-16)]">
+          <div className="flex flex-col gap-[var(--ds-space-stack-md)] sm:col-span-2 lg:col-span-1">
+            <Image
+              src="/marimedia-logo.svg"
+              alt="Mari Media"
+              width={140}
+              height={70}
+              className="object-contain"
+            />
+            <Body className="max-w-[28rem] text-[var(--ds-color-text-muted)]">{BRAND_STATEMENT}</Body>
           </div>
 
-          <div>
-            <h3 className="mb-4 font-[var(--ds-font-body)] text-[length:var(--ds-text-eyebrow)] font-semibold uppercase tracking-[var(--ds-tracking-wider)] text-[var(--ds-palette-warm-sand)]">
-              Quick Links
-            </h3>
-            <ul className="space-y-2.5">
+          <div className="flex flex-col gap-[var(--ds-space-stack-md)]">
+            <Eyebrow>Quick Links</Eyebrow>
+            <ul className="flex flex-col gap-[var(--ds-space-stack-sm)]">
               {quickLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-[length:var(--ds-text-body-sm)] text-[var(--ds-palette-warm-sand)] transition-colors duration-[var(--ds-duration-fast)] hover:text-[var(--ds-palette-pastel-red)]"
+                    className="text-[length:var(--ds-text-body-sm)] text-[var(--ds-color-text-muted)] transition-colors duration-[var(--ds-duration-fast)] hover:text-[var(--ds-color-primary)]"
                   >
                     {link.label}
                   </Link>
@@ -68,24 +77,23 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="mb-4 font-[var(--ds-font-body)] text-[length:var(--ds-text-eyebrow)] font-semibold uppercase tracking-[var(--ds-tracking-wider)] text-[var(--ds-palette-warm-sand)]">
-              Contact
-            </h3>
+          <div className="flex flex-col gap-[var(--ds-space-stack-md)]">
+            <Eyebrow>Contact</Eyebrow>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="inline-flex items-center gap-2 text-[length:var(--ds-text-body-sm)] font-medium text-[var(--ds-palette-warm-sand)] transition-colors duration-[var(--ds-duration-fast)] hover:text-[var(--ds-palette-pastel-red)]"
+              className="inline-flex items-center gap-2 text-[length:var(--ds-text-body)] font-medium text-[var(--ds-color-text)] transition-colors duration-[var(--ds-duration-fast)] hover:text-[var(--ds-color-primary)]"
             >
-              <Mail className="h-4 w-4" aria-hidden="true" />
-              {CONTACT_EMAIL}
+              <Mail className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+              <span className="break-all">{CONTACT_EMAIL}</span>
             </a>
           </div>
         </div>
 
-        <div className="border-t border-[var(--ds-palette-warm-charcoal)] pt-8 text-center">
-          <p className="text-[length:var(--ds-text-caption)] text-[var(--ds-palette-warm-sand)]">
-            &copy; {currentYear} Mari Media. All rights reserved.
-          </p>
+        <Divider className="my-[var(--ds-space-10)]" />
+
+        <div className="flex flex-col gap-[var(--ds-space-stack-xs)]">
+          <BodySmall>{CLOSING_STATEMENT}</BodySmall>
+          <Caption>&copy; {currentYear} Mari Media. All rights reserved.</Caption>
         </div>
       </Container>
     </footer>
