@@ -9,6 +9,15 @@ export type LabSectionProps = {
   className?: string;
   /** Alternates the section background so long pages stay readable. */
   tone?: "page" | "surface-alt";
+  /**
+   * When set, wraps `children` in a native `<details>` disclosure instead
+   * of rendering them directly. The `h2` heading stays outside the
+   * disclosure (so it remains a real, always-present landmark for jump
+   * links and screen-reader navigation); only the detailed reference
+   * content collapses by default. Used for the static documentation
+   * sections that sit below the interactive Live Website Preview.
+   */
+  collapsibleSummary?: string;
 };
 
 /**
@@ -24,7 +33,22 @@ export function LabSection({
   children,
   className,
   tone = "page",
+  collapsibleSummary,
 }: LabSectionProps) {
+  const content = collapsibleSummary ? (
+    <details className="group">
+      <summary className="mm-motion-demo inline-flex cursor-pointer list-none items-center gap-2 rounded-full border border-[var(--lab-border-strong)] bg-[var(--lab-bg-surface)] px-4 py-2 text-sm font-semibold text-[var(--lab-text-primary)] transition-colors hover:bg-[var(--lab-bg-surface-alt)]">
+        <span aria-hidden className="transition-transform group-open:rotate-90">
+          &rsaquo;
+        </span>
+        {collapsibleSummary}
+      </summary>
+      <div className="pt-8">{children}</div>
+    </details>
+  ) : (
+    children
+  );
+
   return (
     <section
       id={id}
@@ -47,7 +71,7 @@ export function LabSection({
             <p className="mt-3 text-base text-[var(--lab-text-secondary)]">{description}</p>
           )}
         </div>
-        {children}
+        {content}
       </div>
     </section>
   );

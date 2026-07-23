@@ -64,6 +64,20 @@
   border-radius: 4px;
 }
 
+/* The radio inputs backing each ControlPanel pill are visually hidden
+   (`sr-only`) so the label can be styled as a segmented control, so the
+   focus ring has to be drawn on the label via :focus-within instead of
+   :focus-visible on the (hidden) input itself. */
+.mm-visual-lab .mm-option-pill:focus-within {
+  outline: 2px solid var(--lab-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Headings inside the Live Website Preview (WebsitePreview.tsx) carry the
+   `wp-heading` class as a semantic marker; the actual per-system display
+   font is applied inline per element since it is computed from the
+   currently selected TypographyId on every render. */
+
 /* Ribbon motion: subtle, and never runs unless the visitor has expressed
    no preference against it. This is the only place in the lab where
    `no-preference` gates an animation; every other transition (buttons,
@@ -86,11 +100,28 @@
 }
 
 /* Manual "preview with reduced motion" toggle (see LabShell.tsx), for
-   reviewers whose OS is not already set to reduced motion. */
+   reviewers whose OS is not already set to reduced motion. This affects
+   the static documentation demos (RibbonLab, MotionLab, etc.) further
+   down the page. */
 .mm-visual-lab.mm-force-reduced-motion .mm-ribbon-animated,
 .mm-visual-lab.mm-force-reduced-motion .mm-motion-demo {
   animation: none !important;
   transition: none !important;
+}
+
+/* The Live Website Preview's own Motion control (WebsitePreview.tsx sets
+   `data-motion` on its root) is independent of the LabShell-wide toggle
+   above: it lets a reviewer compare motion levels inside the composition
+   itself without affecting the documentation sections below it. */
+.mm-visual-lab [data-motion="none"] .mm-ribbon-animated,
+.mm-visual-lab [data-motion="reduced"] .mm-ribbon-animated,
+.mm-visual-lab [data-motion="none"] .mm-motion-demo {
+  animation: none !important;
+  transition: none !important;
+}
+
+.mm-visual-lab [data-motion="reduced"] .mm-motion-demo {
+  transition-duration: 0.01ms !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

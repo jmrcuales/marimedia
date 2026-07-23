@@ -1,4 +1,5 @@
 export const labSections = [
+  { id: "live-preview", label: "Live preview" },
   { id: "typography", label: "Typography" },
   { id: "color", label: "Color" },
   { id: "composition", label: "Layout & composition" },

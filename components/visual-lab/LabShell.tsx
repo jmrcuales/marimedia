@@ -39,9 +39,10 @@ export function LabShell({ children }: { children: React.ReactNode }) {
           type="button"
           onClick={() => setForceReducedMotion((current) => !current)}
           aria-pressed={forceReducedMotion}
+          title="Affects the documentation sections below the Live Website Preview, which has its own Motion control."
           className="shrink-0 rounded-full border border-[var(--lab-pure-white)]/40 px-3 py-1 text-xs font-semibold transition-colors hover:bg-[var(--lab-pure-white)]/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--lab-pastel-red)] focus-visible:outline-offset-2"
         >
-          {forceReducedMotion ? "Reduced motion: on" : "Preview reduced motion"}
+          {forceReducedMotion ? "Reduced motion: on" : "Preview reduced motion (docs below)"}
         </button>
       </div>
       {children}

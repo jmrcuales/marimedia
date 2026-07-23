@@ -5,6 +5,7 @@ import { getFeaturedArticles, getPublishedArticles } from "@/lib/articles";
 import { LabShell } from "@/components/visual-lab/LabShell";
 import { LabNav } from "@/components/visual-lab/LabNav";
 import { LabSection } from "@/components/visual-lab/LabSection";
+import { LiveConfigurator } from "@/components/visual-lab/LiveConfigurator";
 import { TypographyLab } from "@/components/visual-lab/TypographyLab";
 import { ColorLab } from "@/components/visual-lab/ColorLab";
 import { CompositionLab } from "@/components/visual-lab/CompositionLab";
@@ -55,22 +56,34 @@ export default async function VisualLabPage() {
             MARIWEB-007 &middot; Phase 1
           </p>
           <h1 className="mt-2 text-3xl font-bold text-[var(--lab-text-primary)] sm:text-4xl">
-            Visual direction and typography approval lab
+            Visual direction approval lab
           </h1>
           <p className="mt-3 max-w-3xl text-base text-[var(--lab-text-secondary)]">
-            A development-only space to compare typography, the Compass color palette translated
-            into semantic roles, ribbon directions, shape and surface treatments, buttons,
-            photography direction, and motion, before any of it is applied to production. Nothing
-            on this page changes the production homepage, blog, or navigation.
+            Use the controls below the live preview to try typography, layout, ribbon, shape, and
+            color directions on one realistic Mari Media composition. Detailed reference material
+            for each topic, including the full typography and contrast reports, sits further down
+            in collapsed sections. Nothing on this page changes the production homepage, blog, or
+            navigation.
           </p>
         </div>
       </header>
 
       <LabSection
+        id="live-preview"
+        navLabel="Live preview"
+        title="Live Website Preview"
+        description="Change any control and the composition below updates immediately, with no reload. See the current-selections summary for a plain-text copy of your choices."
+      >
+        <LiveConfigurator featuredArticle={featuredArticle} />
+      </LabSection>
+
+      <LabSection
         id="typography"
         navLabel="Typography"
-        title="Typography comparison"
-        description="Three systems, identical content throughout. Poppins/Inter is the current baseline, not a foregone winner."
+        title="Detailed typography specimens"
+        description="The same three systems shown in the live preview above, broken out per element with readability, warmth, authority, and loading-impact notes."
+        tone="surface-alt"
+        collapsibleSummary="Show detailed typography specimens"
       >
         <TypographyLab />
       </LabSection>
@@ -78,9 +91,9 @@ export default async function VisualLabPage() {
       <LabSection
         id="color"
         navLabel="Color"
-        title="Semantic color lab"
+        title="Color and contrast report"
         description="The Section 19 palette translated into proposed UI roles, with real calculated contrast ratios."
-        tone="surface-alt"
+        collapsibleSummary="Show the color and contrast report"
       >
         <ColorLab />
       </LabSection>
@@ -88,8 +101,10 @@ export default async function VisualLabPage() {
       <LabSection
         id="composition"
         navLabel="Layout & composition"
-        title="Layout and editorial composition lab"
-        description="Illustrative sample compositions only. app/page.tsx is not modified by this phase."
+        title="Layout and editorial composition reference"
+        description="The individual sample blocks the live preview composition is drawn from, shown in isolation. Illustrative only; app/page.tsx is not modified by this phase."
+        tone="surface-alt"
+        collapsibleSummary="Show individual composition samples"
       >
         <CompositionLab featuredArticle={featuredArticle} />
       </LabSection>
@@ -97,9 +112,9 @@ export default async function VisualLabPage() {
       <LabSection
         id="ribbon"
         navLabel="Ribbon"
-        title="Ribbon exploration"
+        title="Ribbon details"
         description="Three directions for Mari Media's fluid ribbon motif (Compass Section 21), none of which trace or extend the logo mark."
-        tone="surface-alt"
+        collapsibleSummary="Show ribbon details"
       >
         <RibbonLab />
       </LabSection>
@@ -107,8 +122,10 @@ export default async function VisualLabPage() {
       <LabSection
         id="shape-surface"
         navLabel="Shape & surface"
-        title="Shape and surface lab"
+        title="Shape and surface reference"
         description="Radius scale, shadow scale, borders vs. shadows, and editorial image-frame treatments."
+        tone="surface-alt"
+        collapsibleSummary="Show the shape and surface reference"
       >
         <ShapeSurfaceLab />
       </LabSection>
@@ -116,9 +133,9 @@ export default async function VisualLabPage() {
       <LabSection
         id="buttons"
         navLabel="Buttons"
-        title="Button lab"
+        title="Button states"
         description="Primary, secondary, link, destructive, disabled, and keyboard-focus states."
-        tone="surface-alt"
+        collapsibleSummary="Show button states"
       >
         <ButtonLab />
       </LabSection>
@@ -126,8 +143,10 @@ export default async function VisualLabPage() {
       <LabSection
         id="photography"
         navLabel="Photography direction"
-        title="Photography direction lab"
+        title="Photography guidance"
         description="Labeled structural placeholders and art-direction notes only. No photography is sourced in this phase."
+        tone="surface-alt"
+        collapsibleSummary="Show photography guidance"
       >
         <PhotographyLab />
       </LabSection>
@@ -135,9 +154,9 @@ export default async function VisualLabPage() {
       <LabSection
         id="motion"
         navLabel="Motion"
-        title="Motion lab"
+        title="Motion and accessibility notes"
         description="Restrained, reduced-motion-safe examples. Nothing here is required to understand the page."
-        tone="surface-alt"
+        collapsibleSummary="Show motion and accessibility notes"
       >
         <MotionLab />
       </LabSection>
