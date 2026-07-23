@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
+import { siteUrl } from "@/lib/site";
+import { isProductionDeployment } from "@/lib/env";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -12,8 +14,6 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
-
-const siteUrl = "https://marimedia.co";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -57,10 +57,13 @@ export const metadata: Metadata = {
     description:
       "We help online health events and select partners across the U.S. and Canada extend their reach through strategic affiliate partnerships and targeted email marketing.",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  // Non-production deployments (local development, Vercel previews, and
+  // the `dev`/`preprod` branches) must not be indexable. This is set
+  // once here because every route inherits `robots` from the root
+  // layout unless it explicitly overrides the field. See `lib/env.ts`.
+  robots: isProductionDeployment()
+    ? { index: true, follow: true }
+    : { index: false, follow: false },
 };
 
 const organizationSchema = {
