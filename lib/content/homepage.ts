@@ -41,7 +41,7 @@ export const homepageContent = {
     headline:
       "A digital media company that publishes trusted content and connects audiences with carefully chosen partners.",
     subheadline:
-      "Today that work lives in health and wellness: careful editorial writing, and selective partnerships with online health events we believe deserve people's attention. Health is our current focus, not our permanent boundary.",
+      "Mari Media exists to help people discover information that deserves their time and attention. Today, we do that through health and wellness by publishing thoughtful articles, reviewing online health events, and sharing opportunities we genuinely believe are worth exploring. Health is where our journey begins, not where it ends. Wherever Mari Media grows next, our commitment will remain the same: publish with care, partner with integrity, and earn our readers' trust through everything we choose to publish.",
     primaryCta: {
       audience: "For partners",
       label: "Partner With Us",
