@@ -39,11 +39,19 @@ export const homepageContent = {
   hero: {
     focusBadge: "Current focus: health and wellness",
     headline:
-      "A digital media company built around content people can trust and partnerships worth standing behind.",
+      "A digital media company that publishes trusted content and connects audiences with carefully chosen partners.",
     subheadline:
-      "Right now, that means publishing thoughtful health content and working with online health events we genuinely believe deserve people's attention. It's where we started, not where we plan to stop.",
-    primaryCta: { label: "Partner With Us", href: partnerAnchor },
-    secondaryCta: { label: "Explore Health Articles", href: "/blog" },
+      "Today that work lives in health and wellness: careful editorial writing, and selective partnerships with online health events we believe deserve people's attention. Health is our current focus, not our permanent boundary.",
+    primaryCta: {
+      audience: "For partners",
+      label: "Partner With Us",
+      href: partnerAnchor,
+    },
+    secondaryCta: {
+      audience: "For readers",
+      label: "Explore Health Articles",
+      href: "/blog",
+    },
     /**
      * No approved, provenance-documented hero photograph exists yet (see
      * blueprint Section 15, item 4). Leave `undefined` rather than using

@@ -1,12 +1,13 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export type ContainerVariant = "content" | "wide" | "hero" | "reading" | "article" | "bleed";
+export type ContainerVariant = "content" | "wide" | "hero" | "editorial" | "reading" | "article" | "bleed";
 
 const maxWidthVar: Record<ContainerVariant, string> = {
   content: "var(--ds-container-content)",
   wide: "var(--ds-container-wide)",
   hero: "var(--ds-container-hero)",
+  editorial: "var(--ds-container-editorial)",
   reading: "var(--ds-container-reading)",
   article: "var(--ds-container-article)",
   bleed: "var(--ds-container-bleed)",
@@ -25,6 +26,8 @@ export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
  * - `content`: default reading/section width for most editorial blocks.
  * - `wide`: wider compositions (staggered editorial pathways, feature grids).
  * - `hero`: the >=1440px image-led hero.
+ * - `editorial`: large-desktop homepage stages that grow with the viewport
+ *   (clamp) without widening every other `wide`/`content` usage.
  * - `reading`: the narrow long-form text measure (article body copy).
  * - `article`: the article shell width (headings, meta, callouts).
  * - `bleed`: no max-width, no gutter; for full-width photographic bands.
