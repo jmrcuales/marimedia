@@ -25,25 +25,36 @@ export interface FeaturedArticleProps {
 
 /**
  * The single dominant lead-article module for a magazine-style editorial
- * spread (Compass Section 20/28: "one dominant feature article with
- * supporting stories"). Pairs with `ArticleCard` for the supporting
- * stories around it. Not itself a page layout: `/blog` (production)
- * keeps its own current markup.
+ * spread (Compass Section 20/28).
+ *
+ * Responsive layout (MARIWEB-009.5 polish): stacked image-above-copy
+ * through tablet widths, then a true magazine split only at >=1440px.
+ * The previous `md:grid-cols-2` start forced a cramped two-column layout
+ * at 768–1024 where `h-full` + a fixed landscape aspect ratio crowded
+ * (and could visually collide with) the text column. Stacking on tablet
+ * is the intentional composition for that width, not a shrunk desktop.
  */
 export function FeaturedArticle({ article, className, priority = false }: FeaturedArticleProps) {
   return (
-    <Card padding="none" treatment="elevated" className={cn("grid overflow-hidden md:grid-cols-2", className)}>
+    <Card
+      padding="none"
+      treatment="elevated"
+      className={cn(
+        "grid grid-cols-1 overflow-hidden min-[1440px]:grid-cols-2 min-[1440px]:items-stretch",
+        className
+      )}
+    >
       <ImageFrame
         src={article.heroImage.src}
         alt={article.heroImage.alt}
-        ratio="landscape"
-        sizes="(min-width: 768px) 50vw, 100vw"
+        ratio="wide"
+        sizes="(min-width: 1440px) 50vw, 100vw"
         priority={priority}
-        frameClassName="h-full rounded-none border-0"
-        className="h-full"
+        className="min-[1440px]:h-full"
+        frameClassName="rounded-none border-0 min-[1440px]:aspect-auto min-[1440px]:h-full min-[1440px]:min-h-[20rem]"
       />
-      <div className="flex flex-col justify-center gap-[var(--ds-space-stack-md)] p-[var(--ds-space-card-padding-lg)]">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-col justify-center gap-[var(--ds-space-stack-md)] p-[var(--ds-space-card-padding-md)] sm:p-[var(--ds-space-card-padding-lg)]">
+        <div className="flex flex-wrap items-center gap-3">
           <Tag>Featured</Tag>
           <Eyebrow>{article.category}</Eyebrow>
         </div>
@@ -56,7 +67,7 @@ export function FeaturedArticle({ article, className, priority = false }: Featur
           </Link>
         </Heading>
         <BodyLarge className="text-[var(--ds-color-text-muted)]">{article.excerpt}</BodyLarge>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
           <Caption>{formatArticleDate(article.publishedAt)}</Caption>
           <Caption className="inline-flex items-center gap-1">
             <Clock className="h-3.5 w-3.5" aria-hidden="true" />

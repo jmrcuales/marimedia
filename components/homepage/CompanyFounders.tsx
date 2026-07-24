@@ -6,12 +6,13 @@ import { homepageContent, homepageSectionIds } from "@/lib/content/homepage";
 const { companyFounders } = homepageContent;
 
 /**
- * Company & Founders (blueprint Section 5.7): leads with why Mari Media
- * exists, with the founders supporting that story rather than becoming
- * it. Founder backgrounds live on a future About page. No fabricated
- * founder photography is used; this ships copy-only, which Compass
- * Section 22 treats as fully acceptable (preferred over a stock or
- * placeholder image).
+ * Company & Founders (blueprint Section 5.7; privacy-corrected under
+ * MARIWEB-009.5): leads with why Mari Media exists, with the founders
+ * supporting that story rather than becoming it. Public founder names
+ * are James and Kaye only; no career history or former employers.
+ * No fabricated founder photography is used; this ships copy-only,
+ * which Compass Section 22 treats as fully acceptable (preferred over
+ * a stock or placeholder image).
  */
 export function CompanyFounders() {
   return (

@@ -210,6 +210,10 @@
   --ds-container-content: 72rem; /* 1152px, general sections */
   --ds-container-wide: 80rem; /* 1280px, wide editorial/hero compositions */
   --ds-container-hero: 88rem; /* 1408px, image-led hero at >=1440px */
+  /* Large-desktop editorial stage: grows with the viewport instead of
+     freezing at 1280px, so homepage compositions can adapt at 1920–2560
+     without widening every `content`/`wide` usage site-wide. */
+  --ds-container-editorial: clamp(80rem, 70vw, 100rem);
   --ds-container-reading: 42rem; /* ~672px, long-form body-text measure */
   --ds-container-article: 48rem; /* 768px, article shell (meta, headings, callouts) */
   --ds-container-bleed: none; /* full-bleed photographic bands, no max-width */

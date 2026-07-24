@@ -9,37 +9,26 @@ import { homepageContent, homepageSectionIds } from "@/lib/content/homepage";
 const { forReaders } = homepageContent;
 
 /**
- * For Our Readers (blueprint Section 5.4): distinct from For Our Partners,
- * aimed only at readers. Mirrors For Our Partners' asymmetric offset but
- * flips the alignment (right-weighted instead of left-weighted) so the two
- * sections create alternating rhythm without needing alternating imagery
- * (Compass Section 20).
+ * For Our Readers: reader-only section, mirrored from For Our Partners.
  *
- * Includes a brief, honest commercial-transparency note using the
- * `disclaimer` `Callout` variant, per blueprint Section 6 ("If a homepage
- * callout is ever needed... use the info or disclaimer variant") and
- * Compass Section 9 (disclose where it materially affects understanding,
- * not only on a footer policy page).
- *
- * Like `ForPartners`, the columns opposite the copy hold a ready,
- * currently-inactive `ImageFrame` slot (MARIWEB-009 final polish,
- * photography audit) on the left, mirroring `ForPartners`' image-on-the-
- * right placement, so the two sections alternate once real photography
- * exists rather than only alternating text alignment.
+ * Desktop composition (MARIWEB-009.5 final): uses the `wide` stage with
+ * right-weighted copy (and optional left image) so the two audience
+ * sections alternate alignment while both use intentional open field at
+ * large widths rather than identical centered blocks.
  */
 export function ForReaders() {
   const { image } = forReaders;
 
   return (
-    <Section id={homepageSectionIds.forReaders} tone="surface-muted" spacing="md" reveal>
-      <div className="grid items-center gap-[var(--ds-space-10)] lg:grid-cols-12">
+    <Section id={homepageSectionIds.forReaders} tone="page" spacing="md" container="editorial" reveal>
+      <div className="grid items-center gap-[var(--ds-space-10)] lg:grid-cols-12 min-[1440px]:gap-[var(--ds-space-16)]">
         {image && (
-          <div className="hidden lg:col-span-5 lg:col-start-1 lg:block">
-            <ImageFrame src={image.src} alt={image.alt} ratio="landscape" sizes="(min-width: 1024px) 35vw, 100vw" />
+          <div className="hidden lg:col-span-5 lg:col-start-1 lg:block min-[1440px]:col-span-6">
+            <ImageFrame src={image.src} alt={image.alt} ratio="landscape" sizes="(min-width: 1024px) 40vw, 100vw" />
           </div>
         )}
 
-        <div className="flex flex-col gap-[var(--ds-space-stack-lg)] lg:col-span-7 lg:col-start-6">
+        <div className="flex flex-col gap-[var(--ds-space-stack-lg)] lg:col-span-7 lg:col-start-6 min-[1440px]:col-span-5 min-[1440px]:col-start-8 min-[1920px]:col-span-4 min-[1920px]:col-start-9">
           <Eyebrow>{forReaders.eyebrow}</Eyebrow>
           <Heading level={2}>{forReaders.heading}</Heading>
           <div className="flex flex-col gap-[var(--ds-space-stack-md)]">

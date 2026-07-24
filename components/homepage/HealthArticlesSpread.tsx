@@ -9,42 +9,36 @@ import { homepageContent, homepageSectionIds } from "@/lib/content/homepage";
 const { healthArticles } = homepageContent;
 
 /**
- * Health Articles editorial spread (blueprint Section 5.6): one dominant
- * featured article, no fabricated or duplicated supporting cards.
+ * Health Articles editorial spread: one dominant featured article.
  *
- * Only one article (`what-is-functional-medicine`) is published today, so
- * this renders exactly one `FeaturedArticle` and nothing else. Per the
- * blueprint and the Phase 3 guidance in
- * `docs/website-overhaul/MARI-MEDIA-COMPASS-CURSOR-OVERHAUL-PROMPT-PACK.md`,
- * do not add `ArticleCard` "supporting story" slots until at least a
- * second real, published article exists; an empty, fake, or duplicated
- * card is explicitly prohibited. When a second article is published, this
- * component is the only place that needs to change (add an `ArticleCard`
- * grid alongside the featured slot).
+ * Desktop composition (MARIWEB-009.5 final): uses the `editorial`
+ * container with a magazine image/copy split at >=1440px. Below that
+ * width, `FeaturedArticle` intentionally stacks (tablet polish) so the
+ * image never crowds the text.
  */
 export async function HealthArticlesSpread() {
   const featuredArticles = await getFeaturedArticles();
   const featured = featuredArticles[0];
 
   if (!featured) {
-    // No published, featured article exists. Rather than render an empty
-    // or fabricated card, the whole section is omitted until real content
-    // exists to feature.
     return null;
   }
 
   return (
-    <Section id={homepageSectionIds.articles} tone="surface-muted" spacing="md" reveal>
+    <Section id={homepageSectionIds.articles} tone="surface-muted" spacing="md" container="editorial" reveal>
       <SectionHeader
         eyebrow={healthArticles.eyebrow}
         title={healthArticles.heading}
         description={healthArticles.description}
-        className="mb-[var(--ds-space-10)]"
+        className="mb-[var(--ds-space-10)] min-[1440px]:max-w-2xl min-[1440px]:mb-[var(--ds-space-12)]"
       />
 
-      <FeaturedArticle article={featured} />
+      <FeaturedArticle
+        article={featured}
+        className="min-[1440px]:grid-cols-[1.15fr_1fr] min-[1920px]:min-h-[26rem]"
+      />
 
-      <div className="mt-[var(--ds-space-8)]">
+      <div className="mt-[var(--ds-space-8)] min-[1440px]:mt-[var(--ds-space-10)]">
         <Link href={healthArticles.viewAllCta.href} className={buttonClassName("secondary")}>
           {healthArticles.viewAllCta.label}
         </Link>

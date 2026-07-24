@@ -54,7 +54,7 @@ export const baselineConfig: LabConfig = {
   viewport: "fit",
 };
 
-/** The recommended preset, per the Phase 1 brief. Not a final JM decision. */
+/** The recommended preset, per the Phase 1 brief. Not a final James decision. */
 export const compassRecommendedConfig: LabConfig = {
   typography: "system-c",
   serifAccent: "newsreader",

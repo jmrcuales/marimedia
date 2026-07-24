@@ -292,7 +292,7 @@ export default function DesignSystemReferencePage() {
             <Button size="sm">Partner With Us</Button>
           </Specimen>
           <Specimen label="Quote" meta="--ds-text-quote · Newsreader (restricted use)">
-            <Quote attribution="JM, co-founder">
+            <Quote attribution="James, co-founder">
               We wanted a business that could grow beyond the limits of a single job.
             </Quote>
           </Specimen>
@@ -563,7 +563,7 @@ export default function DesignSystemReferencePage() {
           </Callout>
         </div>
         <div className="mt-[var(--ds-space-6)] max-w-2xl">
-          <Quote attribution="Kristine, co-founder" role="Media sales and affiliate management">
+          <Quote attribution="Kaye, co-founder">
             Useful content, audience trust, and thoughtful promotion can build a sustainable media
             business.
           </Quote>
@@ -590,8 +590,8 @@ export default function DesignSystemReferencePage() {
           <RemovableChipDemo />
         </div>
         <div className="mt-[var(--ds-space-4)] flex flex-wrap items-center gap-4">
-          <Avatar initials="JM" size="sm" />
-          <Avatar initials="KG" size="md" />
+          <Avatar initials="JA" size="sm" />
+          <Avatar initials="KA" size="md" />
           <Avatar initials="MM" size="lg" />
         </div>
       </ReferenceSection>
