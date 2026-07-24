@@ -13,6 +13,14 @@ import { buttonClassName } from "./Button";
 export interface FeaturedArticleProps {
   article: ArticleSummary;
   className?: string;
+  /**
+   * Only pass `true` when this instance renders as the page's likely LCP
+   * image (e.g. placed at the very top of a page). Its one production
+   * usage today, `HealthArticlesSpread`, sits well below the fold on the
+   * homepage, so this defaults to `false` there rather than forcing an
+   * eager fetch of an offscreen image (MARIWEB-009 image-readiness pass).
+   */
+  priority?: boolean;
 }
 
 /**
@@ -22,7 +30,7 @@ export interface FeaturedArticleProps {
  * stories around it. Not itself a page layout: `/blog` (production)
  * keeps its own current markup.
  */
-export function FeaturedArticle({ article, className }: FeaturedArticleProps) {
+export function FeaturedArticle({ article, className, priority = false }: FeaturedArticleProps) {
   return (
     <Card padding="none" treatment="elevated" className={cn("grid overflow-hidden md:grid-cols-2", className)}>
       <ImageFrame
@@ -30,7 +38,7 @@ export function FeaturedArticle({ article, className }: FeaturedArticleProps) {
         alt={article.heroImage.alt}
         ratio="landscape"
         sizes="(min-width: 768px) 50vw, 100vw"
-        priority
+        priority={priority}
         frameClassName="h-full rounded-none border-0"
         className="h-full"
       />

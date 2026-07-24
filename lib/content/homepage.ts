@@ -128,7 +128,7 @@ export const homepageContent = {
     eyebrow: "Who We Are",
     heading: "Built by two people, on purpose",
     body: [
-      "Mari Media was founded by James and Kaye. Kaye's background is in media sales and affiliate management, including earlier work with Yellow Pages, Bodog, and DrTalks. James's background is in computer engineering, software engineering, web development, and email marketing.",
+      "Mari Media was founded by James and Kaye. Kaye's background is in media sales and affiliate management, built over years connecting audiences with partners and online health events. James's background is in computer engineering, software engineering, web development, and email marketing.",
       "They started Mari Media to build something of their own: a media company that could grow past the limits of a single job, while staying useful and honest with the people who read it.",
       "Health is where that starts. Affiliate marketing helps pay for the work, but it isn't the whole reason the company exists.",
     ],
