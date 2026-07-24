@@ -1,66 +1,74 @@
-"use client";
-
 import { Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
+import "@/components/design-system/tokens.css";
+import { designSystemFontVariables } from "@/components/design-system/fonts";
+import { Container } from "@/components/design-system/Container";
+import { Divider } from "@/components/design-system/Divider";
+import { Body, BodySmall, Caption, Eyebrow } from "@/components/design-system/Typography";
+import { homepageSectionIds } from "@/lib/content/homepage";
+import { cn } from "@/lib/utils";
 
 const quickLinks = [
-  { href: "/#about", label: "About" },
-  { href: "/#services", label: "Services" },
-  { href: "/#approach", label: "Our Approach" },
-  { href: "/#contact", label: "Contact" },
+  { href: `/#${homepageSectionIds.about}`, label: "About Mari Media" },
+  { href: "/blog", label: "Health Articles" },
+  { href: `/#${homepageSectionIds.contact}`, label: "Partner With Us" },
+  { href: `/#${homepageSectionIds.contact}`, label: "Contact" },
 ];
 
-const currentServices = [
-  "Affiliate Marketing",
-  "Email Marketing",
-  "Business Partnerships",
-];
+const CONTACT_EMAIL = "hello@marimedia.co";
 
-const futureVision = [
-  "Website Development",
-  "Marketing Automation",
-  "CRM Solutions",
-  "AI Marketing",
-  "Lead Generation",
-];
+/** Distinct from the Hero/Founders copy elsewhere on the homepage; not a repeat of existing sections. */
+const BRAND_STATEMENT =
+  "We connect readers with careful health writing, and partners with audiences that are a genuine fit.";
 
+/** A quiet closing line, not a slogan; sits above the copyright as the page's last word. */
+const CLOSING_STATEMENT = "We'd rather be useful than loud, and we're building this to last.";
+
+/**
+ * Global footer (MARIWEB-009 follow-up refinement). Re-skinned a second
+ * time from the initial Phase 3 pass: the dark, near-black band read as
+ * a hard cut against the warm, light sections above it, so this version
+ * uses the same light "page" surface token as the rest of the homepage
+ * (`--ds-color-bg`) with a subtle top border, which transitions gently
+ * from the Calm Final Action section's muted surface instead of jumping
+ * to a contrasting dark block. No new colors are introduced; every value
+ * still resolves to a `tokens.css` token.
+ *
+ * The legacy "Current Services" / "Future Vision" lists remain removed
+ * (Compass Section 26/50, blueprint Section 15 item 2): they presented
+ * future capabilities as decorative proof. No fabricated links are added;
+ * the footer only links to sections and routes that exist today.
+ */
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#222222] text-white py-16 px-4">
-      <Container size="wide">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <Image
-                src="/marimedia-logo.svg"
-                alt="Mari Media"
-                width={80}
-                height={40}
-                className="object-contain"
-              />
-              <h3 className="text-xl font-bold">Mari Media</h3>
-            </div>
-            <p className="text-gray-400 leading-relaxed text-sm">
-              An affiliate marketing media company helping businesses extend
-              their reach through strategic partnerships and targeted email
-              campaigns.
-            </p>
+    <footer
+      className={cn("mm-ds border-t border-[var(--ds-color-border-subtle)] bg-[var(--ds-color-bg)]", designSystemFontVariables)}
+      style={{ fontFamily: "var(--ds-font-body)" }}
+    >
+      <Container variant="wide" className="py-[var(--ds-space-section-y-sm)]">
+        <div className="grid gap-[var(--ds-space-12)] sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr] lg:gap-[var(--ds-space-16)]">
+          <div className="flex flex-col gap-[var(--ds-space-stack-md)] sm:col-span-2 lg:col-span-1">
+            <Image
+              src="/marimedia-logo.svg"
+              alt="Mari Media"
+              width={140}
+              height={70}
+              className="object-contain"
+            />
+            <Body className="max-w-[28rem] text-[var(--ds-color-text-muted)]">{BRAND_STATEMENT}</Body>
           </div>
 
-          <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-300">
-              Quick Links
-            </h4>
-            <ul className="space-y-2.5">
+          <div className="flex flex-col gap-[var(--ds-space-stack-md)]">
+            <Eyebrow>Quick Links</Eyebrow>
+            <ul className="flex flex-col gap-[var(--ds-space-stack-sm)]">
               {quickLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-primary transition-colors text-sm text-left"
+                    className="text-[length:var(--ds-text-body-sm)] text-[var(--ds-color-text-muted)] transition-colors duration-[var(--ds-duration-fast)] hover:text-[var(--ds-color-primary)]"
                   >
                     {link.label}
                   </Link>
@@ -69,47 +77,23 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-300">
-              Current Services
-            </h4>
-            <ul className="space-y-2.5">
-              {currentServices.map((service) => (
-                <li key={service} className="text-gray-400 text-sm">
-                  {service}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-gray-300">
-              Future Vision
-            </h4>
-            <ul className="space-y-2.5">
-              {futureVision.map((item) => (
-                <li key={item} className="text-gray-500 text-sm">
-                  {item}
-                </li>
-              ))}
-            </ul>
+          <div className="flex flex-col gap-[var(--ds-space-stack-md)]">
+            <Eyebrow>Contact</Eyebrow>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="inline-flex items-center gap-2 text-[length:var(--ds-text-body)] font-medium text-[var(--ds-color-text)] transition-colors duration-[var(--ds-duration-fast)] hover:text-[var(--ds-color-primary)]"
+            >
+              <Mail className="h-4 w-4 flex-shrink-0" aria-hidden="true" />
+              <span className="break-all">{CONTACT_EMAIL}</span>
+            </a>
           </div>
         </div>
 
-        <div className="flex justify-center py-8 border-t border-gray-800">
-          <a
-            href="mailto:hello@marimedia.co"
-            className="inline-flex items-center gap-2 text-gray-300 hover:text-primary transition-colors text-sm font-medium"
-          >
-            <Mail className="w-4 h-4" aria-hidden="true" />
-            hello@marimedia.co
-          </a>
-        </div>
+        <Divider className="my-[var(--ds-space-10)]" />
 
-        <div className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-gray-500 text-sm">
-            © {currentYear} Mari Media. All rights reserved.
-          </p>
+        <div className="flex flex-col gap-[var(--ds-space-stack-xs)]">
+          <BodySmall>{CLOSING_STATEMENT}</BodySmall>
+          <Caption>&copy; {currentYear} Mari Media. All rights reserved.</Caption>
         </div>
       </Container>
     </footer>

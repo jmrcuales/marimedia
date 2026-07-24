@@ -1,0 +1,131 @@
+/*
+ * Route-scoped styling for the Phase 1 visual-direction lab
+ * (`/internal/visual-lab`). Every rule below is scoped under the
+ * `.mm-visual-lab` wrapper class rendered by `LabShell.tsx`, and none of
+ * the custom properties defined here share a name with, override, or
+ * read from `app/globals.css` (`--background`, `--foreground`,
+ * `--primary`, `--primary-hover`, `--primary-active`). Production pages
+ * never render this class, so nothing here can leak into them, and this
+ * file is only imported by lab components.
+ */
+
+.mm-visual-lab {
+  /* Section 19 / Phase 0.1 approved palette, proposed here as the future
+     production system. See components/visual-lab/tokens.ts for the
+     single source of truth these values are kept in sync with. */
+  --lab-warm-white: #FAF8F5;
+  --lab-pure-white: #FFFFFF;
+  --lab-soft-black: #211F1D;
+  --lab-warm-charcoal: #5E5955;
+  --lab-pastel-red: #D9857A;
+  --lab-deep-red: #8F403B;
+  --lab-muted-green: #718774;
+  --lab-soft-sage: #E3E9E1;
+  --lab-soft-blush: #F2DFDC;
+  --lab-warm-sand: #E8E0D5;
+
+  /* Accessibility-driven derivatives outside the 10-swatch palette. See
+     the Color Lab section on the page for contrast math and rationale. */
+  --lab-text-subtle: #756B60;
+  --lab-action-primary-hover: #7A362F;
+  --lab-border-strong: #9C8D79;
+  --lab-success-text: #455546;
+  --lab-warning-text: #6E4A12;
+  --lab-warning-surface: #F5E6C8;
+  --lab-error: #9C2B22;
+
+  /* Proposed semantic roles, referenced by Tailwind arbitrary-value
+     utilities throughout the lab (e.g. `bg-[var(--lab-bg-page)]`). */
+  --lab-bg-page: var(--lab-warm-white);
+  --lab-bg-surface: var(--lab-pure-white);
+  --lab-bg-surface-alt: var(--lab-warm-sand);
+  --lab-text-primary: var(--lab-soft-black);
+  --lab-text-secondary: var(--lab-warm-charcoal);
+  --lab-action-primary: var(--lab-deep-red);
+  --lab-action-primary-text: var(--lab-pure-white);
+  --lab-link: var(--lab-deep-red);
+  --lab-divider: var(--lab-warm-sand);
+  --lab-focus-ring: var(--lab-deep-red);
+  --lab-callout-bg: var(--lab-soft-blush);
+  --lab-editorial-label: var(--lab-deep-red);
+
+  background: var(--lab-bg-page);
+  color: var(--lab-text-primary);
+}
+
+.mm-visual-lab a:focus-visible,
+.mm-visual-lab button:focus-visible,
+.mm-visual-lab input:focus-visible,
+.mm-visual-lab textarea:focus-visible,
+.mm-visual-lab summary:focus-visible,
+.mm-visual-lab [tabindex]:focus-visible {
+  outline: 2px solid var(--lab-focus-ring);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* The radio inputs backing each ControlPanel pill are visually hidden
+   (`sr-only`) so the label can be styled as a segmented control, so the
+   focus ring has to be drawn on the label via :focus-within instead of
+   :focus-visible on the (hidden) input itself. */
+.mm-visual-lab .mm-option-pill:focus-within {
+  outline: 2px solid var(--lab-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Headings inside the Live Website Preview (WebsitePreview.tsx) carry the
+   `wp-heading` class as a semantic marker; the actual per-system display
+   font is applied inline per element since it is computed from the
+   currently selected TypographyId on every render. */
+
+/* Ribbon motion: subtle, and never runs unless the visitor has expressed
+   no preference against it. This is the only place in the lab where
+   `no-preference` gates an animation; every other transition (buttons,
+   underlines, disclosure) is a short, one-off state change rather than a
+   continuous loop, so it is safe under reduced motion by default. */
+@media (prefers-reduced-motion: no-preference) {
+  .mm-visual-lab .mm-ribbon-animated {
+    animation: mm-ribbon-flow 14s linear infinite;
+    background-size: 200% 100%;
+  }
+}
+
+@keyframes mm-ribbon-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Manual "preview with reduced motion" toggle (see LabShell.tsx), for
+   reviewers whose OS is not already set to reduced motion. This affects
+   the static documentation demos (RibbonLab, MotionLab, etc.) further
+   down the page. */
+.mm-visual-lab.mm-force-reduced-motion .mm-ribbon-animated,
+.mm-visual-lab.mm-force-reduced-motion .mm-motion-demo {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* The Live Website Preview's own Motion control (WebsitePreview.tsx sets
+   `data-motion` on its root) is independent of the LabShell-wide toggle
+   above: it lets a reviewer compare motion levels inside the composition
+   itself without affecting the documentation sections below it. */
+.mm-visual-lab [data-motion="none"] .mm-ribbon-animated,
+.mm-visual-lab [data-motion="reduced"] .mm-ribbon-animated,
+.mm-visual-lab [data-motion="none"] .mm-motion-demo {
+  animation: none !important;
+  transition: none !important;
+}
+
+.mm-visual-lab [data-motion="reduced"] .mm-motion-demo {
+  transition-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-visual-lab .mm-motion-demo {
+    transition-duration: 0.01ms !important;
+  }
+}

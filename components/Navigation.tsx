@@ -2,27 +2,71 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { Menu, X } from "lucide-react";
-import { Container } from "@/components/ui/Container";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import "@/components/design-system/tokens.css";
+import { designSystemFontVariables } from "@/components/design-system/fonts";
+import { Container } from "@/components/design-system/Container";
+import { buttonClassName } from "@/components/design-system/Button";
+import { Text, Caption } from "@/components/design-system/Typography";
+import { homepageSectionIds } from "@/lib/content/homepage";
 import { cn } from "@/lib/utils";
+
+/**
+ * Secondary descriptor shown under "Mari Media" in the nav logo lockup.
+ * "Digital Media Company" mirrors the already-approved short descriptor
+ * used in the page metadata title (`app/layout.tsx`), rather than the
+ * legacy pre-Compass "Growth Partners" tagline this replaces: that phrase
+ * predates the Compass rewrite and reads as generic agency language,
+ * which Compass Section 6 explicitly rules out for how Mari Media
+ * positions itself.
+ */
+const BRAND_DESCRIPTOR = "Digital Media Company";
 
 type NavLink =
   | { kind: "section"; sectionId: string; href: `/#${string}`; label: string }
   | { kind: "route"; href: string; label: string };
 
 const navLinks: NavLink[] = [
-  { kind: "section", sectionId: "about", href: "/#about", label: "About" },
-  { kind: "section", sectionId: "services", href: "/#services", label: "Services" },
-  { kind: "section", sectionId: "approach", href: "/#approach", label: "Approach" },
+  { kind: "section", sectionId: homepageSectionIds.about, href: `/#${homepageSectionIds.about}`, label: "About" },
+  {
+    kind: "section",
+    sectionId: homepageSectionIds.whatWeDo,
+    href: `/#${homepageSectionIds.whatWeDo}`,
+    label: "What We Do",
+  },
   { kind: "route", href: "/blog", label: "Health Articles" },
-  { kind: "section", sectionId: "contact", href: "/#contact", label: "Contact" },
+  {
+    kind: "section",
+    sectionId: homepageSectionIds.contact,
+    href: `/#${homepageSectionIds.contact}`,
+    label: "Contact",
+  },
 ];
 
-const ctaClassName =
-  "inline-flex items-center justify-center rounded-full font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-primary text-white hover:bg-primary-hover focus:ring-primary hover:shadow-xl hover:-translate-y-0.5";
+const partnerHref = `/#${homepageSectionIds.contact}` as const;
 
+/**
+ * Global site navigation, re-skinned onto the Phase 2 production design
+ * system tokens (MARIWEB-009). Self-scopes with the `.mm-ds` class and the
+ * design-system font variables directly on the `<nav>` element (rather
+ * than relying on `Scope` wrapping it from outside) so this component
+ * renders correctly wherever it is used, including `/blog`, which does not
+ * otherwise opt into the design system in this phase.
+ *
+ * Header chrome (MARIWEB-009 final polish): a `sticky`, full-width,
+ * warm-white bar with a hairline bottom border and a light backdrop
+ * blur, not the earlier floating rounded card. The floating-card
+ * treatment let page content show through the gap around its rounded
+ * corners while scrolling, which read as a dashboard/SaaS pattern
+ * rather than the calm editorial header the Compass visual direction
+ * calls for (Compass Section 16-17). Interactive behavior (mobile menu,
+ * active-section highlighting via `IntersectionObserver`) is unchanged;
+ * only the outer chrome and the scroll-shadow treatment changed, and the
+ * scroll shadow itself is a single restrained `shadow-sm`, not a
+ * dramatic elevation change.
+ */
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -81,41 +125,36 @@ export default function Navigation() {
   return (
     <nav
       aria-label="Primary"
-      className="fixed top-4 left-0 right-0 z-50 px-4 transition-all duration-300"
+      className={cn(
+        "mm-ds sticky top-0 z-[var(--ds-z-nav)] w-full border-b border-[var(--ds-color-border-subtle)] bg-[var(--ds-color-bg)]/95 backdrop-blur-sm transition-shadow duration-[var(--ds-duration-medium)]",
+        isScrolled ? "shadow-[var(--ds-shadow-sm)]" : "shadow-none",
+        designSystemFontVariables
+      )}
+      style={{ fontFamily: "var(--ds-font-body)" }}
     >
-      <Container
-        size="wide"
-        className={cn(
-          "rounded-2xl transition-all duration-300",
-          isScrolled
-            ? "bg-white shadow-2xl"
-            : "bg-white/95 backdrop-blur-sm shadow-lg"
-        )}
-      >
-        <div className="flex items-center justify-between h-20 px-6">
-          <div className="flex items-center flex-shrink-0">
+      <Container variant="wide">
+        <div className="flex h-20 items-center justify-between">
+          <div className="flex flex-shrink-0 items-center">
             <Link href="/" className="flex items-center gap-3">
               <Image
                 src="/marimedia-logo.svg"
                 alt="Mari Media"
                 width={110}
                 height={55}
-                className="object-contain flex-shrink-0"
+                className="flex-shrink-0 object-contain"
                 priority
                 loading="eager"
               />
-              <div className="hidden sm:block whitespace-nowrap">
-                <div className="text-xl font-bold text-[#222222]">
+              <div className="hidden flex-col sm:flex">
+                <Text as="span" variant="h6" className="whitespace-nowrap">
                   Mari Media
-                </div>
-                <div className="text-xs text-gray-500 font-medium">
-                  Growth Partners
-                </div>
+                </Text>
+                <Caption className="-mt-0.5 whitespace-nowrap">{BRAND_DESCRIPTOR}</Caption>
               </div>
             </Link>
           </div>
 
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => {
               const isActive = isLinkActive(link);
               return (
@@ -124,26 +163,26 @@ export default function Navigation() {
                   href={link.href}
                   aria-current={isActive ? (link.kind === "route" ? "page" : "true") : undefined}
                   className={cn(
-                    "relative px-4 py-2 font-medium transition-colors rounded-lg",
+                    "relative rounded-[var(--ds-radius-sm)] px-4 py-2 font-medium transition-colors duration-[var(--ds-duration-fast)]",
                     isActive
-                      ? "text-primary"
-                      : "text-[#222222] hover:text-primary"
+                      ? "text-[var(--ds-color-primary)]"
+                      : "text-[var(--ds-color-text)] hover:text-[var(--ds-color-primary)]"
                   )}
                 >
                   {link.label}
                   {isActive && (
-                    <span className="absolute left-4 right-4 -bottom-0.5 h-0.5 rounded-full bg-primary" />
+                    <span className="absolute -bottom-0.5 left-4 right-4 h-0.5 rounded-[var(--ds-radius-full)] bg-[var(--ds-color-primary)]" />
                   )}
                 </Link>
               );
             })}
-            <Link href="/#contact" className={cn(ctaClassName, "ml-4 h-10 px-6 text-sm")}>
+            <Link href={partnerHref} className={cn(buttonClassName("primary", "sm"), "ml-4")}>
               Partner With Us
             </Link>
           </div>
 
           <button
-            className="lg:hidden text-[#222222] p-1"
+            className="p-1 text-[var(--ds-color-text)] lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
@@ -153,7 +192,7 @@ export default function Navigation() {
         </div>
 
         {isOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-200 rounded-b-2xl py-4 space-y-1">
+          <div className="space-y-1 border-t border-[var(--ds-color-border-subtle)] py-4 lg:hidden">
             {navLinks.map((link) => {
               const isActive = isLinkActive(link);
               return (
@@ -163,10 +202,10 @@ export default function Navigation() {
                   aria-current={isActive ? (link.kind === "route" ? "page" : "true") : undefined}
                   onClick={closeMenu}
                   className={cn(
-                    "block w-full text-left px-6 py-3 transition-colors",
+                    "block w-full px-6 py-3 text-left transition-colors duration-[var(--ds-duration-fast)]",
                     isActive
-                      ? "text-primary bg-primary/5 font-semibold"
-                      : "text-[#222222] hover:text-primary hover:bg-gray-50"
+                      ? "bg-[var(--ds-color-surface-muted)] font-semibold text-[var(--ds-color-primary)]"
+                      : "text-[var(--ds-color-text)] hover:bg-[var(--ds-color-surface-muted)] hover:text-[var(--ds-color-primary)]"
                   )}
                 >
                   {link.label}
@@ -174,11 +213,7 @@ export default function Navigation() {
               );
             })}
             <div className="px-6 pt-2">
-              <Link
-                href="/#contact"
-                onClick={closeMenu}
-                className={cn(ctaClassName, "w-full h-12 px-8 text-base")}
-              >
+              <Link href={partnerHref} onClick={closeMenu} className={cn(buttonClassName("primary", "lg"), "w-full")}>
                 Partner With Us
               </Link>
             </div>

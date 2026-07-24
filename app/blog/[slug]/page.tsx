@@ -139,7 +139,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   const articleContent = (
     <article>
-      <section className="pt-36 md:pt-44 pb-8 md:pb-10 px-4 bg-[#FFF5F7]">
+      {/* pt reduced from pt-36/md:pt-44 (MARIWEB-009 final polish): Navigation
+          is now a sticky, in-flow header (~80px) rather than a fixed overlay,
+          so this section no longer needs to reserve extra clearance for it. */}
+      <section className="pt-12 md:pt-16 pb-8 md:pb-10 px-4 bg-[#FFF5F7]">
         <div className="container mx-auto max-w-6xl">
           <div className="mb-7">
             <Breadcrumbs items={breadcrumbItems} />
