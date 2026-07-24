@@ -6,11 +6,12 @@ import { homepageContent, homepageSectionIds } from "@/lib/content/homepage";
 const { companyFounders } = homepageContent;
 
 /**
- * Company & Founders (blueprint Section 5.7): compact, honest, real names
- * and real backgrounds (Compass Section 27), keeping the fuller story for
- * a future About page. No fabricated founder photography is used; this
- * ships copy-only, which Compass Section 22 treats as fully acceptable
- * (preferred over a stock or placeholder image).
+ * Company & Founders (blueprint Section 5.7): leads with why Mari Media
+ * exists, with the founders supporting that story rather than becoming
+ * it. Founder backgrounds live on a future About page. No fabricated
+ * founder photography is used; this ships copy-only, which Compass
+ * Section 22 treats as fully acceptable (preferred over a stock or
+ * placeholder image).
  */
 export function CompanyFounders() {
   return (

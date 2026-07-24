@@ -128,9 +128,10 @@ export const homepageContent = {
     eyebrow: "Who We Are",
     heading: "Built by two people, on purpose",
     body: [
-      "Mari Media was founded by James and Kaye. Kaye's background is in media sales and affiliate management, built over years connecting audiences with partners and online health events. James's background is in computer engineering, software engineering, web development, and email marketing.",
-      "They started Mari Media to build something of their own: a media company that could grow past the limits of a single job, while staying useful and honest with the people who read it.",
-      "Health is where that starts. Affiliate marketing helps pay for the work, but it isn't the whole reason the company exists.",
+      "Mari Media began with a simple observation: there has never been more information available, yet it has never been harder to know what truly deserves our time and trust.",
+      "Every day, we're surrounded by articles, events, products, and recommendations competing for our attention. Some are genuinely valuable. Many are not. We wanted to create a place where people wouldn't have to sort through all of that alone.",
+      "Mari Media wasn't created because the internet needed more content. It was created because people deserve a more thoughtful way to discover the ideas, events, and organizations that are genuinely worth paying attention to.",
+      "Everything we publish begins with the same belief: trust is earned slowly. We'd rather publish fewer things with care than add to the noise. Every article, recommendation, and partnership should reflect that standard.",
     ],
   },
 
