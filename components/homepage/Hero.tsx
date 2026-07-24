@@ -8,8 +8,10 @@ import { ImageFrame } from "@/components/design-system/ImageFrame";
 import { Ribbon } from "@/components/design-system/Ribbon";
 import { cn } from "@/lib/utils";
 import { homepageContent } from "@/lib/content/homepage";
+import { imageRoles } from "@/lib/photography";
 
 const { hero } = homepageContent;
+const heroImageRole = imageRoles["hero-support"];
 
 /**
  * Compact editorial hero (Homepage Experience Blueprint, Section 5.1;
@@ -25,6 +27,9 @@ const { hero } = homepageContent;
  * Articles" wrapped). Headline/body keep their reading measures; the
  * CTA group sizes to its labels with `whitespace-nowrap` so each button
  * reads as one intentional line.
+ *
+ * Photography (MARIWEB-010): optional hero-support image stays dormant
+ * until an approved asset is authored on `homepageContent.hero.image`.
  */
 export function Hero() {
   const { image } = hero;
@@ -102,8 +107,9 @@ export function Hero() {
                 src={image.src}
                 alt={image.alt}
                 ratio="portrait"
-                sizes="(min-width: 1440px) 45vw, 40vw"
+                sizes={heroImageRole.sizes}
                 priority
+                focalPoint={image.focalPoint}
               />
             </div>
           )}

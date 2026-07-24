@@ -18,7 +18,13 @@
  * would respond without ever saying what happens next. Dedicated routes
  * for About, What We Do, Partner With Us, and Contact still do not exist
  * (Phase 4), so cross-section CTAs still point at in-page anchors.
+ *
+ * Photography slots (MARIWEB-010) use `SectionImageRef` and stay
+ * `undefined` until an approved, provenance-documented asset exists.
+ * See `docs/photography-system.md` and `lib/photography/`.
  */
+
+import type { SectionImageRef } from "@/lib/photography";
 
 /** In-page anchor IDs, shared between section components, `Navigation`, and `Footer` so no id string is duplicated by hand in more than one place. */
 export const homepageSectionIds = {
@@ -54,12 +60,11 @@ export const homepageContent = {
     },
     /**
      * No approved, provenance-documented hero photograph exists yet (see
-     * blueprint Section 15, item 4). Leave `undefined` rather than using
-     * stock imagery; `Hero` renders correctly, as a full-width editorial
-     * composition, either way. Populate with a real `{ src, alt }` once an
-     * image is approved to activate the image-led/split layouts.
+     * `docs/photography-system.md`). Leave `undefined` rather than using
+     * stock imagery; `Hero` renders correctly either way. Populate with a
+     * real `SectionImageRef` once an image is approved.
      */
-    image: undefined as { src: string; alt: string } | undefined,
+    image: undefined as SectionImageRef | undefined,
   },
 
   /**
@@ -128,13 +133,11 @@ export const homepageContent = {
     ],
     cta: { label: "Partner With Us", href: partnerAnchor },
     /**
-     * No approved partnership photograph exists yet (MARIWEB-009 final
-     * polish, photography audit). Leave `undefined`, same pattern as
-     * `hero.image`: the component already renders correctly either way,
-     * and populating `{ src, alt }` here is the only change needed to
-     * activate the two-column asymmetric image layout.
+     * No approved partnership photograph exists yet (MARIWEB-010). Leave
+     * `undefined`; populating a `SectionImageRef` activates the asymmetric
+     * image layout without further component work.
      */
-    image: undefined as { src: string; alt: string } | undefined,
+    image: undefined as SectionImageRef | undefined,
   },
 
   /**
@@ -185,7 +188,7 @@ export const homepageContent = {
       "Some articles mention partners or offers we work with. When that's true, we say so, and we only recommend what we'd stand behind ourselves.",
     cta: { label: "Explore Health Articles", href: "/blog" },
     /** Same not-yet-approved-imagery pattern as `forPartners.image` above. */
-    image: undefined as { src: string; alt: string } | undefined,
+    image: undefined as SectionImageRef | undefined,
   },
 
   healthArticles: {

@@ -75,10 +75,11 @@ const sampleFeatured: ArticleSummary = {
   category: "Functional Medicine",
   author: { name: "Mari Media Editorial" },
   heroImage: {
-    src: "/images/blog/functional-medicine/functional-medicine-hero.jpg",
-    alt: "A clinician and patient in an unhurried consultation, reviewing health history together.",
-    width: 1600,
-    height: 1200,
+    src: "/images/articles/functional-medicine/functional-medicine-hero.jpg",
+    alt: "Illustrated scene of two clinicians in conversation during a consultation in a sunlit office",
+    width: 1050,
+    height: 1400,
+    focalPoint: { x: 50, y: 28 },
   },
   publishedAt: "2026-03-01",
   readingTimeMinutes: 9,
@@ -94,10 +95,11 @@ const sampleSupporting: ArticleSummary[] = [
     category: "Functional Medicine",
     author: { name: "Mari Media Editorial" },
     heroImage: {
-      src: "/images/blog/functional-medicine/functional-medicine-first-visit.jpg",
-      alt: "A person organizing printed health records and notes at a kitchen table before an appointment.",
-      width: 1600,
-      height: 1000,
+      src: "/images/articles/functional-medicine/functional-medicine-first-visit.jpg",
+      alt: "Illustrated scene of a person at a sunlit home desk writing notes and organizing papers before a health appointment",
+      width: 825,
+      height: 1100,
+      focalPoint: { x: 58, y: 36 },
     },
     publishedAt: "2026-02-18",
     readingTimeMinutes: 6,
@@ -111,10 +113,11 @@ const sampleSupporting: ArticleSummary[] = [
     category: "Preventive Health",
     author: { name: "Mari Media Editorial" },
     heroImage: {
-      src: "/images/blog/functional-medicine/interconnected-health-systems.jpg",
-      alt: "Illustration of six connected health factors: nutrition, sleep, movement, stress, body systems, and daily habits.",
-      width: 1600,
-      height: 1000,
+      src: "/images/articles/functional-medicine/interconnected-health-systems.jpg",
+      alt: "Editorial illustration of six connected health factors (nutrition, sleep, movement, environment, body systems, and daily habits) arranged around a central figure",
+      width: 733,
+      height: 1100,
+      focalPoint: { x: 50, y: 48 },
     },
     publishedAt: "2026-01-30",
     readingTimeMinutes: 7,
@@ -502,7 +505,7 @@ export default function DesignSystemReferencePage() {
           />
           <EditorialCard
             image={{
-              src: "/images/blog/functional-medicine/interconnected-health-systems.jpg",
+              src: "/images/articles/functional-medicine/interconnected-health-systems.jpg",
               alt: "Illustration of interconnected health systems.",
             }}
             eyebrow="Health"

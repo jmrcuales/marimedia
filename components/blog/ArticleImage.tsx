@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { objectPositionFromFocal, type FocalPoint } from "@/lib/photography";
 
 interface ArticleImageProps {
   src: string;
@@ -7,6 +8,7 @@ interface ArticleImageProps {
   height: number;
   caption?: string;
   priority?: boolean;
+  focalPoint?: FocalPoint;
 }
 
 export default function ArticleImage({
@@ -16,6 +18,7 @@ export default function ArticleImage({
   height,
   caption,
   priority = false,
+  focalPoint,
 }: ArticleImageProps) {
   return (
     <figure className="my-8">
@@ -26,7 +29,8 @@ export default function ArticleImage({
           width={width}
           height={height}
           sizes="(min-width: 768px) 420px, 90vw"
-          className="w-full h-auto"
+          className="h-auto w-full"
+          style={{ objectPosition: objectPositionFromFocal(focalPoint) }}
           loading={priority ? undefined : "lazy"}
           priority={priority}
         />

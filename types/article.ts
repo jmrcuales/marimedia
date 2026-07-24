@@ -28,6 +28,14 @@ export interface ArticleImage {
   alt: string;
   width: number;
   height: number;
+  /**
+   * Optional focal point for `object-cover` crops (MARIWEB-010). Required
+   * whenever a portrait source is displayed in a wide or landscape frame.
+   */
+  focalPoint?: {
+    x: number;
+    y: number;
+  };
 }
 
 /** SEO-facing title/description, generated into page metadata and JSON-LD. */
@@ -93,6 +101,10 @@ export type ArticleContentBlock =
       width: number;
       height: number;
       caption?: string;
+      focalPoint?: {
+        x: number;
+        y: number;
+      };
     }
   | { type: "cardGrid"; columns: 2 | 3 | 4; items: ArticleFeatureCardItem[] }
   | { type: "checklist"; heading?: string; items: ArticleChecklistItem[] }
