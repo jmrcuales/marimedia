@@ -5,9 +5,18 @@ alwaysApply: true
 
 # Mari Media Project Context
 
+## Rule authority and scope
+
+This project rule and `mari-media-website-compass.mdc` are both active. They are not duplicates and do not compete for the same territory:
+
+- `mari-media-website-compass.mdc` is authoritative for company positioning, brand strategy, voice, visual direction, public content, editorial standards, public website behavior, trust, accessibility, SEO, privacy, security, and commercial conduct.
+- This file (`mari-media-project.mdc`) is authoritative for repository conventions, Git workflow, technology choices, code architecture, testing, and implementation practices.
+- Where the two rules overlap or conflict, `mari-media-website-compass.mdc` wins.
+- Do not copy the full Compass rule into this file. Reference it instead.
+
 ## Business and positioning
 
-- Mari Media is an affiliate marketing company.
+- Mari Media is a digital media company that builds, grows, and operates a portfolio of trusted digital brands. It begins with health and wellness, but health is the first proving ground, not the full identity of the parent company. See `mari-media-website-compass.mdc` (Sections 2 to 9) for the complete positioning, audience, and commercial-transparency direction.
 - Its current geographic focus is the United States and Canada.
 - Mari Media remains open to suitable global opportunities.
 - Its current specialization is online health events.
@@ -17,8 +26,8 @@ alwaysApply: true
 
 ## Brand and content
 
-- Use the official Mari Media logo and derive the website's primary color palette from it.
-- Preserve the official logo. Do not redesign, replace, redraw, or substantially modify it without explicit approval.
+- Use the official Mari Media logo. The website's general UI color palette is the approved Compass palette (`mari-media-website-compass.mdc`, Section 19), not a palette derived from the logo. The logo keeps its own original colors and is not required to match every website semantic token.
+- Preserve the official logo. Do not redesign, replace, redraw, or substantially modify it without explicit approval. A separate, byte-optimized web derivative of the logo is permitted (unchanged paths, shapes, gradients, masks, colors, proportions, viewBox, transparency, and aspect ratio) once approved for production use.
 - The primary call to action is "Partner With Us."
 - Do not mention GoHighLevel in the hero.
 - GoHighLevel may be mentioned once in detailed service or operational copy when genuinely relevant.

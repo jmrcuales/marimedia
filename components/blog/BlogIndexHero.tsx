@@ -1,7 +1,13 @@
-/** Editorial introduction for the `/blog` index. Holds the page's single H1. */
+/**
+ * Editorial introduction for the `/blog` index. Holds the page's single H1.
+ *
+ * Top padding reduced from `pt-40` (MARIWEB-009 final polish): `Navigation`
+ * is now a sticky, in-flow header (~80px) rather than a fixed overlay, so
+ * this section no longer needs to reserve extra clearance space for it.
+ */
 export default function BlogIndexHero() {
   return (
-    <section className="pt-40 pb-20 px-4 bg-[#FFF5F7]">
+    <section className="pt-16 md:pt-20 pb-20 px-4 bg-[#FFF5F7]">
       <div className="container mx-auto max-w-6xl text-center">
         <span className="text-sm font-semibold text-[#D6216E] uppercase tracking-wider">
           Health Articles
