@@ -18,34 +18,36 @@ const inter = Inter({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#FFF5F7",
+  // Matches the Phase 2 design-system "Warm White" page background
+  // (`--ds-palette-warm-white`, tokens.css) now that the homepage renders
+  // against it (MARIWEB-009).
+  themeColor: "#FAF8F5",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Mari Media | Affiliate Marketing & Email Marketing Partner",
+    default: "Mari Media | A Digital Media Company",
     template: "%s | Mari Media",
   },
   description:
-    "Mari Media is an affiliate marketing media company focused on online health events, with select partnerships in SaaS, education, and digital products. We work with businesses across the U.S. and Canada through strategic affiliate partnerships and targeted email marketing.",
+    "Mari Media is a digital media company building trusted digital brands. Health and wellness is our current focus: careful editorial content and honest partnerships with the online health events we work with, primarily across the U.S. and Canada.",
   keywords: [
+    "digital media company",
+    "health and wellness media",
     "affiliate marketing",
     "email marketing",
-    "affiliate marketing agency",
-    "email marketing partner",
     "online health event marketing",
-    "digital product promotion",
-    "summit affiliate marketing",
+    "health event affiliate partner",
   ],
   authors: [{ name: "Mari Media" }],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Mari Media | Affiliate Marketing & Email Marketing Partner",
+    title: "Mari Media | A Digital Media Company",
     description:
-      "We help online health events and select partners across the U.S. and Canada extend their reach through strategic affiliate partnerships and targeted email marketing.",
+      "A digital media company building trusted digital brands, proving itself today through careful health and wellness content and honest partnerships with online health events.",
     type: "website",
     locale: "en_US",
     url: siteUrl,
@@ -53,9 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mari Media | Affiliate Marketing & Email Marketing Partner",
+    title: "Mari Media | A Digital Media Company",
     description:
-      "We help online health events and select partners across the U.S. and Canada extend their reach through strategic affiliate partnerships and targeted email marketing.",
+      "A digital media company building trusted digital brands, proving itself today through careful health and wellness content and honest partnerships with online health events.",
   },
   // Non-production deployments (local development, Vercel previews, and
   // the `dev`/`preprod` branches) must not be indexable. This is set
@@ -66,19 +68,24 @@ export const metadata: Metadata = {
     : { index: false, follow: false },
 };
 
+// Corrected for MARIWEB-009 (blueprint Section 15, item 6): the previous
+// description and `knowsAbout` list described only the affiliate/email
+// service line and omitted the parent-company positioning (Compass
+// Sections 2-4 and 7), which no longer matches the homepage copy.
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Mari Media",
   description:
-    "Mari Media is an affiliate marketing media company focused on online health events, helping businesses across the U.S. and Canada grow through strategic affiliate partnerships and targeted email marketing.",
+    "Mari Media is a digital media company that builds trusted digital brands. Health and wellness is its current focus, proven through editorial content and affiliate and email marketing partnerships with online health events across the U.S. and Canada.",
   url: siteUrl,
   email: "hello@marimedia.co",
   foundingDate: "2026",
   knowsAbout: [
+    "Health and Wellness Content",
     "Affiliate Marketing",
     "Email Marketing",
-    "Business Partnerships",
+    "Online Health Events",
   ],
 };
 

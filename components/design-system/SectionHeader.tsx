@@ -13,10 +13,10 @@ export interface SectionHeaderProps {
 }
 
 /**
- * Shared eyebrow + heading + description + optional actions block. The
- * design-system counterpart to `components/ui/SectionHeading.tsx`
- * (production, untouched by this phase); this version is token-driven and
- * is what a future homepage rebuild would adopt.
+ * Shared eyebrow + heading + description + optional actions block.
+ * Token-driven; used throughout the production homepage (MARIWEB-009) and
+ * this reference page. The legacy, non-token `components/ui/SectionHeading.tsx`
+ * this superseded was removed once the homepage migrated to this component.
  */
 export function SectionHeader({
   eyebrow,
