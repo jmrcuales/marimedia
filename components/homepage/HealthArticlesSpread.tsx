@@ -11,10 +11,10 @@ const { healthArticles } = homepageContent;
 /**
  * Health Articles editorial spread: one dominant featured article.
  *
- * Desktop composition (MARIWEB-009.5 final): uses the `wide` container so
- * the magazine feature can stretch its image/copy split at >=1440px
- * (image slightly dominant) instead of remaining a compact card inside a
- * narrower content measure. Header measure stays capped.
+ * Desktop composition (MARIWEB-009.5 final): uses the `editorial`
+ * container with a magazine image/copy split at >=1440px. Below that
+ * width, `FeaturedArticle` intentionally stacks (tablet polish) so the
+ * image never crowds the text.
  */
 export async function HealthArticlesSpread() {
   const featuredArticles = await getFeaturedArticles();

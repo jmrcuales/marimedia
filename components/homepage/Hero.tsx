@@ -15,20 +15,16 @@ const { hero } = homepageContent;
  * Compact editorial hero (Homepage Experience Blueprint, Section 5.1;
  * refined under MARIWEB-009.5 final polish).
  *
- * Resolves "what is this" before anything else: the parent-company
- * identity leads, health is named as the current focus rather than the
- * whole company, and both the partner and reader paths are offered
- * immediately (Compass Section 24, blueprint Section 3).
+ * CTA hierarchy (MARIWEB-009.5): audience labels sit above each action so
+ * partners and readers self-select without a split landing page.
  *
- * CTA hierarchy (MARIWEB-009.5 final): audience labels sit above each
- * action so partners and readers self-select without a split landing
- * page or duplicated hero. Primary stays visually stronger.
- *
- * Desktop composition (MARIWEB-009.5 final): without an approved image,
- * the copy block is left-weighted inside a 12-column wide stage at
- * >=1440px rather than a centered max-w-3xl that merely floats in a
- * larger viewport. When `hero.image` is populated, the three-tier
- * image-led split still activates as before.
+ * Desktop composition (MARIWEB-009.5): left-weighted on a 12-column
+ * editorial stage at >=1440px. CTA polish (MARIWEB-009.5 responsive):
+ * the copy column no longer shrinks to 5/12 at 1920px (that width was
+ * too narrow for two `lg` buttons side by side, so "Explore Health
+ * Articles" wrapped). Headline/body keep their reading measures; the
+ * CTA group sizes to its labels with `whitespace-nowrap` so each button
+ * reads as one intentional line.
  */
 export function Hero() {
   const { image } = hero;
@@ -49,14 +45,14 @@ export function Hero() {
               "flex flex-col gap-[var(--ds-space-stack-lg)]",
               image
                 ? undefined
-                : "max-w-3xl min-[1440px]:col-span-7 min-[1728px]:col-span-6 min-[1920px]:col-span-5"
+                : "min-[1440px]:col-span-8 min-[1728px]:col-span-7 min-[1920px]:col-span-7"
             )}
           >
             <Badge tone="health" className="w-fit">
               {hero.focusBadge}
             </Badge>
 
-            <Display className="text-balance">{hero.headline}</Display>
+            <Display className="max-w-3xl text-balance">{hero.headline}</Display>
 
             <BodyLarge className="max-w-2xl text-[var(--ds-color-text-muted)]">
               {hero.subheadline}
@@ -65,15 +61,18 @@ export function Hero() {
             <Ribbon animated className="max-w-[10rem]" />
 
             <div
-              className="flex flex-col gap-[var(--ds-space-6)] sm:flex-row sm:items-stretch sm:gap-[var(--ds-space-10)]"
+              className="flex flex-col gap-[var(--ds-space-6)] sm:flex-row sm:items-end sm:gap-[var(--ds-space-10)]"
               role="group"
               aria-label="Choose your path"
             >
-              <div className="flex flex-col gap-[var(--ds-space-stack-sm)]">
+              <div className="flex w-full flex-col gap-[var(--ds-space-stack-sm)] sm:w-auto">
                 <Caption className="font-semibold uppercase tracking-[var(--ds-tracking-wider)] text-[var(--ds-color-editorial-label)]">
                   {hero.primaryCta.audience}
                 </Caption>
-                <Link href={hero.primaryCta.href} className={buttonClassName("primary", "lg")}>
+                <Link
+                  href={hero.primaryCta.href}
+                  className={buttonClassName("primary", "lg", "w-full whitespace-nowrap sm:w-auto")}
+                >
                   {hero.primaryCta.label}
                 </Link>
               </div>
@@ -83,11 +82,14 @@ export function Hero() {
                 aria-hidden="true"
               />
 
-              <div className="flex flex-col gap-[var(--ds-space-stack-sm)]">
+              <div className="flex w-full flex-col gap-[var(--ds-space-stack-sm)] sm:w-auto">
                 <Caption className="font-semibold uppercase tracking-[var(--ds-tracking-wider)] text-[var(--ds-color-text-subtle)]">
                   {hero.secondaryCta.audience}
                 </Caption>
-                <Link href={hero.secondaryCta.href} className={buttonClassName("outline", "lg")}>
+                <Link
+                  href={hero.secondaryCta.href}
+                  className={buttonClassName("outline", "lg", "w-full whitespace-nowrap sm:w-auto")}
+                >
                   {hero.secondaryCta.label}
                 </Link>
               </div>
