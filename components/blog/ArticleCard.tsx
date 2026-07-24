@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Clock } from "lucide-react";
 import type { ArticleSummary } from "@/types/article";
 import { formatArticleDate } from "@/types/article";
+import { objectPositionFromFocal } from "@/lib/photography";
 import { cn } from "@/lib/utils";
 
 interface ArticleCardProps {
@@ -16,6 +17,7 @@ export default function ArticleCard({
   variant = "default",
 }: ArticleCardProps) {
   const isFeatured = variant === "featured";
+  const objectPosition = objectPositionFromFocal(article.heroImage.focalPoint);
 
   return (
     <Link
@@ -41,6 +43,7 @@ export default function ArticleCard({
               : "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           }
           className="object-cover"
+          style={{ objectPosition }}
           priority={isFeatured}
         />
       </div>

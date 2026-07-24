@@ -50,6 +50,7 @@ export function FeaturedArticle({ article, className, priority = false }: Featur
         ratio="wide"
         sizes="(min-width: 1440px) 50vw, 100vw"
         priority={priority}
+        focalPoint={article.heroImage.focalPoint}
         className="min-[1440px]:h-full"
         frameClassName="rounded-none border-0 min-[1440px]:aspect-auto min-[1440px]:h-full min-[1440px]:min-h-[20rem]"
       />

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Clock } from "lucide-react";
 import type { ArticleAuthor, ArticleCtaLink, ArticleImage } from "@/types/article";
 import { formatArticleDate } from "@/types/article";
+import { objectPositionFromFocal } from "@/lib/photography";
 
 interface ArticleHeroProps {
   category: string;
@@ -25,6 +26,8 @@ export default function ArticleHero({
   readTimeMinutes,
   image,
 }: ArticleHeroProps) {
+  const objectPosition = objectPositionFromFocal(image.focalPoint);
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-12 items-center mb-4">
       <div className="max-w-[820px]">
@@ -76,6 +79,7 @@ export default function ArticleHero({
           fill
           sizes="(min-width: 1024px) 420px, (min-width: 768px) 60vw, 90vw"
           className="object-cover"
+          style={{ objectPosition }}
           priority
         />
       </div>
