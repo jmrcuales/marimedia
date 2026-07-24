@@ -4,8 +4,10 @@ import { Eyebrow, Heading, BodyLarge } from "@/components/design-system/Typograp
 import { buttonClassName } from "@/components/design-system/Button";
 import { ImageFrame } from "@/components/design-system/ImageFrame";
 import { homepageContent, homepageSectionIds } from "@/lib/content/homepage";
+import { imageRoles } from "@/lib/photography";
 
 const { forPartners } = homepageContent;
+const partnerImageRole = imageRoles.partner;
 
 /**
  * For Our Partners: partner-only section with asymmetric composition.
@@ -16,6 +18,8 @@ const { forPartners } = homepageContent;
  * than a medium-width block centered in a large viewport. When an image
  * is later approved, the existing two-column asymmetric slot activates
  * without further layout work.
+ *
+ * Photography (MARIWEB-010): waits on an approved partner-role asset.
  */
 export function ForPartners() {
   const { image } = forPartners;
@@ -42,7 +46,13 @@ export function ForPartners() {
 
         {image && (
           <div className="hidden lg:col-span-5 lg:col-start-8 lg:block min-[1440px]:col-span-6 min-[1440px]:col-start-7">
-            <ImageFrame src={image.src} alt={image.alt} ratio="landscape" sizes="(min-width: 1024px) 40vw, 100vw" />
+            <ImageFrame
+              src={image.src}
+              alt={image.alt}
+              ratio="landscape"
+              sizes={partnerImageRole.sizes}
+              focalPoint={image.focalPoint}
+            />
           </div>
         )}
       </div>

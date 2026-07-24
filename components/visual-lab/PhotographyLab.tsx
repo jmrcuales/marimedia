@@ -1,38 +1,5 @@
 import { ImageOff } from "lucide-react";
-
-type PhotoDirection = {
-  label: string;
-  aspect: string;
-  crop: string;
-  placement: string;
-};
-
-const directions: PhotoDirection[] = [
-  {
-    label: "Editorial health image",
-    aspect: "aspect-[16/9]",
-    crop: "Wide crop, subject positioned off-center to leave room for a heading or eyebrow overlay in the same section, not on top of the image itself.",
-    placement: "Article hero and health-article-hub feature slot.",
-  },
-  {
-    label: "Human connection image",
-    aspect: "aspect-[4/3]",
-    crop: "Medium crop showing genuine interaction between two or more people, not a posed handshake or stock-office moment.",
-    placement: "Homepage hero or 'For Our Readers' section.",
-  },
-  {
-    label: "Founder image",
-    aspect: "aspect-square",
-    crop: "Square, waist-up, natural setting rather than a studio backdrop.",
-    placement: "About page and the compact founder-context module.",
-  },
-  {
-    label: "Partner / collaboration image",
-    aspect: "aspect-[4/3]",
-    crop: "Medium crop showing two people in a working conversation, not a staged contract-signing photo.",
-    placement: "'For Our Partners' section and the Partner With Us page.",
-  },
-];
+import { imageRoleList } from "@/lib/photography";
 
 const directionNotes = [
   "Photorealistic and natural, not obviously AI-generated or stock-advertising-like.",
@@ -40,39 +7,50 @@ const directionNotes = [
   "Calm in mood, but not sterile or clinical.",
   "Editorial in composition rather than posed stock photography.",
   "Free from exaggerated or implied medical claims (no clinical settings implying diagnosis or treatment).",
-  "Properly licensed and attributed where a license requires it, following the same documentation pattern already used in public/images/blog/functional-medicine/ASSET-MANIFEST.md.",
+  "Properly licensed and attributed where a license requires it, following the ASSET-MANIFEST pattern in public/images/articles/.",
+  "Authored focal points when cover crops differ from the source aspect ratio.",
 ];
 
+/**
+ * Phase 1 visual-lab photography panel. Placeholders only; real assets
+ * ship through the MARIWEB-010 photography system (`lib/photography` and
+ * `docs/photography-system.md`).
+ */
 export function PhotographyLab() {
   return (
     <div className="space-y-10">
       <div className="rounded-lg border border-[var(--lab-warning-text)] bg-[var(--lab-warning-surface)] p-4 text-sm text-[var(--lab-warning-text)]">
-        No photography is sourced or published in this phase. Every frame below is a labeled
-        structural placeholder, not a real or stand-in photograph.
+        No photography is sourced or published in this lab. Every frame below is a labeled
+        structural placeholder drawn from the typed image-role system, not a real or stand-in
+        photograph.
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        {directions.map((direction) => (
+        {imageRoleList.map((role) => (
           <div
-            key={direction.label}
+            key={role.id}
             className="rounded-lg border border-[var(--lab-border-strong)] bg-[var(--lab-bg-surface)] p-5"
           >
             <div
-              className={`flex ${direction.aspect} w-full items-center justify-center gap-2 rounded-md border border-dashed border-[var(--lab-border-strong)] bg-[var(--lab-bg-surface-alt)]`}
+              className={`flex ${aspectClass(role.preferredRatio)} w-full items-center justify-center gap-2 rounded-md border border-dashed border-[var(--lab-border-strong)] bg-[var(--lab-bg-surface-alt)]`}
             >
               <ImageOff size={18} className="text-[var(--lab-text-subtle)]" aria-hidden />
               <span className="text-xs font-medium text-[var(--lab-text-subtle)]">
-                {direction.label} placeholder
+                {role.label} placeholder
               </span>
             </div>
             <dl className="mt-3 space-y-2 text-sm">
               <div>
-                <dt className="font-semibold text-[var(--lab-text-primary)]">Recommended crop</dt>
-                <dd className="text-[var(--lab-text-secondary)]">{direction.crop}</dd>
+                <dt className="font-semibold text-[var(--lab-text-primary)]">Purpose</dt>
+                <dd className="text-[var(--lab-text-secondary)]">{role.purpose}</dd>
               </div>
               <div>
-                <dt className="font-semibold text-[var(--lab-text-primary)]">Placement</dt>
-                <dd className="text-[var(--lab-text-secondary)]">{direction.placement}</dd>
+                <dt className="font-semibold text-[var(--lab-text-primary)]">Recommended crop</dt>
+                <dd className="text-[var(--lab-text-secondary)]">{role.defaultFocalGuidance}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-[var(--lab-text-primary)]">sizes</dt>
+                <dd className="font-mono text-xs text-[var(--lab-text-secondary)]">{role.sizes}</dd>
               </div>
             </dl>
           </div>
@@ -91,4 +69,18 @@ export function PhotographyLab() {
       </div>
     </div>
   );
+}
+
+function aspectClass(ratio: "square" | "portrait" | "landscape" | "wide"): string {
+  switch (ratio) {
+    case "square":
+      return "aspect-square";
+    case "portrait":
+      return "aspect-[4/5]";
+    case "wide":
+      return "aspect-[16/9]";
+    case "landscape":
+    default:
+      return "aspect-[4/3]";
+  }
 }

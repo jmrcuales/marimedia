@@ -1,6 +1,7 @@
 import * as React from "react";
 import Image, { type ImageProps } from "next/image";
 import { cn } from "@/lib/utils";
+import { objectPositionFromFocal, type FocalPoint } from "@/lib/photography";
 
 export type ImageFrameRatio = "square" | "portrait" | "landscape" | "wide";
 
@@ -21,6 +22,14 @@ export interface ImageFrameProps extends Omit<ImageProps, "className" | "style">
   frameClassName?: string;
   /** Set `false` for a full-bleed image with no rounding/border (paired with a bleed `Container`). */
   framed?: boolean;
+  /**
+   * Authored focal point for `object-cover` crops (MARIWEB-010). Prefer this
+   * over relying on geometric center when sources are portrait and display
+   * ratios are wide, or when the subject sits off-center.
+   */
+  focalPoint?: FocalPoint;
+  /** Escape hatch when a raw CSS `object-position` string is already known. */
+  objectPosition?: string;
 }
 
 /**
@@ -38,8 +47,12 @@ export function ImageFrame({
   frameClassName,
   framed = true,
   alt,
+  focalPoint,
+  objectPosition,
   ...imageProps
 }: ImageFrameProps) {
+  const resolvedObjectPosition = objectPosition ?? objectPositionFromFocal(focalPoint);
+
   return (
     <figure className={className} style={style}>
       <div
@@ -50,7 +63,13 @@ export function ImageFrame({
           frameClassName
         )}
       >
-        <Image {...imageProps} alt={alt} fill className="object-cover" />
+        <Image
+          {...imageProps}
+          alt={alt}
+          fill
+          className="object-cover"
+          style={{ objectPosition: resolvedObjectPosition }}
+        />
       </div>
       {caption && (
         <figcaption className="mt-2 font-[var(--ds-font-body)] text-[length:var(--ds-text-caption)] text-[var(--ds-color-text-subtle)]">

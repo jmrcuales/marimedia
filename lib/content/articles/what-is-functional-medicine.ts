@@ -71,12 +71,13 @@ const body: ArticleContentBlock[] = [
   },
   {
     type: "image",
-    src: "/images/blog/functional-medicine/interconnected-health-systems.jpg",
+    src: "/images/articles/functional-medicine/interconnected-health-systems.jpg",
     alt: "Editorial illustration of six connected health factors (nutrition, sleep, movement, environment, body systems, and daily habits) arranged around a central figure",
     width: 733,
     height: 1100,
     caption:
       "Functional medicine practitioners look at how factors like nutrition, sleep, movement, and environment interact rather than reviewing each in isolation.",
+    focalPoint: { x: 50, y: 48 },
   },
   { type: "eyebrow", text: "Your First Visit" },
   {
@@ -91,12 +92,13 @@ const body: ArticleContentBlock[] = [
   },
   {
     type: "image",
-    src: "/images/blog/functional-medicine/functional-medicine-first-visit.jpg",
-    alt: "A person at a desk at home organizing symptom notes, lab results, and medication lists in preparation for a health appointment",
+    src: "/images/articles/functional-medicine/functional-medicine-first-visit.jpg",
+    alt: "Illustrated scene of a person at a sunlit home desk writing notes and organizing papers before a health appointment",
     width: 825,
     height: 1100,
     caption:
       "Organizing your history before the appointment gives the practitioner more time to focus on your specific concerns.",
+    focalPoint: { x: 58, y: 36 },
   },
   {
     type: "paragraph",
@@ -333,10 +335,12 @@ export const whatIsFunctionalMedicine: Article = {
   ],
   author: { name: "Mari Media Editorial Team" },
   heroImage: {
-    src: "/images/blog/functional-medicine/functional-medicine-hero.jpg",
-    alt: "A clinician in a white coat listening attentively to an adult patient during a consultation in a bright clinical office",
+    src: "/images/articles/functional-medicine/functional-medicine-hero.jpg",
+    alt: "Illustrated scene of two clinicians in conversation during a consultation in a sunlit office",
     width: 1050,
     height: 1400,
+    // Portrait source shown in wide feature crops; keep faces in the upper band.
+    focalPoint: { x: 50, y: 28 },
   },
   publishedAt: "2026-07-10",
   readingTimeMinutes: estimateReadingTime(body),

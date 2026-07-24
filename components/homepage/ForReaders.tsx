@@ -5,8 +5,10 @@ import { buttonClassName } from "@/components/design-system/Button";
 import { Callout } from "@/components/design-system/Callout";
 import { ImageFrame } from "@/components/design-system/ImageFrame";
 import { homepageContent, homepageSectionIds } from "@/lib/content/homepage";
+import { imageRoles } from "@/lib/photography";
 
 const { forReaders } = homepageContent;
+const readerImageRole = imageRoles["reader-focus"];
 
 /**
  * For Our Readers: reader-only section, mirrored from For Our Partners.
@@ -15,6 +17,8 @@ const { forReaders } = homepageContent;
  * right-weighted copy (and optional left image) so the two audience
  * sections alternate alignment while both use intentional open field at
  * large widths rather than identical centered blocks.
+ *
+ * Photography (MARIWEB-010): waits on an approved reader-focus asset.
  */
 export function ForReaders() {
   const { image } = forReaders;
@@ -24,7 +28,13 @@ export function ForReaders() {
       <div className="grid items-center gap-[var(--ds-space-10)] lg:grid-cols-12 min-[1440px]:gap-[var(--ds-space-16)]">
         {image && (
           <div className="hidden lg:col-span-5 lg:col-start-1 lg:block min-[1440px]:col-span-6">
-            <ImageFrame src={image.src} alt={image.alt} ratio="landscape" sizes="(min-width: 1024px) 40vw, 100vw" />
+            <ImageFrame
+              src={image.src}
+              alt={image.alt}
+              ratio="landscape"
+              sizes={readerImageRole.sizes}
+              focalPoint={image.focalPoint}
+            />
           </div>
         )}
 
