@@ -1,4 +1,4 @@
-# Mari Media Editorial Image Shot List (MARIWEB-010.1 / 010.1.1)
+# Mari Media Editorial Image Shot List (MARIWEB-010.1 / 010.1.1 / 010.1.2)
 
 **Status:** Production asset planning and lightweight asset registry  
 **Scope:** Documentation only. Defines *which* images are still required, plus provenance and licensing metadata.  
@@ -23,15 +23,29 @@ It answers:
 3. Respect orientation, aspect ratio, and minimum source resolution before delivery.
 4. Update **Current status**, **Source**, and **License / Ownership** when an asset is approved for production use.
 5. Keep illustrated people article-scoped; parent-brand homepage imagery must be photoreal photography.
+6. Classify every row using only the controlled vocabularies and classification rules below. Do not invent alternate labels for the same asset state.
+
+### Classification rules
+
+| Asset situation | Current status | Source | License / Ownership |
+| --- | --- | --- | --- |
+| AI-generated image currently used on the website (including the same file reused on homepage, cards, or social) | Existing (Needs Replacement) | AI Generated | Internal Placeholder |
+| Original company-created diagram | Approved | In-house Illustration | Company Owned |
+| Missing asset; acquisition path undecided | Missing | TBD | TBD |
+| Missing asset; stock acquisition already decided | Missing | Licensed Stock (Planned) | To Be Licensed |
+| Future founder / company photography | Missing | Original Photography | Company Owned |
+| Future partner logos | Missing | Partner Supplied | Subject to Partner Brand Usage Guidelines |
+| Official Mari Media logo (brand mark; not photography) | Approved | Company Owned | Company Owned |
+
+Do not use alternate labels such as “Existing Website Asset,” “AI Illustration,” “Temporary Asset,” “Existing Graphic,” or “Placeholder Graphic” for AI placeholders. Temporary clearance is expressed only as License / Ownership = **Internal Placeholder**.
 
 ### Status legend
 
 | Status | Meaning |
 | --- | --- |
 | **Missing** | No production asset. Slot may exist in code with `image: undefined`, or the surface is not built yet. |
-| **Placeholder** | Temporary stand-in only; not approved for long-term brand use. |
-| **Existing (Needs Replacement)** | Ships today but should be replaced (wrong medium, weak crop source, illustration standing in for photography, or insufficient resolution for intended crops). |
-| **Approved** | Provenance-documented asset that meets photography-system direction for its role. |
+| **Existing (Needs Replacement)** | Ships today but should be replaced. Required status for every AI-generated image currently used on the website. |
+| **Approved** | Provenance-documented asset that meets photography-system direction for its role (or the official brand mark). |
 
 ### Source legend
 
@@ -39,15 +53,15 @@ Use these values consistently in the **Source** column.
 
 | Source | Meaning |
 | --- | --- |
-| **AI Generated** | Created or heavily derived via generative AI (including AI illustration pipelines) |
+| **AI Generated** | Created or heavily derived via generative AI (including AI illustration pipelines). Required Source for every AI image currently used on the website, including reuse surfaces. |
 | **Original Photography** | Captured by Mari Media founders, staff, or under Mari Media direction |
 | **Licensed Stock** | Purchased or subscribed commercial stock photography |
 | **Licensed Stock (Planned)** | Intended acquisition path; not yet purchased |
 | **Commissioned Photography** | Hired photographer or directed shoot |
 | **Commissioned Photography (Planned)** | Intended commissioned shoot; not yet executed |
-| **In-house Illustration** | Diagram or illustration created for Mari Media (non-photographic) |
-| **Existing Website Asset** | Already shipped file reused from another site surface |
+| **In-house Illustration** | Diagram or illustration created for Mari Media (non-photographic editorial figure) |
 | **Partner Supplied** | Provided by a partner under written usage terms |
+| **Company Owned** | Mari Media–owned brand mark or other non-photographic company original (use for the official logo only in this document) |
 | **TBD** | Acquisition path not yet decided |
 
 ### License / Ownership legend
@@ -56,13 +70,13 @@ Use these values consistently in the **License / Ownership** column.
 
 | License / Ownership | Meaning |
 | --- | --- |
-| **Internal Placeholder** | Temporary or provisional use; not treated as long-term cleared brand photography |
-| **Company Owned** | Mari Media owns the rights (work-for-hire, founder capture, or in-house creation) |
+| **Internal Placeholder** | Temporary or provisional use; not treated as long-term cleared brand photography. Required License / Ownership for every AI-generated image currently used on the website. |
+| **Company Owned** | Mari Media owns the rights (work-for-hire, founder capture, in-house creation, or official brand mark) |
 | **Licensed (Adobe Stock)** | Adobe Stock license on file |
 | **Licensed (Envato)** | Envato / Envato Elements license on file |
 | **Licensed (Shutterstock)** | Shutterstock license on file |
 | **Creative Commons** | Only if a CC license is verified and attribution requirements are met |
-| **Partner Permission** | Written partner permission for logo or supplied creative |
+| **Subject to Partner Brand Usage Guidelines** | Partner logo or supplied creative used only under that partner’s brand usage terms |
 | **To Be Licensed** | Planned commercial license; purchase not complete |
 | **TBD** | Ownership or license path not yet decided |
 
@@ -98,7 +112,7 @@ Aligned with `lib/photography/homepage-plan.ts` and the live homepage section or
 | For Our Partners | `partner` | Makes partnership feel selective and human beside the fit-check message | Two people in a working conversation over a laptop and printed notes in a warm, non-corporate space (home office or quiet café table), documentary feel, mid-discussion rather than handshake | Landscape | 4:3 | 1600px long edge | Faces in the left two-thirds so the right edge can soft-crop at large widths; no contracts waved at camera | Soft natural light; avoid cold conference-room fluorescents | Collaborative, selective, respectful | Missing | Licensed Stock (Planned) | To Be Licensed |
 | How We Work | `service-process` (optional) | Optional process still if numbered steps ever need visual pacing; copy-only is preferred today | Close environmental still of a simple four-step checklist on paper beside a laptop, coffee cooling, no people required if the object story is clear | Landscape | 4:3 | 1600px long edge | Clear focal object; generous negative space; no diagram text baked into the photo | Soft side light with calm shadow detail | Clear, methodical, calm | Missing | TBD | TBD |
 | For Our Readers | `reader-focus` | Anchors the “read something useful, not get sold something” promise | Someone reading on a couch, kitchen table, or sunlit desk: calm attention on a tablet or printed article, lived-in home details, no supplement bottles as dominant subjects | Landscape (either acceptable) | 4:3 | 1600px long edge | Reader face or device interaction mid-left or mid-right (alternate vs partners section); keep the person primary at mobile widths | Warm window light; soft shadows | Curious, respected, at ease | Missing | Licensed Stock (Planned) | To Be Licensed |
-| Featured Article (Health Articles spread) | `featured-article` | Magazine lead for the homepage editorial spread; must belong to the featured story | Prefer a landscape photograph that matches the featured article topic (for current functional-medicine feature: a calm consultation or health-learning moment that is photoreal, not cel-shaded). Current asset is a portrait illustration reused into wide crops | Landscape preferred | 16:9 display (landscape source preferred) | 2000px long edge | Primary subject in left or center third so wide crops stay coherent; author a `focalPoint` | Warm-neutral daylight consistent with article set | Credible, editorial, inviting | Existing (Needs Replacement) | Existing Website Asset | Internal Placeholder |
+| Featured Article (Health Articles spread) | `featured-article` | Magazine lead for the homepage editorial spread; must belong to the featured story | Prefer a landscape photograph that matches the featured article topic (for current functional-medicine feature: a calm consultation or health-learning moment that is photoreal, not cel-shaded). Current asset is a portrait AI-generated illustration reused into wide crops | Landscape preferred | 16:9 display (landscape source preferred) | 2000px long edge | Primary subject in left or center third so wide crops stay coherent; author a `focalPoint` | Warm-neutral daylight consistent with article set | Credible, editorial, inviting | Existing (Needs Replacement) | AI Generated | Internal Placeholder |
 | Who We Are (Company & Founders) | `founder` | Real ownership and specificity; never stock-substituted founders | Approved portraits of JM and Kristine only when captured: waist-up, natural setting or genuine working moment, direct-to-camera acceptable here, recognizable and true | Square (source may be portrait) | 1:1 | 1200px long edge | Eyes near vertical center for square crop; simple background; no staged “startup team” staging | Soft natural light; honest skin tones | Warm, capable, grounded | Missing | Original Photography | Company Owned |
 | Contact / Calm Final Action | none planned | Keep the close quiet; imagery only if a future Contact route needs restrained atmosphere | If ever introduced: a quiet interior detail (open notebook, soft window, empty chair) with no people competing with the dual CTAs | Landscape | 16:9 or 4:3 | 1600px long edge | Atmospheric, not narrative; no faces under CTA areas | Soft daylight | Quiet, open, unpressured | Missing | TBD | TBD |
 | Optional photographic pause | `atmospheric` | Rare full-width pacing pause between major sections; omit until approved | One lived-in still: morning light across a quiet desk, linen curtain, or calm interior corner with no competing message | Landscape | 21:9 or 16:9 | 2400px long edge | Soft environmental focus; horizon or texture, not tiny distant figures; no text overlays | Soft natural light; low drama | Peaceful, human, spacious | Missing | Licensed Stock (Planned) | To Be Licensed |
@@ -115,8 +129,8 @@ Covers the reading experience, hub cards, and distribution surfaces. Current pub
 | Inline supporting image (“Your First Visit”) | `article-inline` | Supports the appointment-preparation section with a believable lived moment | Natural editorial photograph of a person at a sunlit home desk writing notes and organizing papers before a health appointment; laptop closed or secondary; plants optional | Portrait or either | Intrinsic preferred (~3:4) | 1200px long edge | Preserve explanatory subject; prefer intrinsic sizing over aggressive cover crops | Soft morning window light | Prepared, calm, practical | Existing (Needs Replacement) | AI Generated | Internal Placeholder |
 | Comparison / systems diagram (“Body as an Interconnected System”) | `article-inline` | Explains a concept better than a lifestyle photo; text-free editorial diagram | Restrained editorial diagram of interconnected health factors (nutrition, sleep, movement, environment, body systems, daily habits) around a calm central figure; no garbled or baked-in marketing copy | Portrait | ~2:3 intrinsic | 1200px long edge | Clear hierarchy; readable shapes at mobile width; caption carries explanation | Flat, calm palette complementary to Compass greens and warm neutrals | Clear, educational, quiet | Approved | In-house Illustration | Company Owned |
 | Callout imagery (article pattern) | `article-inline` | Optional figure for callouts that need visual emphasis without interrupting reading | Topic-specific still life or quiet detail (e.g. a marked checklist, a glass of water and notebook, a quiet outdoor walk moment) that matches the callout claim without product packaging | Either | Intrinsic or 4:3 | 1200px long edge | Simple subject; generous margin; not a second hero | Soft natural light | Supportive, not sensational | Missing | Licensed Stock (Planned) | To Be Licensed |
-| Featured article thumbnail (hub / cards) | `featured-article` | Card and magazine crops that remain coherent when the hero is reused | Same story ownership as the article hero; prefer a dedicated landscape master so 16:9 hub crops do not clip faces from a portrait source | Landscape preferred | 16:9 | 2000px long edge | Subject safe in left/center third; authored focal point required if portrait source must be reused | Match article hero lighting family | Editorial, scannable | Existing (Needs Replacement) | Existing Website Asset | Internal Placeholder |
-| Social sharing image (Open Graph / Twitter) | `featured-article` or dedicated OG art | Reliable preview when the article is shared; currently falls back to the hero file | Landscape crop of the approved article hero, or a dedicated 1200×630 (or 1.91:1) social master with the primary subject safely centered and no small text | Landscape | 1.91:1 (e.g. 1200×630 minimum; prefer 2400×1260 source) | 1200px short edge minimum; 2400px long edge preferred | Faces and key subject inside the center safe area; no logo lockups required | Match article set | Credible at thumbnail size | Existing (Needs Replacement) | Existing Website Asset | Internal Placeholder |
+| Featured article thumbnail (hub / cards) | `featured-article` | Card and magazine crops that remain coherent when the hero is reused | Same story ownership as the article hero; prefer a dedicated landscape master so 16:9 hub crops do not clip faces from a portrait source. Current file is the AI-generated article hero | Landscape preferred | 16:9 | 2000px long edge | Subject safe in left/center third; authored focal point required if portrait source must be reused | Match article hero lighting family | Editorial, scannable | Existing (Needs Replacement) | AI Generated | Internal Placeholder |
+| Social sharing image (Open Graph / Twitter) | `featured-article` or dedicated OG art | Reliable preview when the article is shared; currently falls back to the AI-generated hero file | Landscape crop of a cleared article hero, or a dedicated 1200×630 (or 1.91:1) social master with the primary subject safely centered and no small text | Landscape | 1.91:1 (e.g. 1200×630 minimum; prefer 2400×1260 source) | 1200px short edge minimum; 2400px long edge preferred | Faces and key subject inside the center safe area; no logo lockups required | Match article set | Credible at thumbnail size | Existing (Needs Replacement) | AI Generated | Internal Placeholder |
 
 ### Article acquisition rule
 
@@ -138,7 +152,7 @@ Placeholders for Phase 4+ pages, audience growth, and commercial surfaces. Do no
 | Founder portrait: Kristine | `founder` | Recognizable ownership for About / Company sections | Approved portrait of Kristine (media sales and affiliate-management experience reflected only through authentic working context if useful), waist-up, natural expression | Portrait source | 1:1 display | 1200px long edge | Eyes near center; pair visually with JM’s portrait (consistent light family) | Soft natural light | Confident, warm, credible | Missing | Original Photography | Company Owned |
 | Company photography (general) | `service-process` / `atmospheric` | Future parent-brand library beyond a single article niche | Library set: reading, planning, online-event participation, quiet collaboration; lived-in U.S./Canada home and work settings; gender-neutral casting | Mixed | Role-dependent (see §1–2) | Role minimums (1600–2400px) | Negative space; off-center subjects; authored focal points | Soft natural; warm-neutral grade | Editorial, human, adaptable | Missing | TBD | TBD |
 | Event photography | `partner` / `atmospheric` / campaign-specific | Prove online health-event specialization without claiming institutional medical authority | Real summit or webinar moments: host on camera with notes, audience attending from home, calm backstage prep; obtain releases; no stock “audience applauding in dark theater” clichés unless truly owned | Landscape | 16:9 | 2000px long edge | Documentary crop; faces readable; avoid fear or miracle framing | Mixed practical light corrected toward warm-neutral | Energized but calm, professional | Missing | Original Photography | Company Owned |
-| Partner logos (future) | n/a (logo lockup, not photography) | Display only when real, maintained partnership permission exists | Vector or high-res raster logos supplied by partners under written usage terms; never invent or scrape decorative logo walls | n/a | Original aspect; consistent display height in UI | Vector preferred; raster ≥2x display height | Clear space per partner brand guide; monochrome treatment only if approved | n/a | Professional, restrained | Missing | Partner Supplied | Partner Permission |
+| Partner logos (future) | n/a (logo lockup, not photography) | Display only when real, maintained partnership permission exists | Vector or high-res raster logos supplied by partners under written usage terms; never invent or scrape decorative logo walls | n/a | Original aspect; consistent display height in UI | Vector preferred; raster ≥2x display height | Clear space per partner brand guide; monochrome treatment only if approved | n/a | Professional, restrained | Missing | Partner Supplied | Subject to Partner Brand Usage Guidelines |
 
 ---
 
@@ -150,7 +164,7 @@ Placeholders for Phase 4+ pages, audience growth, and commercial surfaces. Do no
 | `public/images/articles/functional-medicine/functional-medicine-first-visit.jpg` | Inline supporting (“Your First Visit”) | Existing (Needs Replacement) | AI Generated | Internal Placeholder |
 | `public/images/articles/functional-medicine/interconnected-health-systems.jpg` | Comparison / systems diagram | Approved | In-house Illustration | Company Owned |
 | Homepage hero / partners / readers / founders / pause slots | Corresponding homepage rows | Missing | See §1 row | See §1 row |
-| Official logo SVG | Out of photography scope | Approved (brand mark; not photography) | Existing Website Asset | Company Owned |
+| Official logo SVG | Out of photography scope | Approved | Company Owned | Company Owned |
 
 Empty folder taxonomy already prepared: `public/images/homepage/`, `public/images/editorial/`, `public/images/founders/`, `public/images/articles/`.
 
@@ -165,10 +179,10 @@ Images that unlock already-built homepage layouts and remove the weakest public 
 - [ ] Homepage hero support (`hero-support`, 4:5, ≥1600px) — Licensed Stock (Planned) / To Be Licensed
 - [ ] For Our Partners (`partner`, 4:3, ≥1600px) — Licensed Stock (Planned) / To Be Licensed
 - [ ] For Our Readers (`reader-focus`, 4:3, ≥1600px) — Licensed Stock (Planned) / To Be Licensed
-- [ ] Featured article landscape master for the current functional-medicine story (`featured-article`, 16:9 source preferred, ≥2000px) — replace Internal Placeholder
+- [ ] Featured article landscape master for the current functional-medicine story (`featured-article`, 16:9 source preferred, ≥2000px) — replace AI Generated / Internal Placeholder
 - [ ] Article hero photography replacing the cel-shaded consultation illustration (`article-header`, 4:5 / 3:4, ≥1400px) — replace AI Generated / Internal Placeholder
 - [ ] “Your First Visit” inline photography replacing the illustrated desk scene (`article-inline`, ≥1200px) — replace AI Generated / Internal Placeholder
-- [ ] Dedicated social sharing master for the published article (1.91:1, ≥1200×630; prefer 2x) — clear License / Ownership before relying on it in distribution
+- [ ] Dedicated social sharing master for the published article (1.91:1, ≥1200×630; prefer 2x) — replace AI Generated / Internal Placeholder
 
 ### Priority 2 — Improves quality and next surfaces
 
@@ -188,7 +202,7 @@ Images that unlock already-built homepage layouts and remove the weakest public 
 - [ ] Landing-page full-bleed sets for specific campaigns or events
 - [ ] Broader company photography library (reading, planning, online-event participation)
 - [ ] Owned event photography with releases — Original Photography / Company Owned
-- [ ] Partner logos only after written permission and maintained relationships — Partner Supplied / Partner Permission
+- [ ] Partner logos only after written permission and maintained relationships — Partner Supplied / Subject to Partner Brand Usage Guidelines
 
 ---
 
@@ -211,7 +225,7 @@ Images that unlock already-built homepage layouts and remove the weakest public 
 | New page ships | Add a section table row (including Source and License / Ownership) before requesting photography |
 | Article publishes | Add hero / inline / social rows for that story with provenance filled |
 | Priority checklist item completes | Check the box and adjust remaining Priority 1 launch blockers |
-| Asset replaced | Update the mapped rows and inventory cross-reference; do not leave stale Internal Placeholder values |
+| Asset replaced | Update the mapped rows and inventory cross-reference; AI placeholders must remain triad-classified until replaced, then use the matching Classification rules row |
 
 **Owner:** Mari Media website / editorial photography planning  
 **Related:** `docs/photography-system.md`, `lib/photography/roles.ts`, `lib/photography/homepage-plan.ts`, `public/images/articles/functional-medicine/ASSET-MANIFEST.md`
