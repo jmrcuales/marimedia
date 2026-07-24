@@ -314,9 +314,9 @@ export function TypographyLab() {
           <strong className="text-[var(--lab-text-primary)]">Recommendation:</strong> System C
           (Plus Jakarta Sans / Source Sans 3) reads as the most distinct and editorially confident
           option of the three, and Source Sans 3&apos;s long-form legibility suits the article
-          reading experience specifically. System B is the lower-risk, lower-cost move if JM wants
+          reading experience specifically. System B is the lower-risk, lower-cost move if James wants
           to keep Inter and change only the display face. Neither is auto-applied. See the
-          typography row of the JM approval form at the end of this report.
+          typography row of the James approval form at the end of this report.
         </p>
       </div>
     </div>

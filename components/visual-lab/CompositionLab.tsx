@@ -191,7 +191,7 @@ function FounderSample() {
           A note from our founders
         </p>
         <p className="mt-2 max-w-md text-sm text-[var(--lab-text-secondary)]">
-          A short, honest note from JM and Kristine will go here once approved. This structural
+          A short, honest note from James and Kaye will go here once approved. This structural
           frame stands in until real copy and a real photograph are ready. No biography or
           portrait is fabricated for this sample.
         </p>

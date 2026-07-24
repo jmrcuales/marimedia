@@ -434,7 +434,7 @@ function Founder({ config }: SectionProps) {
           A note from our founders
         </p>
         <p className="mt-2 max-w-md text-sm text-[var(--lab-text-secondary)]" style={{ fontFamily: fonts.body }}>
-          A short, honest note from JM and Kristine will go here once approved. No biography or
+          A short, honest note from James and Kaye will go here once approved. No biography or
           portrait is fabricated for this preview.
         </p>
       </div>

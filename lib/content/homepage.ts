@@ -38,9 +38,10 @@ const partnerAnchor = `#${homepageSectionIds.contact}`;
 export const homepageContent = {
   hero: {
     focusBadge: "Current focus: health and wellness",
-    headline: "A digital media company that builds brands people actually trust.",
+    headline:
+      "A digital media company built around content people can trust and partnerships worth standing behind.",
     subheadline:
-      "Right now, that means writing health content worth trusting, and partnering with the online health events we'd actually recommend ourselves. It's where we started, not where we plan to stop.",
+      "Right now, that means publishing thoughtful health content and working with online health events we genuinely believe deserve people's attention. It's where we started, not where we plan to stop.",
     primaryCta: { label: "Partner With Us", href: partnerAnchor },
     secondaryCta: { label: "Explore Health Articles", href: "/blog" },
     /**
@@ -191,9 +192,9 @@ export const homepageContent = {
     eyebrow: "Who We Are",
     heading: "Built by two people, on purpose",
     body: [
-      "Mari Media was founded by JM and Kristine. Kristine spent years in media sales and affiliate management, including work with Yellow Pages, Bodog, and DrTalks. JM's background is in computer engineering, software engineering, web development, user experience, and email marketing.",
-      "Between the two of us, we'd seen how useful content and honest promotion can build something people actually trust, and how easily that trust gets thrown away. We wanted to build something of our own that didn't have to make that trade-off.",
-      "Health and wellness is where we started, because it's where our experience and our audience already overlapped. It isn't where we intend to stop. Every brand we build after this one will be held to the same standard: useful first, promotional second, honest always.",
+      "Mari Media started with a simple observation: there has never been more information available, yet it has never been harder to know what is genuinely worth our time and trust.",
+      "James and Kaye built Mari Media around a simple standard: publish thoughtfully, choose partnerships carefully, and contribute something useful rather than add to the noise.",
+      "Health and wellness is where we started, not where we intend to stop. Every brand we build after this one will be held to the same standard.",
     ],
   },
 

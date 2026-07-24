@@ -97,8 +97,8 @@ export function RibbonLab() {
           (soft editorial ribbon) best matches Compass Section 21&apos;s description of a
           restrained brand signature that supports section transitions, as long as it stays this
           subtle and is used selectively rather than on every section. Direction A works well as a
-          lower-commitment fallback if JM prefers something closer to invisible. Direction C
-          proves the layout does not depend on a ribbon at all. Approval is JM&apos;s call, not
+          lower-commitment fallback if James prefers something closer to invisible. Direction C
+          proves the layout does not depend on a ribbon at all. Approval is James&apos;s call, not
           decided here.
         </p>
       </div>
