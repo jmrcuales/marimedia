@@ -87,6 +87,7 @@ function ArticleBlockRenderer({ block }: { block: ArticleContentBlock }) {
           width={block.width}
           height={block.height}
           caption={block.caption}
+          focalPoint={block.focalPoint}
         />
       );
 

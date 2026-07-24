@@ -35,6 +35,7 @@ export function ArticleCard({ article, className }: ArticleCardProps) {
           alt={article.heroImage.alt}
           ratio="wide"
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          focalPoint={article.heroImage.focalPoint}
           frameClassName="rounded-none border-0"
         />
         <div className="flex flex-1 flex-col gap-[var(--ds-space-stack-sm)] p-[var(--ds-space-card-padding-md)]">
