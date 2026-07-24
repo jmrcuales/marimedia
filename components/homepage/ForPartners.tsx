@@ -21,12 +21,18 @@ const { forPartners } = homepageContent;
  * asymmetrically opposite the copy"), the same conditional pattern
  * `Hero` already uses: populating `forPartners.image` with a real
  * `{ src, alt }` activates this layout with no further code change.
+ *
+ * Tone changed from `page` to `surface` under MARIWEB-009.5: inserting
+ * `TrustPrinciples` and `HowWeWork` around this section (see
+ * `app/page.tsx`) meant the original tone sequence would have placed two
+ * `page`-toned sections back to back. See `app/page.tsx`'s homepage
+ * docblock for the full nine-section tone sequence.
  */
 export function ForPartners() {
   const { image } = forPartners;
 
   return (
-    <Section id={homepageSectionIds.forPartners} tone="page" spacing="md" reveal>
+    <Section id={homepageSectionIds.forPartners} tone="surface" spacing="md" reveal>
       <div className="grid items-center gap-[var(--ds-space-10)] lg:grid-cols-12">
         <div className="flex flex-col gap-[var(--ds-space-stack-lg)] lg:col-span-7">
           <Eyebrow>{forPartners.eyebrow}</Eyebrow>

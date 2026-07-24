@@ -26,12 +26,18 @@ const { forReaders } = homepageContent;
  * photography audit) on the left, mirroring `ForPartners`' image-on-the-
  * right placement, so the two sections alternate once real photography
  * exists rather than only alternating text alignment.
+ *
+ * Tone changed from `surface-muted` to `page` under MARIWEB-009.5: `How
+ * We Work` (`surface-muted`) now sits directly above this section (see
+ * `app/page.tsx`), so this needed to change tone to keep no two adjacent
+ * sections sharing a background. See `app/page.tsx`'s homepage docblock
+ * for the full nine-section tone sequence.
  */
 export function ForReaders() {
   const { image } = forReaders;
 
   return (
-    <Section id={homepageSectionIds.forReaders} tone="surface-muted" spacing="md" reveal>
+    <Section id={homepageSectionIds.forReaders} tone="page" spacing="md" reveal>
       <div className="grid items-center gap-[var(--ds-space-10)] lg:grid-cols-12">
         {image && (
           <div className="hidden lg:col-span-5 lg:col-start-1 lg:block">
